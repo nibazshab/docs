@@ -1,0 +1,52 @@
+name: build-push-vercel
+
+on:
+  push:
+    paths:
+      - 'documents/**'
+      - 'src/**'
+      - '.github/workflows/build-push-vercel.yml'
+
+jobs:
+
+  doc:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-
+
+      - name: Setup pnpm env
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: env.sh
+        working-directory: src
+        run: chmod +x env.sh && ./env.sh
+
+      - name: Build with VuePress Next
+        working-directory: src
+        run: pnpm build
+
+      - name: Deploy to Vercel
+        working-directory: src/docs/.vuepress/dist
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_DOC }}
+        run: |
+          echo
+          pnpm add -g vercel
+          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+          vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+          vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
