@@ -3,36 +3,41 @@
 ## css
 
 ```css
-small { color: #777777; } /* 旁注文字 */
-
-/* 页脚样式 */
-footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    text-align: center;
-}
-
-/* 禁止选中文字 */
-.unselectable { user-select: none; }
-
-/* 大背景框 */
-div {
-    position: absolute;
-    top: 15px; bottom: 15px; left: 15px; right: 15px;
-}
-
 {
+    overflow: hidden; /*隐藏溢出部分*/
     min-height: 100vh; /*最小高度为整个屏幕*/
-    display: inline-block; /* 不换行显示 */
+    display: inline-block; /* 同一行显示的块级元素 */
     border: 3px solid #aa8; /* 边框 */
     border-radius: 10px; /* 圆角 */
     box-shadow: 0px 0px 25px #c77; /* 阴影 */
     padding: 30px; /* 内边距 */
     margin: 50px auto; /* 外边距 */
     cursor: pointer; /* 改变鼠标样式 */
+    user-select: none; /* 禁止选中文字 */
 }
 
+/* 消除页面白边 */
+body { margin: 0; }
+
+/* 粘性显示的页脚 */
+footer {
+    position: sticky;
+    top: 100vh;
+    width: 100%;
+}
+
+/* 固定显示的页眉 */
+header {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+/* 大背景框 */
+div {
+    position: absolute;
+    top: 15px; bottom: 15px; left: 15px; right: 15px;
+}
 ```
 
 ## html
@@ -42,18 +47,14 @@ div {
 &emsp;
 
 <!-- 折叠内容 -->
-<details>
-<summary>more</summary>
-<p>text</p>
+<details><summary>more</summary>
+<p>hello</p>
 </details>
 
-<!-- 更改字符编码 -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- 指定字符编码 -->
+<meta charset="utf-8">
 
-<!-- 纯文本格式显示 -->
-<meta http-equiv="Content-Type" content="text/plain; charset=utf-8">
-
-<!-- 适配手机页面 -->
+<!-- 适配手机 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- 自动跳转其他网站 -->
@@ -62,24 +63,10 @@ div {
 
 ## go
 
-响应 webhook 并保存文件到本地
+静态文件服务器
 
 ```go
-func main() {
-    http.HandleFunc("/0gxFztNrJBeBsCcwuTBdQbxchPDcVEyL", HandleWebhook)
-    http.ListenAndServe(":10000", nil)
-}
-
-func HandleWebhook(w http.ResponseWriter, r *http.Request) {
-    if r.Method == "POST" {
-        resp, _ := http.Get("https://example.com/index.html")
-        defer resp.Body.Close()
-        file, _ := os.OpenFile("/srv/http/index.html", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666)
-        defer file.Close()
-        io.Copy(file, resp.Body)
-        fmt.Fprint(w, "OK")
-    }
-}
+http.ListenAndServe(":80", http.FileServer(http.Dir("./")))
 ```
 
 生成随机字符串
@@ -109,9 +96,9 @@ func RandStringBytesMaskImprSrcUnsafe(n int) string {
 }
 ```
 
-## 其他
+## c
 
-c 冒泡排序
+冒泡排序
 
 ```c
 int n[10] = { 25,35,68,79,21,13,98,7,16,62 };
@@ -127,15 +114,11 @@ for (i = 1; i <= 9; i++){
 }
 ```
 
-## 配置部分
+## 其他内容
 
 php 启动内置 web 服务 `php -S 0.0.0.0:8000`
 
-rustup 换源安装
-
-```sh
-RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup rustup install stable
-```
+rustup 换源安装 `RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup rustup install stable`
 
 cargo 换源
 
@@ -151,29 +134,17 @@ registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 EOF
 ```
 
-npm 换源阿里
+npm 换源阿里 `npm config set registry https://registry.npmmirror.com`
 
-```sh
-npm config set registry https://registry.npmmirror.com
-```
+pip 换源清华 `pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
 
-pip 换源清华
-
-```sh
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-```
-
-go 换源阿里
-
-```sh
-go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
-```
+go 换源阿里 `go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct`
 
 go 代码格式化
 
 ```sh
-go install mvdan.cc/gofumpt@latest # 安装格式化工具
-gofumpt -l -w . # 使用命令
+go install mvdan.cc/gofumpt@latest # 安装工具
+gofumpt -l -w .
 ```
 
 go 静态编译
@@ -193,3 +164,9 @@ make LDFLAGS=-static
 去除静态文件的无用符号信息 `strip file`
 
 [upx](https://upx.github.io) 压缩二进制文件体积 `upx --ultra-brute file`
+
+## HTTP content-type
+
+- application/octet-stream 二进制流数据
+- text/plain 纯文本格式
+- multipart/form-data 表单上传文件时使用
