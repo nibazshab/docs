@@ -1,5 +1,11 @@
 # 网络传输与通信
 
+## HTTP content-type
+
+- application/octet-stream 二进制流数据
+- text/plain 纯文本格式
+- multipart/form-data 表单上传文件时使用
+
 ## 传输
 
 ### 网站防盗链

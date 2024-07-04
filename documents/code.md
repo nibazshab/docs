@@ -164,9 +164,3 @@ make LDFLAGS=-static
 去除静态文件的无用符号信息 `strip file`
 
 [upx](https://upx.github.io) 压缩二进制文件体积 `upx --ultra-brute file`
-
-## HTTP content-type
-
-- application/octet-stream 二进制流数据
-- text/plain 纯文本格式
-- multipart/form-data 表单上传文件时使用

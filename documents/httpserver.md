@@ -6,7 +6,23 @@
 
 ### 配置
 
-配置文件为 `/etc/caddy/Caddyfile`，自定义的额外配置文件放在 `/etc/caddy/conf.d/` 目录下
+配置文件为 `/etc/caddy/Caddyfile`，自定义的额外配置文件放在 `/etc/caddy/conf.d/` 目录下，文件名随意，数据目录 `/var/lib/caddy`
+
+### 禁用 SSL 仅 HTTP
+
+```nginx
+http://example.com {
+    ...
+}
+```
+
+### 重定向跳转
+
+```nginx
+example1.com {
+    redir example2.com{uri}
+}
+```
 
 ### 同网站启用多个域名
 
@@ -18,17 +34,13 @@ example1.com, example2.com {
 
 ### 反向代理
 
-配置文件内添加如下内容
-
 ```nginx
 example.com {
-    reverse_proxy 127.0.0.1:8080 {
-        trusted_proxies private_ranges
-    }
+    reverse_proxy 127.0.0.1:8080
 }
 ```
 
-### 部署静态文件
+### 静态文件服务
 
 ```nginx
 example.com {
