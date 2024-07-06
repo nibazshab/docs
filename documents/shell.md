@@ -197,6 +197,13 @@ CREATE TABLE IF NOT EXISTS user (
 ```
 
 ```sh
+# 清空历史提交记录
+git checkout --orphan latest_branch
+git add -A
+git commit -m 'renew'
+git branch -d main
+git branch -m main
+git push -f origin main
 # 设置远程地址
 git remote set-url origin URL
 # 添加标签

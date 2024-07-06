@@ -187,13 +187,13 @@ bt-tracker=
 
 ## RPC 使用
 
-### 发送下载任务
+发送下载任务
 
 ```sh
 curl -d '{"id":"1","method":"aria2.addUri","params":["token:SECRET",["DOWNLOAD_URL"]]}' HOST:PORT/jsonrpc
 ```
 
-### 修改 bt-tracker
+修改 bt-tracker
 
 ```sh
 curl -d '{"id":"1","method":"aria2.changeGlobalOption","params":["token:SECRET",{"bt-tracker":"TRACKER"}]}' HOST:PORT/jsonrpc

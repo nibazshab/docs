@@ -4,7 +4,7 @@
 
 ## 常见问题
 
-## 取消默认文件打开方式
+### 取消默认文件打开方式
 
 1. HKEY_CLASSES_ROOT 删除指定文件类型
 2. HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FileExts 删除指定文件类型

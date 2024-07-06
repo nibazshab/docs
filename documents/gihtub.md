@@ -97,3 +97,19 @@ Release 最新版本的下载链接：github.com/USER/REPO/releases/latest/downl
 ```console
 ${{ secrets.SECRET_NAME }}
 ```
+
+## Varcel
+
+### 命令行更新发布项目
+
+```sh
+vercel pull --yes --environment=production
+vercel build --prod
+vercel deploy --prebuilt --prod
+```
+
+### 命令行删除历史部署记录
+
+```sh
+vercel remove project-name --safe
+```

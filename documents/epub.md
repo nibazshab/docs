@@ -268,6 +268,13 @@ application/epub+zip
 
 :::
 
+## 工具推荐
+
+名称|功能描述
+-|-
+Sigil|EPUB 电子书制作工具。注：Regex 参数替换时，使用 `\1` 而非 `$1`
+KindleUnpack|解包 Amazon / Kindlegen 专有电子书格式
+
 ## 字体与界面
 
 阅读字体：[霞鹜文楷 LXGW WenKai](https://github.com/lxgw/LxgwWenKai)

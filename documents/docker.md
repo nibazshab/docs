@@ -72,9 +72,10 @@ exec /app
 
 输入 `docker build -t ID:TAG .` 构建镜像，若要使用代理，则添加参数例如 `--build-arg http_proxy=172.17.0.1:7890`
 
-> scratch 大小为 0kb 的空白镜像
-
+> scratch 大小为 0kb 的空白镜像  
 > busybox:glibc 带有基本 shell 和 glibc 的最小镜像
+
+> [SlimToolkit](https://github.com/slimtoolkit/slim) 是一个缩小容器镜像体积的工具，可以考虑用它来优化一下自制的镜像
 
 ## 容器配置文件
 
@@ -84,7 +85,7 @@ compose.yml
 services:
   NAME:
     restart: unless-stopped # 若容器非手动停止，则自动重启
-    image: IMAGE
+    image: IMAGENAME
     environment:
       - KEY=key # 设置容器内环境变量 KEY 的值为 key
     ports:
