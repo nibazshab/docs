@@ -114,6 +114,10 @@ Exec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /
 
 ## TTY/PTY
 
+### 误清 iptables，容器无法联网
+
+重启 docker 服务即可 `systemctl restart docker.service`
+
 ### Possibly missing firmware for module XXXX
 
 当内核更新后，镜像 initramfs 被重新构建时，你可能得到以下警告
