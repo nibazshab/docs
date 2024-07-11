@@ -4,8 +4,8 @@
 
 ```css
 {
-    overflow: hidden; /*隐藏溢出部分*/
-    min-height: 100vh; /*最小高度为整个屏幕*/
+    overflow: hidden; /* 隐藏溢出部分 */
+    min-height: 100vh; /* 最小高度为整个屏幕 */
     display: inline-block; /* 同一行显示的块级元素 */
     border: 3px solid #aa8; /* 边框 */
     border-radius: 10px; /* 圆角 */
@@ -14,6 +14,15 @@
     margin: 50px auto; /* 外边距 */
     cursor: pointer; /* 改变鼠标样式 */
     user-select: none; /* 禁止选中文字 */
+}
+
+/* 定义深色模式情境下的元素样式 */
+@media(prefers-color-scheme: dark) {}
+
+/* 将内部元素均匀排列为一行 */
+div {
+    display: flex;
+    justify-content: space-between; /* 首尾顶格 */
 }
 
 /* 消除页面白边 */

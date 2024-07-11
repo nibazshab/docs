@@ -33,7 +33,7 @@ __小工具__
 - AltSnap：窗口控制工具，置顶、放大缩小等。[官网](https://github.com/RamonUnch/AltSnap) -windows
 - Cheat Engine：修改器。[蓝奏云](https://www.lanzout.com/iwvLs10pejqb) -windows
 - 一个木函：工具箱。-apple
-- WakeUp：课程表。-android
+- WakeUp：课程表，可导出 ics 日历文件。-android
 
 __开发__
 
