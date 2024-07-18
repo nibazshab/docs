@@ -28,8 +28,9 @@ Windows 系统直接前往 [https://code.visualstudio.com/Download](https://code
 
 快捷键|-
 -|-
+CTRL+SHIFT+END/HOME|向下/上选中所有行
 Alt + Shift + F|格式化代码
-Ctrl + Shift + U/I|转换大小写
+Ctrl + Shift + U/I|大/小写转换
 Ctrl + /|注释选定的行
 
 ## 扩展推荐

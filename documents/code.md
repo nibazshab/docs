@@ -52,6 +52,9 @@ div {
 ## html
 
 ```html
+<!-- 阻止浏览器请求 favicon.ico -->
+<link rel="icon" href="data:image/ico;base64,aWNv">
+
 <!-- 全角空格 -->
 &emsp;
 

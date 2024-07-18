@@ -112,7 +112,7 @@ b=${a#*(}
 # 把分隔符设为换行
 IFS=$'\n'
 # 后台运行
-nohup 命令 &
+nohup 命令 > log 2>&1 &
 # 创建 screen 后台运行会话，-ls 查看会话列表
 screen -dmS 会话名 命令
 # 进入 screen 后台会话，按 Ctrl + A + D 退出会话
@@ -184,6 +184,8 @@ SHOW columns FROM tablename;
 SHOW tables;
 -- 查看表的所有表单数据
 SELECT * FROM tablename;
+-- 清空表
+DELETE FROM tablename;
 -- 删除表中序号大于 9 的内容
 DELETE FROM tablename WHERE id > 9;
 -- 向名为 pb 的表中插入 data 的数据
