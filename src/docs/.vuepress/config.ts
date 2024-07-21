@@ -2,7 +2,7 @@ import { defineUserConfig } from 'vuepress';
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { getDirname, path } from '@vuepress/utils';
-import { shikiPlugin } from '@vuepress/plugin-shiki';
+// import { shikiPlugin } from '@vuepress/plugin-shiki';
 
 const __dirname = getDirname(import.meta.url);
 
@@ -27,15 +27,15 @@ export default defineUserConfig({
   },),
 
   plugins: [
-    shikiPlugin({
-      langs: [
-        // 'LANGS',
-      ],
-      themes: {
-        light: 'github-light',
-        dark:'github-dark-dimmed'
-      },
-    },),
+    // shikiPlugin({
+    //   langs: [
+    //     // 'LANGS',
+    //   ],
+    //   themes: {
+    //     light: 'github-light',
+    //     dark:'github-dark-dimmed'
+    //   },
+    // },),
   ],
 
   alias: {
