@@ -39,7 +39,7 @@ export default defineUserConfig({
   ],
 
   alias: {
-    '@theme/PageNav.vue': path.resolve(__dirname, './components/PageNav.vue'),
+    '@theme/VPPageNav.vue': path.resolve(__dirname, './components/VPPageNav.vue'),
   },
 
   bundler: viteBundler(),
