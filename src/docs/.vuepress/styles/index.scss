@@ -1,4 +1,18 @@
+// 代码块右上角，不显示语言
 div[class*='language-']::before {
+  display: none;
+}
+
+// 超链接样式
+a {
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: underline !important;
+}
+
+// 不显示代码块序号右边的分割线
+div[class*=language-].line-numbers-mode:after {
   display: none;
 }
 
@@ -9,17 +23,19 @@ div[class*='language-']::before {
   --c-bg-light: #f6f8fa;
   --c-text-lighter: #ff4c0f;
 
-  --code-bg-color: #eff1f3;
+  --code-bg-color: #fafafa; // 代码块背景色
   --code-hl-bg-color: rgba(0, 0, 0, 0.07);
   --code-ln-color: #c1c1c1;
 }
 
+// 深色模式
 html.dark {
   --code-bg-color: #282c34;
   --code-hl-bg-color: rgba(0, 0, 0, 0.66);
   --code-ln-color: #9e9e9e;
 }
 
+// 深色模式下的 shiki 代码块渲染
 html.dark .shiki,
 html.dark .shiki span {
   color: var(--shiki-dark) !important;
