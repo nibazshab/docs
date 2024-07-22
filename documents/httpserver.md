@@ -8,6 +8,16 @@
 
 配置文件为 `/etc/caddy/Caddyfile`，自定义的额外配置文件放在 `/etc/caddy/conf.d/` 目录下，文件名随意，数据目录 `/var/lib/caddy`
 
+### 代理到域名子目录
+
+```nginx
+http://test.example.com {
+    handle /test/* {
+        reverse_proxy localhost:8080
+    }
+}
+```
+
 ### 禁用 SSL 仅 HTTP
 
 ```nginx
