@@ -11,7 +11,7 @@
 ### 代理到域名子目录
 
 ```nginx
-http://test.example.com {
+example.com {
     handle /test/* {
         reverse_proxy localhost:8080
     }
@@ -28,9 +28,11 @@ http://example.com {
 
 ### 重定向跳转
 
+permanent 为永久重定向参数
+
 ```nginx
 example1.com {
-    redir example2.com{uri}
+    redir https://example2.com{uri} permanent
 }
 ```
 
