@@ -94,7 +94,7 @@ services:
       # :::8080:80 监听 ipv6
       # 8080:80/udp 监听 udp
     volumes:
-      - ./data:/data # 把 ./data 映射为容器的 /data，可以是目录或文件
+      - ./data:/data # 把 ./data 映射为容器的 /data 目录
     mem_limit: 1g # 限制内存大小 1g
 ```
 
