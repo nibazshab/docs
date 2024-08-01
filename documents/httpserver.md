@@ -8,6 +8,20 @@
 
 配置文件为 `/etc/caddy/Caddyfile`，自定义的额外配置文件放在 `/etc/caddy/conf.d/` 目录下，文件名随意，数据目录 `/var/lib/caddy`
 
+### 只接受特定目录的请求
+
+```nginx
+example.com {
+    route {
+        reverse_proxy /test/* 127.0.0.1:8080
+
+        handle /* {
+            abort
+        }
+    }
+}
+```
+
 ### 自定义回应状态码
 
 respond 404 或 error 404
