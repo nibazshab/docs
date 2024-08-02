@@ -1,5 +1,7 @@
 # Web HTTP 服务器
 
+本文包含 Caddy 和 Nginx 的内容
+
 ## Caddy
 
 [Caddy](https://caddyserver.com) 是一个强大的，开源的，使用 Go 编写的自动配置 HTTPS 的 Web 服务器

@@ -1,10 +1,12 @@
 # GitHub 使用文档
 
-## 删除 Contributors 记录
+本文包含部分 Vercel 的内容
+
+### 删除 Contributors 记录
 
 在确保没有该用户的 commit 记录后，随便修改掉默认分支的名称，然后再改回来
 
-## 利用 Action 发布 releases
+### 利用 Action 发布 releases
 
 ```yml
 on:
@@ -23,7 +25,7 @@ permissions:
     files: dist/*
 ```
 
-## 基础使用教程
+### 基础使用教程
 
 注册账号，安装配置 git，创建仓库，生成 Token 等步骤略过，不做描述
 
@@ -31,13 +33,13 @@ permissions:
 
 以下假设 GitHub 的用户名是 atri，仓库名为 test
 
-### 1. 在本地拉取储存库
+#### 1. 在本地拉取储存库
 
 ```sh
 git clone https://github.com/atri/test.git
 ```
 
-### 2. 配置 git 用户信息
+#### 2. 配置 git 用户信息
 
 进入上述拉取的储存库目录，随后配置用户名，邮箱信息
 
@@ -48,7 +50,7 @@ git config user.name "atri"
 git config user.email "atri<atri@gmail.com>"
 ```
 
-### 3. 更新仓库到 GitHub
+#### 3. 更新仓库到 GitHub
 
 自行对储存库的内容进行修改，确认
 
@@ -65,7 +67,7 @@ git push origin main
 
 接着输入 GitHub 的用户名，以及 GitHub 用户 Token 即可
 
-## 利用 Action 发布 ghpage
+### 利用 Action 发布 ghpage
 
 ```yml
 permissions:
@@ -86,21 +88,19 @@ environment:
   uses: actions/deploy-pages@v4
 ```
 
-## 下载源代码存档
+### 下载源代码存档
 
 仓库分支存档的下载链接：github.com/USER/REPO/archive/refs/heads/BRANCH.tar.gz
 
 Release 最新版本的下载链接：github.com/USER/REPO/releases/latest/download/ASSETS.tar.gz
 
-## Action Repository 机密
+### Action Repository 机密
 
 ```console
 ${{ secrets.SECRET_NAME }}
 ```
 
-## Varcel
-
-### 命令行更新发布项目
+### Vercel 命令行更新发布项目
 
 ```sh
 vercel pull --yes --environment=production
@@ -108,7 +108,7 @@ vercel build --prod
 vercel deploy --prebuilt --prod
 ```
 
-### 命令行删除历史部署记录
+### Vercel 命令行删除历史部署记录
 
 ```sh
 vercel remove project-name --safe

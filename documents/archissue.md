@@ -1,12 +1,10 @@
-# Arch Linux 指北
+# Linux 常见问题指北
 
-本文记录一些在安装 / 使用过程中遇到的问题和一些有助于提高体验的东西。内容收集自网络和 Arch Wiki，请自行甄别是否适用
-
-## TTY/PTY
+本文主要记录 Arch Linux 相关的问题。内容收集自网络和 Arch Wiki，请自行甄别是否适用于其他版本的 Linux 操作系统
 
 ### 恢复误删文件，进程还在运行
 
-查看该进程的 pid 号，假设为 721，进入 /proc/721/fd 目录，输入 ls -l 查看数字文件对应的硬链接文件名，假设查看有如下信息
+查看该进程的 pid 号，假设为 721，进入 /proc/721/fd 目录，输入 `ls -l` 查看数字文件对应的硬链接文件名，假设查看有如下信息
 
 ```console
 Aug  1 09:48 10 -> /data/db.sqlite3 (deleted)
@@ -19,47 +17,11 @@ Aug  1 09:48 11 -> /data/db.sqlite3 (deleted)
 
 重启 docker 服务即可 `systemctl restart docker.service`
 
-### Possibly missing firmware for module XXXX
-
-当内核更新后，镜像 initramfs 被重新构建时，你可能得到以下警告
-
-```console
-==> WARNING: Possibly missing firmware for module: xhci_pci
-==> WARNING: Possibly missing firmware for module: aic94xx
-==> WARNING: Possibly missing firmware for module: bfa
-```
-
-如果在生成默认 initramfs 镜像时出现这些或类似的消息，如警告所述，可能需要安装其他固件。大多数常见的固件文件可以通过安装 `linux-firmware` 来获取。对于其他的固件软件包，可以尝试在软件包仓库中搜索固件模块的名字获取。聚合包 `mkinitcpio-firmware` 包括绝大部分的固件，或者手动安装所需的固件包
-
-::: details 常见的模块与对应的固件包
-
-```console
-aic94xx         -  aic94xx-firmware
-bfa             -  linux-firmware-qlogic
-bnx2x           -  linux-firmware-bnx2x
-liquidio        -  linux-firmware-liquidio
-mlxsw_spectrum  -  linux-firmware-mellanox
-nfp             -  linux-firmware-nfp
-qed             -  linux-firmware-qlogic
-qla1280         -  linux-firmware-qlogic
-qla2xxx         -  linux-firmware-qlogic
-wd719x          -  wd719x-firmware
-xhci_pci        -  upd72020x-fw
-```
-
-:::
-
-如果消息仅在生成 fallback initramfs 镜像时出现，可以禁止 fallback 镜像的生成，在 `/etc/mkinitcpio.d` 目录下的 preset 文件中，将 PRESETS= 里的 fallback 移除，重新生成系统引导
-
-[更多](https://wiki.archlinux.org/title/Mkinitcpio#Possibly_missing_firmware_for_module_XXXX)
-
 ### PUTTY 控制台的 ls 命令没有颜色
 
 由于 PUTTY 的连接可能导致控制台彩色显示失效，可以尝试使用 `ls --color=auto` 来重新定义 LS_COLORS 环境变量等
 
 [更多](https://wiki.archlinux.org/title/Color_output_in_console#ls)
-
-## GUI Desktop
 
 ### 快捷键切换 TTY 环境
 
@@ -144,15 +106,16 @@ Operation=Install
 Operation=Upgrade
 Operation=Remove
 Type=Package
+
 Target=nvidia
 Target=linux
 
 [Action]
-Description=Update NVIDIA module in initcpio
+Description=Updating NVIDIA module in initcpio
 Depends=mkinitcpio
 When=PostTransaction
 NeedsTargets
-Exec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
 ```
 
 [更多](https://wiki.archlinux.org/title/Kernel_mode_setting#Early_KMS_start)
@@ -168,3 +131,37 @@ Exec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /
 为触摸板加载了 intel_lpss_pci 模块的 Intel CPU 的电脑，在休眠后可能会出现黑屏无法唤醒的情况
 
 将 `intel_lpss_pci` 添加到 `/etc/mkinitcpio.conf` 的 MODULES= 里，使用 `mkinitcpio -P` 指令重新生成内核
+
+### Possibly missing firmware for module XXXX
+
+当内核更新后，镜像 initramfs 被重新构建时，你可能得到以下警告
+
+```console
+==> WARNING: Possibly missing firmware for module: xhci_pci
+==> WARNING: Possibly missing firmware for module: aic94xx
+==> WARNING: Possibly missing firmware for module: bfa
+```
+
+如果在生成默认 initramfs 镜像时出现这些或类似的消息，如警告所述，可能需要安装其他固件。大多数常见的固件文件可以通过安装 `linux-firmware` 来获取。对于其他的固件软件包，可以尝试在软件包仓库中搜索固件模块的名字获取。聚合包 `mkinitcpio-firmware` 包括绝大部分的固件，或者手动安装所需的固件包
+
+::: details 常见的模块与对应的固件包
+
+```console
+aic94xx         -  aic94xx-firmware
+bfa             -  linux-firmware-qlogic
+bnx2x           -  linux-firmware-bnx2x
+liquidio        -  linux-firmware-liquidio
+mlxsw_spectrum  -  linux-firmware-mellanox
+nfp             -  linux-firmware-nfp
+qed             -  linux-firmware-qlogic
+qla1280         -  linux-firmware-qlogic
+qla2xxx         -  linux-firmware-qlogic
+wd719x          -  wd719x-firmware
+xhci_pci        -  upd72020x-fw
+```
+
+:::
+
+如果消息仅在生成 fallback initramfs 镜像时出现，可以禁止 fallback 镜像的生成，在 `/etc/mkinitcpio.d` 目录下的 preset 文件中，将 PRESETS= 里的 fallback 移除，重新生成系统引导
+
+[更多](https://wiki.archlinux.org/title/Mkinitcpio#Possibly_missing_firmware_for_module_XXXX)
