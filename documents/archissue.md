@@ -2,6 +2,34 @@
 
 本文主要记录 Arch Linux 相关的问题。内容收集自网络和 Arch Wiki，请自行甄别是否适用于其他版本的 Linux 操作系统
 
+### systemd timer 定时任务
+
+在 /etc/systemd/system 目录创建同名的 .service 和 .timer 文件即可。例如
+
+::: details /etc/systemd/system/foo.service
+```ini
+[Unit]
+Description=foo
+
+[Service]
+Type=simple
+ExecStart=/bin/foo
+```
+:::
+
+::: details /etc/systemd/system/foo.timer
+```ini
+[Unit]
+Description=foo at 2:00
+
+[Timer]
+OnCalendar=*-*-* 02:00:00
+
+[Install]
+WantedBy=multi-user.target
+```
+:::
+
 ### 恢复误删文件，进程还在运行
 
 查看该进程的 pid 号，假设为 721，进入 /proc/721/fd 目录，输入 `ls -l` 查看数字文件对应的硬链接文件名，假设查看有如下信息
@@ -32,7 +60,6 @@ Aug  1 09:48 11 -> /data/db.sqlite3 (deleted)
 GNOME Shell 主题被存储为二进制文件 `/usr/share/gnome-shell/gnome-shell-theme.gresource`，运行 extractgst.sh 拆包脚本，在 `$HOME` 目录得到主题配置文件
 
 ::: details extractgst.sh
-
 ```sh
 #!/bin/sh
 gst=/usr/share/gnome-shell/gnome-shell-theme.gresource
@@ -47,7 +74,6 @@ for r in `gresource list $gst`; do
   gresource extract $gst $r >$workdir/${r#\/org\/gnome\/shell/}
 done
 ```
-
 :::
 
 将主题配置文件 gnome-shell.css 中的 #panel 模块里的 background-color 的值修改为 `rgba(0,0,0,0.6)`
@@ -55,7 +81,6 @@ done
 输入 `glib-compile-resources gnome-shell-theme.gresource.xml` 指令按照 gnome-shell-theme.gresource.xml 打包配置文件，将主题重新打包成二进制文件，替换原来的主题，重启 GNOME Shell
 
 ::: details gnome-shell-theme.gresource.xml
-
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
@@ -83,7 +108,6 @@ done
   </gresource>
 </gresources>
 ```
-
 :::
 
 [更多](https://wiki.archlinux.org/title/GDM#Configuration)
@@ -143,24 +167,6 @@ Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; 
 ```
 
 如果在生成默认 initramfs 镜像时出现这些或类似的消息，如警告所述，可能需要安装其他固件。大多数常见的固件文件可以通过安装 `linux-firmware` 来获取。对于其他的固件软件包，可以尝试在软件包仓库中搜索固件模块的名字获取。聚合包 `mkinitcpio-firmware` 包括绝大部分的固件，或者手动安装所需的固件包
-
-::: details 常见的模块与对应的固件包
-
-```console
-aic94xx         -  aic94xx-firmware
-bfa             -  linux-firmware-qlogic
-bnx2x           -  linux-firmware-bnx2x
-liquidio        -  linux-firmware-liquidio
-mlxsw_spectrum  -  linux-firmware-mellanox
-nfp             -  linux-firmware-nfp
-qed             -  linux-firmware-qlogic
-qla1280         -  linux-firmware-qlogic
-qla2xxx         -  linux-firmware-qlogic
-wd719x          -  wd719x-firmware
-xhci_pci        -  upd72020x-fw
-```
-
-:::
 
 如果消息仅在生成 fallback initramfs 镜像时出现，可以禁止 fallback 镜像的生成，在 `/etc/mkinitcpio.d` 目录下的 preset 文件中，将 PRESETS= 里的 fallback 移除，重新生成系统引导
 

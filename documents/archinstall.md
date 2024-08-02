@@ -1,11 +1,9 @@
 # Arch Linux 安装指南
 
 ::: warning 声明
-
 可能导致数据丢失，请在安装前为重要的数据做好备份
 
 需要请参考 [ArchWiki#安装指南](https://wiki.archlinux.org/title/Installation_guide)
-
 :::
 
 ## 准备阶段

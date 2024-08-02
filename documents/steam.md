@@ -1,9 +1,7 @@
 # Steam 游戏平台
 
 ::: warning 声明
-
 本文大部分内容适用于 Arch 系的 Linux 系统，其他系统请自行甄别是否适用
-
 :::
 
 [Steam](https://store.steampowered.com) 是 Valve 公司推出的著名游戏分发平台，对于 Linux 平台，Steam 官方只提供对 Ubuntu LTS 版本的支持

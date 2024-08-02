@@ -21,7 +21,7 @@
 1. 注册表编辑器
 2. 打开 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform
 3. 查看 BackupProductKeyDefault 的值，并复制
-4. 设置 - 更新和安全 - 激活，选择 ___更改产品密钥___
+4. 设置 - 更新和安全 - 激活，选择 __更改产品密钥___
 5. 粘贴刚刚复制的密钥，下一步，激活
 
 ### 笔记本插电时保持小功率
@@ -79,12 +79,10 @@ RD /S /Q \\?\%1
 建议直接卸载了事。卸载工具：[https://github.com/ShadowWhisperer/Remove-MS-Edge](https://github.com/ShadowWhisperer/Remove-MS-Edge)
 
 ::: details 禁用自动更新
-
 1. 计算机管理
 2. 服务和应用程序
 3. 禁用 ___Microsoft Edge Update Service (edgeupdate)，Microsoft Edge Update Service (edgeupdatem)，Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)___
 4. 创建空文件，替换掉 %PROGRAMFILES(X86)%/Microsoft/EdgeUpdate/MicrosoftEdgeUpdate.exe
-
 :::
 
 ### 降低 Win 安全中心的占用

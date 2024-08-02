@@ -1,9 +1,7 @@
 # Aria2 下载器
 
 ::: tip 提示
-
 作为命令行工具，具有一定的学习成本，使用 Motrix 等二次封装的图形化工具不失为一种选择
-
 :::
 
 [Aria2](https://github.com/aria2/aria2) 是一个自由、开源、轻量级多协议和多源的命令行下载工具。它支持 HTTP/HTTPS、FTP、SFTP、BitTorrent 和 Metalink 协议，可以通过内建的 JSON-RPC 和 XML-RPC 接口来操纵
@@ -47,7 +45,6 @@ CreateObject("WScript.Shell").Run "%HOMEPATH%\aria2\aria2c.exe --conf-path=%HOME
 ## 配置文件
 
 ::: details aria2.conf
-
 ```ini
 dir=${HOME}/Downloads
 disk-cache=64M
@@ -157,7 +154,6 @@ show-console-readout=false
 
 bt-tracker=
 ```
-
 :::
 
 ## 管理面板

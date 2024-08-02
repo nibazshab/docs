@@ -100,7 +100,9 @@ Release 最新版本的下载链接：github.com/USER/REPO/releases/latest/downl
 ${{ secrets.SECRET_NAME }}
 ```
 
-### Vercel 命令行更新发布项目
+### Vercel
+
+#### 命令行更新发布项目
 
 ```sh
 vercel pull --yes --environment=production
@@ -108,7 +110,7 @@ vercel build --prod
 vercel deploy --prebuilt --prod
 ```
 
-### Vercel 命令行删除历史部署记录
+#### 命令行删除历史部署记录
 
 ```sh
 vercel remove project-name --safe

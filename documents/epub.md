@@ -48,7 +48,6 @@ EPUB 实质上是一个可以解压的 zip 归档文件，使用 xhtml 规范编
 封面示例，通常由电子书制作工具自动生成
 
 ::: details cover.xhtml、backcover.xhtml
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -64,13 +63,11 @@ EPUB 实质上是一个可以解压的 zip 归档文件，使用 xhtml 规范编
 </body>
 </html>
 ```
-
 :::
 
 章节内容模板如下
 
 ::: details .xhtml
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -91,13 +88,11 @@ EPUB 实质上是一个可以解压的 zip 归档文件，使用 xhtml 规范编
 </body>
 </html>
 ```
-
 :::
 
 目录文件示例，通常由电子书制作工具自动生成
 
 ::: details nav.xhtml
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -129,13 +124,11 @@ EPUB 实质上是一个可以解压的 zip 归档文件，使用 xhtml 规范编
 </body>
 </html>
 ```
-
 :::
 
 特典页示例
 
 ::: details pamphlet.xhtml
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
@@ -153,13 +146,11 @@ EPUB 实质上是一个可以解压的 zip 归档文件，使用 xhtml 规范编
 </body>
 </html>
 ```
-
 :::
 
 排版样式示例如下
 
 ::: details style.css
-
 ```css
 nav { display: none; }
 
@@ -178,13 +169,11 @@ img {
 
 small { color: #777777; }
 ```
-
 :::
 
 元数据文件示例，metadata 标签内记录电子书描述信息，manifest 标签内记录包含的所有数据文件，spine 标签内记录目录顺序且应与 nav.xhtml 的目录顺序相同，通常由电子书制作工具自动生成
 
 ::: details content.opf
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <package version="3.0" unique-identifier="BookId" xmlns="http://www.idpf.org/2007/opf">
@@ -240,7 +229,6 @@ small { color: #777777; }
   </spine>
 </package>
 ```
-
 :::
 
 ### 描述文件
@@ -248,15 +236,12 @@ small { color: #777777; }
 电子书的描述文件，通常不对其进行修改
 
 ::: details mimetype
-
 ```console
 application/epub+zip
 ```
-
 :::
 
 ::: details container.xml
-
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
@@ -265,7 +250,6 @@ application/epub+zip
    </rootfiles>
 </container>
 ```
-
 :::
 
 ## 工具推荐
