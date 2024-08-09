@@ -3,6 +3,10 @@
 记录 Shell、PowerShell、SQL、Git 的命令
 
 ```sh
+# cat 写入文件，'EOL' 表示以下内容不进行转义
+cat << EOL > a.txt
+hello world
+EOL
 # wget 走代理下载
 wget -e http_proxy=http://127.0.0.1:7890 example.com/index.html
 # 定义使用数组
@@ -93,7 +97,7 @@ sed -i /ABC/d a.txt
 sed 3,7d a.txt
 # 在第 3 行前插入 abc
 sed 3iabc a.txt
-# 替换文件内容中的 a 为 b，也可以使用 @ 替换 / 作为分隔符，正则表达式 -E 参数使用 \1 而非 $1
+# 替换文件内容中的 a 为 b，也可以使用 @ 和 : 替换 / 作为分隔符，正则表达式 -E 参数使用 \1 而非 $1
 sed s/a/b/g a.txt
 # 输出文件奇数行，1~2p 从第 1 行开始，每 2 行输出一次，1,4p 从第 1 行到第 4 行
 sed -n 1~2p a.txt
@@ -140,6 +144,7 @@ sfdisk /dev/sdb < sdb.bkp
 ```
 
 ```sh
+pacman # arch 系列包管理器，-S 安装，-Si 查看信息，-Ql 查看本地文件，-Ss 根据关键词搜索包，-F 根据文件名查询包，-Rs 卸载，-Qdt 查找孤立依赖包，-U 安装本地文件，-Syu 更新所有包，--noconfirm 跳过确认
 # 转换 webp 为 png
 dwebp a.webp -o a.png
 # 转换 jpg 为 avif

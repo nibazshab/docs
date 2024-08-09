@@ -73,7 +73,7 @@ __录屏__
 
 __电子书__
 
-- Sigil：ePub 电子书编辑器 - [官网](https://github.com/Sigil-Ebook/Sigil) <Badge text="exe" />
+- Sigil：ePub 电子书编辑器，Regex 参数替换时，使用 \1 而非 $1 参数 - [官网](https://github.com/Sigil-Ebook/Sigil) <Badge text="exe" />
 - AlReader2：TXT 小说阅读器，上古软件 - [蓝奏云](https://www.lanzout.com/i6UxI1wrbnte) <Badge text="exe" />
 - Kindle：亚马逊阅读器 - 美区 <Badge text="apple" /><Badge text="apk" />
 - 皮皮喵 Lite：看漫画 - <Badge text="apple" />

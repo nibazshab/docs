@@ -5,6 +5,7 @@
 ### systemd timer 定时任务
 
 在 /etc/systemd/system 目录创建同名的 .service 和 .timer 文件，随后输入 `systemctl enable --now foo.timer` 启动即可
+
 例如
 
 ::: details /etc/systemd/system/foo.service
@@ -14,6 +15,7 @@ Description=foo
 
 [Service]
 Type=simple
+#WorkingDirectory=/opt #指定工作目录
 ExecStart=/bin/foo
 ```
 :::
