@@ -19,6 +19,9 @@ Compose 是用于定义和运行多个容器 Docker 应用程序的工具。通�
 
 ## 换源
 
+由于不可抗力，国内 Docker 镜像源全部停止服务
+
+::: details 使用方法
 创建 `/etc/docker/daemon.json` 文件，并写入如下内容
 
 ```json
@@ -30,6 +33,7 @@ Compose 是用于定义和运行多个容器 Docker 应用程序的工具。通�
 ```
 
 输入 `systemctl daemon-reload` 重新加载配置文件，输入 `systemctl restart docker` 重启 docker 服务
+:::
 
 ## 自制容器镜像
 
@@ -78,6 +82,18 @@ busybox:glibc 带有基本 shell 和 glibc 的最小镜像
 
 容器初始化进程工具推荐 dumb-init，s6-overlay
 :::
+
+alpine 系统镜像换源
+
+```sh
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+```
+
+或在安装时直接指定源地址
+
+```sh
+apk add wget --repository http://mirrors.aliyun.com/alpine/v3.18/main/
+```
 
 ## 容器配置文件
 

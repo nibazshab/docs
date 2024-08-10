@@ -18,11 +18,11 @@ __办公__
 
 __媒体处理__
 
-- Adobe Photoshop、Premiere Pro、After Effects 等，微博搜索嬴政天下 vposy -  <Badge text="exe" />
+- Adobe：Photoshop、Premiere Pro、After Effects 等，微博搜索嬴政天下 vposy -  <Badge text="exe" />
 - PhotoDemon：便携式 PS 工具 - [官网](https://github.com/tannerhelland/PhotoDemon) <Badge text="exe" />
-- ffmpeg 音视频处理工具 - [第三方构建](https://github.com/BtbN/FFmpeg-Builds) <Badge text="exe" />
+- ffmpeg：音视频处理工具 - [第三方构建](https://github.com/BtbN/FFmpeg-Builds) <Badge text="exe" />
 - MusicTag：音乐标签编辑器 - [官网](https://www.cnblogs.com/vinlxc/p/11347744.html) <Badge text="exe" />
-- 照片编辑器 - <Badge text="apk" />
+- 照片编辑器：最好用的图片处理工具 - <Badge text="apk" />
 
 __小工具__
 
@@ -106,7 +106,7 @@ __高级__
 
 - MacType：字体渲染工具 - [官网](https://github.com/snowie2000/mactype) <Badge text="exe" />
 - Geek Uninstaller：应用程序卸载工具 - [官网](https://geekuninstaller.com) <Badge text="exe" />
-- DiskGenius 磁盘管理工具 - [蓝奏云](https://www.lanzout.com/iPnVK0u05qmj) <Badge text="exe" />
+- DiskGenius：磁盘管理工具 - [蓝奏云](https://www.lanzout.com/iPnVK0u05qmj) <Badge text="exe" />
 - Dism++：系统优化工具 - [官网](https://github.com/Chuyu-Team/Dism-Multi-language) <Badge text="exe" />
 - 熊猫吃短信：短信拦截 - <Badge text="apple" />
 - TollStore：巨魔商店，免签名安装应用 - <Badge text="apple" />
