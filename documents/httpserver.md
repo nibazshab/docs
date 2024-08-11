@@ -74,9 +74,11 @@ example.com {
 
 ### 静态文件服务
 
+file_server 加上 browse 参数开启文件目录功能
+
 ```nginx
 example.com {
-    root * /srv/http
+    root /srv/http
     file_server
 }
 ```

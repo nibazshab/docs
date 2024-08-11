@@ -42,23 +42,18 @@ Compose 是用于定义和运行多个容器 Docker 应用程序的工具。通�
 ```dockerfile
 # 基于 alpine 镜像构建内容
 FROM alpine AS build
-
 # 定义构建时的环境变量
 ARG name=value
-
 # 定义工作目录
 WORKDIR /rootfs
 # 将 rootfs 目录复制到镜像中
 COPY rootfs .
 # 赋予 init 文件执行权限
 RUN chmod +x init
-
 # 基于 alpine 镜像发布
 FROM alpine
-
 # 将 build 镜像中的 /rootfs 目录复制过来
 COPY --from=build /rootfs /
-
 # 挂载的目录，运行时使用，构建时不应存放任何内容
 VOLUME ["/c", "/d"]
 # 容器启动时执行的命令

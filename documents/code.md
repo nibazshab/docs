@@ -73,84 +73,15 @@ div {
 <meta http-equiv="refresh" content="0; URL='https://example.com'">
 ```
 
-## go
-
-静态文件服务器
-
-```go
-http.ListenAndServe(":80", http.FileServer(http.Dir("./")))
-```
-
-生成随机字符串
-
-```go
-const letter_bytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-const (
-    letter_idx_bits = 6
-    letter_idx_mask = 1<<letter_idx_bits - 1
-    letter_idx_max  = 63 / letter_idx_bits
-)
-var src = rand.NewSource(time.Now().UnixNano())
-func RandStringBytesMaskImprSrcUnsafe(n int) string {
-    b := make([]byte, n)
-    for i, cache, remain := n-1, src.Int63(), letter_idx_max; i >= 0; {
-        if remain == 0 {
-            cache, remain = src.Int63(), letter_idx_max
-        }
-        if idx := int(cache & letter_idx_mask); idx < len(letter_bytes) {
-            b[i] = letter_bytes[idx]
-            i--
-        }
-        cache >>= letter_idx_bits
-        remain--
-    }
-    return *(*string)(unsafe.Pointer(&b))
-}
-```
-
-## c
-
-冒泡排序
-
-```c
-int n[10] = { 25,35,68,79,21,13,98,7,16,62 };
-int i, j, temp;
-for (i = 1; i <= 9; i++){
-    for (j = 0; j <= 9 - i; j++){
-        if (n[j] > n[j + 1]){
-            temp = n[j];
-            n[j] = n[j + 1];
-            n[j + 1] = temp;
-        }
-    }
-}
-```
-
 ## 其他内容
 
 php 启动内置 web 服务 `php -S 0.0.0.0:8000`
 
-rustup 换源安装 `RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup rustup install stable`
-
-cargo 换源
-
-```sh
-mkdir -vp ${CARGO_HOME:-$HOME/.cargo}
-
-cat << EOF | tee -a ${CARGO_HOME:-$HOME/.cargo}/config
-[source.crates-io]
-replace-with = 'mirror'
-
-[source.mirror]
-registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
-EOF
-```
-
-npm 换源阿里 `npm config set registry https://registry.npmmirror.com`
+npm 换源 npmmirror `npm config set registry https://registry.npmmirror.com`
 
 pip 换源清华 `pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
 
-go 换源阿里 `go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct`
+go get 换源阿里 `go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct`
 
 go 代码格式化
 
@@ -159,20 +90,14 @@ go install mvdan.cc/gofumpt@latest # 安装工具
 gofumpt -l -w .
 ```
 
-go 静态编译
+go 静态文件服务
 
-```sh
-GOOS=windows GOARCH=amd64 # 交叉编译参数
-CGO_ENABLED=0 go build -ldflags="-s -w"
+```go
+http.ListenAndServe(":80", http.FileServer(http.Dir("./")))
 ```
 
-c 静态编译，使用 musl
-
-```sh
-make LDFLAGS=-static
-./configure --enable-static --disable-shared
-```
+c 静态编译，使用 musl libc
 
 去除静态文件的无用符号信息 `strip file`
 
-[upx](https://upx.github.io) 压缩二进制文件体积 `upx --ultra-brute file`
+upx 工具，压缩二进制文件体积 `upx --ultra-brute file`
