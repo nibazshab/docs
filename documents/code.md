@@ -1,5 +1,37 @@
 # 代码开发经验记录
 
+## 其他内容
+
+php 启动内置 web 服务 `php -S 0.0.0.0:8000`
+
+npm 换源 npmmirror `npm config set registry https://registry.npmmirror.com`
+
+pip 换源清华 `pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
+
+go get 换源阿里 `go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct`
+
+go 好用的工具
+
+```sh
+go install mvdan.cc/gofumpt@latest # 代码格式化
+gofumpt -l -w .
+
+go install golang.org/x/tools/cmd/deadcode@latest # 检查从未使用的代码
+deadcode .
+```
+
+go 静态文件服务
+
+```go
+http.ListenAndServe(":80", http.FileServer(http.Dir("./")))
+```
+
+c 静态编译，使用 musl libc
+
+去除静态文件的无用符号信息 `strip file`
+
+upx 工具，压缩二进制文件体积 `upx --ultra-brute file`
+
 ## css
 
 ```css
@@ -73,31 +105,9 @@ div {
 <meta http-equiv="refresh" content="0; URL='https://example.com'">
 ```
 
-## 其他内容
+## js
 
-php 启动内置 web 服务 `php -S 0.0.0.0:8000`
-
-npm 换源 npmmirror `npm config set registry https://registry.npmmirror.com`
-
-pip 换源清华 `pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
-
-go get 换源阿里 `go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct`
-
-go 代码格式化
-
-```sh
-go install mvdan.cc/gofumpt@latest # 安装工具
-gofumpt -l -w .
+```js
+// 等待页面加载完成
+document.addEventListener("DOMContentLoaded", (event) => {}
 ```
-
-go 静态文件服务
-
-```go
-http.ListenAndServe(":80", http.FileServer(http.Dir("./")))
-```
-
-c 静态编译，使用 musl libc
-
-去除静态文件的无用符号信息 `strip file`
-
-upx 工具，压缩二进制文件体积 `upx --ultra-brute file`

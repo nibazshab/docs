@@ -10,6 +10,10 @@ Windows 系统直接前往 [https://code.visualstudio.com/Download](https://code
 
 > 服务器端个人部署网页版 VS Code 见 [code-server](https://github.com/coder/code-server)，在此不多做介绍
 
+## 自动备份文件夹
+
+Windows 路径：%APPDATA%\Code\User\History
+
 ## 设置项
 
 ```json
