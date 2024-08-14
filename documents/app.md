@@ -141,3 +141,7 @@ __社区__
 - 酷安：数码社区 - <Badge text="apple" /><Badge text="apk" />
 - 什么值得买：购物社区 - <Badge text="apple" />
 - 小黑盒：游戏社区 - <Badge text="apple" />
+
+__安全__
+
+- Bitwarden：搭配自建的 Vaultwarden 服务使用 - <Badge text="apple" />

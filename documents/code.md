@@ -20,12 +20,6 @@ go install golang.org/x/tools/cmd/deadcode@latest # 检查从未使用的代码
 deadcode .
 ```
 
-go 静态文件服务
-
-```go
-http.ListenAndServe(":80", http.FileServer(http.Dir("./")))
-```
-
 c 静态编译，使用 musl libc
 
 去除静态文件的无用符号信息 `strip file`

@@ -8,6 +8,36 @@
 
 Value 公司发行的 Steam Deck 掌机使用基于 Arch Linux 所开发的 SteamOS 3 系统
 
+## Steam 令牌
+
+::: danger 警告
+先保存 Steam 令牌恢复代码
+:::
+
+### 导出 Steam 二次验证令牌到 Bitwarden
+
+#### 方法一
+
+前置条件：已开启 Steam 手机令牌，安卓手机 Root 并安装 LSPosed 框架
+
+安装 [SteamGuardDump](https://github.com/YifePlayte/SteamGuardDump) 模块，在 LSPosed 模块设置中，将 SteamGuardDump 的作用域选中 Steam App
+
+打开 Steam App，模块将自动复制一段内容到输入法剪贴板，从中找到这样的部分 `"uri": "otpauth://totp/Steam:name?secret=ABCDEFG12345678910JQKA&issuer=Steam"`，得到 secret
+
+将 secret 写成这种形式 `steam://ABCDEFG12345678910JQKA`，并填入 Bitwarden 的 TOTP 框
+
+#### 方法二（未验证）
+
+下载 Steam++，在本地令牌中，登录账号绑定令牌
+
+将这个令牌导出为 maFile 文件，用文本编辑器打开，从中找到 url 的 otpauth 部分，得到 secret
+
+#### 方法三（未验证）
+
+下载 [SDA](https://github.com/Jessecar96/SteamDesktopAuthenticator) 并按说明登陆账号使用，不要选择加密
+
+在 SDA 安装目录下可以找到 maFile 文件
+
 ## 安装
 
 使用 Flatpak 安装可避免许多毛病
