@@ -9,6 +9,7 @@
 eu.org|null|eu.org，cloudflare
 us.kg|2025/06/14|us.kg，cloudflare
 rr.nu|null|sitelutions，he.net
+电信流量包|2025/8/31
 
 ## 购物
 
@@ -37,7 +38,7 @@ SoundPEATS 耳机 Air3|京东|2021/09|12|✓
 爱国者硬盘 SSD P2000|京东|2021/08|60|✓
 米家台灯 1S|京东|2021/08|12|✓
 iKBC 键盘 C87|京东|2021/06|12|✓
-Xbox 手柄 pdp PowerA|淘宝|2021/02|3|✗
+Xbox 手柄 pdp PowerA|淘宝|2021/02|3|✓
 英菲克耳机 i12|一淘|2020/09|12|✗
 Kindle 电子书 X|咪咕阅读|2020/08|12|✗
 米家电扇 1X|苏宁|2020/07|48+24|✓

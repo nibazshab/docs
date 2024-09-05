@@ -34,6 +34,7 @@ __小工具__
 - Cheat Engine：修改器 - [蓝奏云](https://www.lanzout.com/iwvLs10pejqb) <Badge text="exe" />
 - 一个木函：工具箱 - <Badge text="apple" />
 - WakeUp：课程表，可导出 ics 日历文件 - <Badge text="apk" />
+- Spek：音乐频谱分析工具 - [官网](https://github.com/alexkay/spek) <Badge text="exe" />
 
 __开发__
 
