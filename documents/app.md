@@ -15,6 +15,7 @@ __办公__
 - Nicegram：第三方 Telegram 客户端 - 美区 <Badge text="apple" />
 - MDGram：第三方 Telegram 客户端 - <Badge text="apk" />
 - Squid：笔记软件 - <Badge text="apk" />
+- Typora：Markdown 笔记软件 - <Badge text="exe" />
 
 __媒体处理__
 
