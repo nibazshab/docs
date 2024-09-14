@@ -13,7 +13,7 @@ Compose 是用于定义和运行多个容器 Docker 应用程序的工具。通�
 默认位于 `/opt/containerd`，修改的方法如下
 
 1. 输入 `containerd config default > /etc/containerd/config.toml` 生成默认配置文件
-2. 找到 ___[plugins."io.containerd.internal.v1.opt"]___
+2. 找到 _[plugins."io.containerd.internal.v1.opt"]_
 3. 修改该项的 path 值
 4. 输入 `systemctl restart containerd.service` 重启服务
 

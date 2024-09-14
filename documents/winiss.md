@@ -13,7 +13,7 @@
 ### SMB 共享文件夹
 
 1. 属性 - 共享 - 共享 - 添加 Everyone 用户，给予权限
-2. 属性 - 共享 - 高级共享 - 勾选 ___共享此文件夹___
+2. 属性 - 共享 - 高级共享 - 勾选 _共享此文件夹_
 3. 属性 - 共享 - 高级共享 - 权限 - 选择 Everyone 用户，给予权限
 
 ### 输入的最后一个产品密钥不能用于此 Windows 副本
@@ -21,14 +21,14 @@
 1. 注册表编辑器
 2. 打开 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform
 3. 查看 BackupProductKeyDefault 的值，并复制
-4. 设置 - 更新和安全 - 激活，选择 __更改产品密钥___
+4. 设置 - 更新和安全 - 激活，选择 __更改产品密钥_
 5. 粘贴刚刚复制的密钥，下一步，激活
 
 ### 笔记本插电时保持小功率
 
 1. 电源选项
 2. 创建电源计划
-3. 勾选 ___节能___
+3. 勾选 _节能_
 
 ### 安装 AppX/MSIX
 
@@ -81,34 +81,34 @@ RD /S /Q \\?\%1
 ::: details 禁用自动更新
 1. 计算机管理
 2. 服务和应用程序
-3. 禁用 ___Microsoft Edge Update Service (edgeupdate)，Microsoft Edge Update Service (edgeupdatem)，Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)___
+3. 禁用 _Microsoft Edge Update Service (edgeupdate)，Microsoft Edge Update Service (edgeupdatem)，Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)_
 4. 创建空文件，替换掉 %PROGRAMFILES(X86)%/Microsoft/EdgeUpdate/MicrosoftEdgeUpdate.exe
 :::
 
 ### 降低 Win 安全中心的占用
 
 1. win+r 输入 gpedit.msc
-2. 打开 ___计算机配置 - 管理模板 - Windows 组件 - Microsoft Defender 防病毒 - 扫描___
-3. 点击 ___指定扫描期间 CPU 使用率的最大百分比___
-4. 左侧选择 ___已启用___，并将数值设为 5
+2. 打开 _计算机配置 - 管理模板 - Windows 组件 - Microsoft Defender 防病毒 - 扫描_
+3. 点击 _指定扫描期间 CPU 使用率的最大百分比_
+4. 左侧选择 _已启用_，并将数值设为 5
 
 ### 启用 PDF 虚拟打印机
 
 1. 控制面板
 2. 程序和功能
 3. 启用或关闭 Windows 功能
-4. 勾选 ___Microsoft Print to PDF___
+4. 勾选 _Microsoft Print to PDF_
 
 ### 关闭睡眠和锁定按钮
 
 1. 电源选项
 2. 选择电源按钮功能
 3. 更改当前不可用的设置
-4. 取消勾选 ___睡眠，锁定___
+4. 取消勾选 _睡眠，锁定_
 
 ### 软连接系统截图目录
 
-将 Win+Shift+S 截图链接到 ___图片/截图___ 目录
+将 Win+Shift+S 截图链接到 _图片/截图_ 目录
 
 1. 管理员权限打开 CMD
 2. 输入 mklink /d %HOMEPATH%\Pictures\截图 %LOCALAPPDATA%\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip
@@ -119,7 +119,7 @@ RD /S /Q \\?\%1
 2. 语言
 3. 管理语言设置
 4. 更改系统区域设置
-5. 勾选 ___使用 Unicode UTF-8 提供全球语言支持___
+5. 勾选 _使用 Unicode UTF-8 提供全球语言支持_
 
 如打开 GBK 编码文件时出现乱码的情况，请使用转区工具解决
 
@@ -127,14 +127,14 @@ RD /S /Q \\?\%1
 
 1. 计算机管理
 2. 服务和应用程序
-3. 禁用 ___Connected User Experiences and Telemetry___
+3. 禁用 _Connected User Experiences and Telemetry_
 
 ### 修改动画效果
 
 1. 系统
 2. 高级系统设置
 3. 性能
-4. 勾选 ___平滑屏幕字体边缘，显示缩略图，显示亚透明的选择长方形，在窗口下显示阴影___
+4. 勾选 _平滑屏幕字体边缘，显示缩略图，显示亚透明的选择长方形，在窗口下显示阴影_
 
 ### 将硬件时间视为 UTC 时间
 

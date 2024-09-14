@@ -8,6 +8,20 @@
 
 Value 公司发行的 Steam Deck 掌机使用基于 Arch Linux 所开发的 SteamOS 3 系统
 
+## Steam 新家庭
+
+封禁连坐机制：只会封禁 _开挂者_ 和 _开挂游戏的拥有者_，不会殃及家庭中的其他成员
+
+免费游戏不会被共享
+
+### 如何使某个游戏不共享到家庭？
+
+在 Steam 的游戏界面上，点击 _管理_，将游戏 _标记为私密_ 即可
+
+::: tip 小提示
+点击查看 Steam 中的 [拥有 VAC 封禁的大部分游戏](https://store.steampowered.com/search/?supportedlang=schinese%2Ctchinese%2Cjapanese%2Ckoreana%2Cthai%2Cbulgarian%2Cczech%2Cdanish%2Cgerman%2Cspanish%2Cenglish%2Cindonesian%2Citalian%2Cgreek%2Cfrench%2Clatam&category1=998&category2=8&hidef2p=1&ndl=1)
+:::
+
 ## Steam 令牌
 
 ::: danger 警告
@@ -68,11 +82,11 @@ flatpak override --user com.usebottles.bottles --filesystem=~/.var/app/com.valve
 
 ### 运行非 steam 平台 exe 游戏
 
-1. 点击 Steam 左下角 ___添加游戏___
-2. 点击 ___添加非 Steam 游戏___
+1. 点击 Steam 左下角 _添加游戏_
+2. 点击 _添加非 Steam 游戏_
 3. 选择游戏的 exe 启动程序
-4. 点击 ___添加选定的程序___
-5. 在 ___属性 - 兼容性___ 中勾选 ___强制使用特定 Steam Play 兼容性工具___
+4. 点击 _添加选定的程序_
+5. 在 _属性 - 兼容性_ 中勾选 _强制使用特定 Steam Play 兼容性工具_
 
 ### 开启 Steam Deck 界面
 

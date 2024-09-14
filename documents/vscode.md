@@ -26,7 +26,7 @@ Windows 路径：%APPDATA%\Code\User\History
 
 ## 离线安装插件
 
-在插件页面，选择 ___Install from VSIX...___
+在插件页面，选择 _Install from VSIX..._
 
 ## 快捷键记录
 

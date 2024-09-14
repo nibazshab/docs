@@ -11,17 +11,17 @@ div[class*='language-']::before {
   text-decoration: underline !important;
 }
 
-:root {
-  // 主题色
-  --c-brand: #087ea4;
-  --c-brand-light: #066583;
+// :root {
+//   // 主题色
+//   --c-brand: #087ea4;
+//   --c-brand-light: #066583;
 
-  // 背景颜色
-  --c-bg-light: #f6f8fa;
+//   // 背景颜色
+//   --c-bg-light: #f6f8fa;
 
-  // 文字颜色
-  // --c-text-lighter: #ff4c0f;
-}
+//   // 文字颜色
+//   --c-text-lighter: #ff4c0f;
+// }
 
 // // 深色模式下的 shiki 代码块渲染
 // html.dark .shiki,
