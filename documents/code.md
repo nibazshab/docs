@@ -24,7 +24,7 @@ c 静态编译，使用 musl libc
 
 去除静态文件的无用符号信息 `strip file`
 
-upx 工具，压缩二进制文件体积 `upx --ultra-brute file`
+upx 工具，压缩二进制文件体积 `upx --ultra-brute file`，`-d` 参数还原
 
 ## css
 

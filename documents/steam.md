@@ -80,6 +80,10 @@ flatpak override --user com.usebottles.bottles --filesystem=~/.var/app/com.valve
 
 ## Steam 疑难杂症
 
+### 收藏夹排序
+
+在收藏夹的名称前面加空格即可，空的越多越靠前
+
 ### 运行非 steam 平台 exe 游戏
 
 1. 点击 Steam 左下角 _添加游戏_
