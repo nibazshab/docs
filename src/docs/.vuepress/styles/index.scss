@@ -10,25 +10,3 @@ div[class*='language-']::before {
 .theme-default-content a:not(.header-anchor):hover {
   text-decoration: underline !important;
 }
-
-// :root {
-//   // 主题色
-//   --c-brand: #087ea4;
-//   --c-brand-light: #066583;
-
-//   // 背景颜色
-//   --c-bg-light: #f6f8fa;
-
-//   // 文字颜色
-//   --c-text-lighter: #ff4c0f;
-// }
-
-// // 深色模式下的 shiki 代码块渲染
-// html.dark .shiki,
-// html.dark .shiki span {
-//   color: var(--shiki-dark) !important;
-//   background-color: var(--shiki-dark-bg) !important;
-//   font-style: var(--shiki-dark-font-style) !important;
-//   font-weight: var(--shiki-dark-font-weight) !important;
-//   text-decoration: var(--shiki-dark-text-decoration) !important;
-// }

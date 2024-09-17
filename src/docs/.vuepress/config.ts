@@ -2,7 +2,7 @@ import { defineUserConfig } from 'vuepress';
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { getDirname, path } from '@vuepress/utils';
-// import { shikiPlugin } from '@vuepress/plugin-shiki';
+import { prismjsPlugin } from '@vuepress/plugin-prismjs'
 
 const __dirname = getDirname(import.meta.url);
 
@@ -20,6 +20,7 @@ export default defineUserConfig({
         '/link/',
       ],},],
     navbar: [{ text: '说书人叹天下旧事如潮，听书人悲欢不过一壶新茶', link: '/pro/' },],
+
     lastUpdated: false,
     contributors: false,
     sidebarDepth: 0,
@@ -27,15 +28,9 @@ export default defineUserConfig({
   },),
 
   plugins: [
-    // shikiPlugin({
-    //   langs: [
-    //     // 'LANGS',
-    //   ],
-    //   themes: {
-    //     light: 'github-light',
-    //     dark:'github-dark-dimmed'
-    //   },
-    // },),
+    prismjsPlugin({
+      themes: { light: 'one-light', dark: 'nord' }
+    }),
   ],
 
   alias: {
