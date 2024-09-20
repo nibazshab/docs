@@ -143,51 +143,51 @@ RD /S /Q \\?\%1
 
 ## 快捷键
 
-键位|功能
--|-
-Win + Q|搜索
-Win + D|切换桌面
-Win + L|锁定屏幕
-Alt + Tab|切换任务
-Win + Tab|打开任务视图
-Ctrl + Shift + Esc|打开任务管理器
-Ctrl + A / C / V / X|全选 / 复制 / 粘贴 / 剪切
-Ctrl + Z / Y|撤销 / 重做
-Ctrl + W / Alt + F4|关闭当前活动窗口
-Win + PrtScn|保存截屏到图片
+|键位|功能|
+|-|-|
+|Win + Q|搜索|
+|Win + D|切换桌面|
+|Win + L|锁定屏幕|
+|Alt + Tab|切换任务|
+|Win + Tab|打开任务视图|
+|Ctrl + Shift + Esc|打开任务管理器|
+|Ctrl + A / C / V / X|全选 / 复制 / 粘贴 / 剪切|
+|Ctrl + Z / Y|撤销 / 重做|
+|Ctrl + W / Alt + F4|关闭当前活动窗口|
+|Win + PrtScn|保存截屏到图片|
 
 ## 特殊文件夹
 
-路径|说明
--|-
-%LOCALAPPDATA%\Programs|用户级程序目录
-%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup|用户级开机自启目录
-%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\StartUp|系统级开机自启目录
+|路径|说明|
+|-|-|
+|%LOCALAPPDATA%\Programs|用户级程序目录|
+|%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup|用户级开机自启目录|
+|%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\StartUp|系统级开机自启目录|
 
 ## 环境变量
 
-变量名|变量值
--|-
-%APPDATA%|C:\Users\Username\AppData\Roaming
-%WINDIR%|C:\Windows
-%COMMONPROGRAMFILES%|C:\Program Files\Common Files
-%COMMONPROGRAMFILES(x86)%|C:\Program Files (x86)\Common Files
-%SYSTEMDRIVE%|C:
-%HOMEPATH%|C:\Users\Username
-%LOCALAPPDATA%|C:\Users\Username\AppData\Local
-%PROGRAMDATA%|C:\ProgramData
-%PROGRAMFILES%|C:\Program Files
-%PROGRAMFILES(X86)%|C:\Program Files (x86)
-%ALLUSERSPROFILE%|C:\ProgramData
-%COMMONPROGRAMW6432%|C:\Program Files\Common Files
-%COMPUTERNAME%|Hostname
-%COMSPEC%|C:\WINDOWS\system32\cmd.exe
-%HOMEDRIVE%|C:
-%LOGONSERVER%|\\\MicrosoftAccount
-%OS%|Windows_NT
-%PROGRAMW6432%|C:\Program Files
-%PUBLIC%|C:\Users\Public
-%TEMP%|C:\Users\Username\AppData\Local\Temp
-%TMP%|C:\Users\Username\AppData\Local\Temp
-%USERDOMAIN%|Hostname
-%USERNAME%|Username
+|变量名|变量值|
+|-|-|
+|%APPDATA%|C:\Users\Username\AppData\Roaming|
+|%WINDIR%|C:\Windows|
+|%COMMONPROGRAMFILES%|C:\Program Files\Common Files|
+|%COMMONPROGRAMFILES(x86)%|C:\Program Files (x86)\Common Files|
+|%SYSTEMDRIVE%|C:|
+|%HOMEPATH%|C:\Users\Username|
+|%LOCALAPPDATA%|C:\Users\Username\AppData\Local|
+|%PROGRAMDATA%|C:\ProgramData|
+|%PROGRAMFILES%|C:\Program Files|
+|%PROGRAMFILES(X86)%|C:\Program Files (x86)|
+|%ALLUSERSPROFILE%|C:\ProgramData|
+|%COMMONPROGRAMW6432%|C:\Program Files\Common Files|
+|%COMPUTERNAME%|Hostname|
+|%COMSPEC%|C:\WINDOWS\system32\cmd.exe|
+|%HOMEDRIVE%|C:|
+|%LOGONSERVER%|\\\MicrosoftAccount|
+|%OS%|Windows_NT|
+|%PROGRAMW6432%|C:\Program Files|
+|%PUBLIC%|C:\Users\Public|
+|%TEMP%|C:\Users\Username\AppData\Local\Temp|
+|%TMP%|C:\Users\Username\AppData\Local\Temp|
+|%USERDOMAIN%|Hostname|
+|%USERNAME%|Username|

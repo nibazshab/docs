@@ -30,12 +30,12 @@ Windows 路径：%APPDATA%\Code\User\History
 
 ## 快捷键记录
 
-快捷键|-
--|-
-CTRL+SHIFT+END/HOME|向下/上选中所有行
-Alt + Shift + F|格式化代码
-Ctrl + Shift + U/I|大/小写转换
-Ctrl + /|注释选定的行
+|快捷键|-|
+|-|-|
+|CTRL+SHIFT+END/HOME|向下/上选中所有行|
+|Alt + Shift + F|格式化代码|
+|Ctrl + Shift + U/I|大/小写转换|
+|Ctrl + /|注释选定的行|
 
 ## 扩展推荐
 

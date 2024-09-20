@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-pnpm add -D vue vuepress@next @vuepress/bundler-vite@next @vuepress/theme-default@next @vuepress/client@next @vuepress/utils@next sass-embedded
-# pnpm add -D @vuepress/plugin-shiki@next
+pnpm add -D vue vuepress@next @vuepress/bundler-vite@next @vuepress/theme-default@next @vuepress/client@next @vuepress/utils@next sass-embedded @vuepress/plugin-prismjs@next
 
 repo=$(dirname "$PWD")
 
