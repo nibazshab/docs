@@ -29,7 +29,7 @@ export default defineUserConfig({
 
   plugins: [
     prismjsPlugin({
-      themes: { light: 'one-light', dark: 'nord' }
+      themes: { light: 'ghcolors', dark: 'one-dark' }
     }),
   ],
 

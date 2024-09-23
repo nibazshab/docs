@@ -6,7 +6,7 @@
 
 本站使用的插件：
 
-- [@vuepress/plugin-shiki@next](https://ecosystem.vuejs.press/zh/plugins/markdown/shiki.html)
+- @vuepress/plugin-prismjs@next
 
 未经特殊说明，本站作品均采用 [知识共享署名 4.0 国际许可协议](https://creativecommons.org/licenses/by/4.0) 进行许可
 
