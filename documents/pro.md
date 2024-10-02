@@ -6,6 +6,7 @@
 -|-|-
 阿里云服务器|2024/11/06
 腾讯云服务器|2024/11/03
+腾讯云服务器|2025/9/25
 eu.org|null|eu.org，cloudflare
 us.kg|2025/06/14|us.kg，cloudflare
 rr.nu|null|sitelutions，he.net

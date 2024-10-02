@@ -13,6 +13,9 @@ go get 换源阿里 `go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direc
 go 好用的工具
 
 ```sh
+go install github.com/kisielk/errcheck@latest # 检查没有处理的错误
+errcheck -blank ./...
+
 go install mvdan.cc/gofumpt@latest # 代码格式化
 gofumpt -l -w .
 
