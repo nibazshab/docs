@@ -6,6 +6,9 @@
 需要请参考 [ArchWiki#安装指南](https://wiki.archlinux.org/title/Installation_guide)
 :::
 
+- 实机安装部分 [跳转](#准备阶段)
+- 云服务器安装部分 [跳转](#云服务器安装)
+
 ## 准备阶段
 
 下载镜像、制作启动盘、确认 efi 启动方式等步骤略过，不做描述
@@ -326,3 +329,198 @@ pacman -S adobe-source-han-sans-tw-fonts adobe-source-han-serif-tw-fonts
 在以后的图形化使用中，请以普通用户的身份登录系统
 
 > 注：进阶安装部分结束
+
+## 云服务器安装
+
+::: important 说明
+云服务器提供商需要支持 VNC 连接，且服务器正在使用任意 Linux 操作系统
+
+本文将删除服务器中的所有数据
+
+需要请参考 [ArchWiki#从现有 Linux 发行版安装 Arch Linux](https://wiki.archlinux.org/title/Install_Arch_Linux_from_existing_Linux)  
+需要请使用 [vps2arch 脚本](https://github.com/drizzt/vps2arch)
+:::
+
+服务器商 VNC 界面
+
+::: tabs
+@tab 腾讯云
+远程连接 - VNC 连接
+
+@tab 阿里云
+远程连接 - 救援模式，需要先点击运行一次上方的 _复制命令_ 才能接受到键盘操作
+:::
+
+### 1. 下载系统镜像
+
+下载系统镜像，改名为 archlinux.iso 并放在根目录，有条件可以从内网下载
+
+```sh
+# 腾讯云内网
+wget mirrors.tencentyun.com/archlinux/iso/latest/archlinux-x86_64.iso -O /archlinux.iso
+
+# 阿里云内网
+wget mirrors.cloud.aliyuncs.com/archlinux/iso/latest/archlinux-x86_64.iso -O /archlinux.iso
+```
+
+### 2. 添加开机引导项
+
+编辑 /boot/grub/grub.cfg，在末尾处添加以下内容，`/dev/vda1` 为 archlinux.iso 文件所在的分区
+
+```sh
+menuentry 'Arch Linux LiveCD' {
+    set isofile=/archlinux.iso
+    set imgdevpath=/dev/vda1
+    loopback lo0 $isofile
+    linux (lo0)/arch/boot/x86_64/vmlinuz-linux img_dev=$imgdevpath img_loop=$isofile
+    initrd (lo0)/arch/boot/x86_64/initramfs-linux.img
+}
+```
+
+如果在开机时没有出现 Grub 引导界面，请检测 grub.cfg 文件中是否有自动选择启动项的配置
+
+### 3. 启动镜像环境
+
+打开 VNC 界面，输入 reboot 重启系统，在开机的引导界面选择最后一项 `Arch Linux LiveCD`，如果时间不够选择，在 grub.cfg 中修改 GRUB_TIMEOUT 的值，单位是秒
+
+输入命令 passwd 设置临时密码，以使用 ssh root@ip 进行远程连接，随后不再使用 VNC
+
+### 4. 清理系统数据
+
+直接格式化硬盘即可 `mkfs.ext4 /dev/vda1`，随后挂载硬盘 `mount /dev/vda1 /mnt`
+
+如无法格式化，可以尝试重设硬盘挂载权限 `mount -o rw,remount /dev/vda1`，再挂载硬盘 `mount /dev/vda1 /mnt`，手动删除数据 `rm -rf /mnt/*`
+
+注：本文确保硬盘分区表使用 dos/mbr 格式而不是 gpt 格式，可输入 fdisk -l 命令查看。使用 `dd if=/dev/zero of=/dev/vda bs=512K count=1` 命令可直接擦除硬盘分区表信息
+
+### 5. 正式安装
+
+先换源，有条件使用内网源
+
+```sh
+# 腾讯云内网
+echo 'Server = http://mirrors.tencentyun.com/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+
+# 阿里云内网
+echo 'Server = http://mirrors.cloud.aliyuncs.com/archlinux/$repo/os/$arch' > /etc/pacman.d/mirrorlist
+```
+
+安装基本包，生成磁盘信息标识
+
+```sh
+pacstrap /mnt base linux-lts openssh nano grub
+genfstab -U /mnt >> /mnt/etc/fstab
+```
+
+nameserver 信息，有条件使用内网地址
+
+```sh
+# 腾讯云内网
+echo nameserver 183.60.82.98 > /mnt/etc/resolv.conf
+
+# 阿里云内网
+echo nameserver 100.100.2.136 > /mnt/etc/resolv.conf
+```
+
+进入 chroot 环境
+
+```sh
+arch-chroot /mnt
+```
+
+时区，语言环境，网络连接信息，`Name` 值为网卡名称，使用 ip addr 命令查看，此处示例为 ens5
+
+```sh
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+echo zh_CN.UTF-8 UTF-8 > /etc/locale.gen
+locale-gen
+
+echo vps > /etc/hostname
+
+cat << EOL > /etc/systemd/network/20-wired.network
+[Match]
+Name=ens5
+[Network]
+DHCP=ipv4
+EOL
+```
+
+ssh，此处配置为必须使用密钥登陆，如使用密码可将 PasswordAuthentication 改为 yes
+
+```sh
+cat << EOL > /etc/ssh/sshd_config.d/10-vps.conf
+PermitRootLogin yes
+PasswordAuthentication no
+ClientAliveInterval 3600
+PrintLastLog no
+AddressFamily inet
+UsePAM no
+EOL
+
+# 密钥登陆的公钥信息，此处为示例，具体不做描述
+cat << EOL > /root/.ssh/authorized_keys
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPNwSU4IuTcE1fEkfooybSCM6gpChn7okmtBgblK1Bkx
+EOL
+```
+
+设置 root 密码，使用 `passwd` 命令
+
+自启系统服务，开机引导，如果硬盘分区表非 dos/mbr 而是 gpt 则会报错，不做描述
+
+```
+systemctl enable sshd.service systemd-networkd.service
+grub-install --target=i386-pc /dev/vda
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+结束，重启
+
+```sh
+exit
+reboot
+```
+
+
+额外内容
+
+```sh
+# nano 文本编辑器
+cat << EOL > /root/.nanorc
+include "/usr/share/nano/*.nanorc"
+set linenumbers
+set tabstospaces
+set constantshow
+set tabsize 4
+EOL
+
+# fish 为默认 SHELL
+pacman -S --noconfirm fish
+chsh -s /usr/bin/fish
+mkdir -p /root/.config/fish/conf.d
+cat << EOL > /root/.config/fish/conf.d/10-root.fish
+set fish_greeting
+set LANG zh_CN.UTF-8
+abbr -a lsof lsof -Pi
+EOL
+
+# docker，腾讯内网源
+pacman -S --noconfirm docker docker-compose
+mkdir -p /etc/docker
+cat << EOL > /etc/docker/daemon.json
+{
+    "registry-mirrors": [ "https://mirror.ccs.tencentyun.com" ]
+}
+EOL
+systemctl enable --now docker
+
+# 小工具
+pacman -S tree unzip wget less lsof fastfetch
+
+# 交互分区
+fallocate -l 2G /boot/swapfile
+chmod 600 /boot/swapfile
+mkswap /boot/swapfile
+swapon /boot/swapfile
+echo '/boot/swapfile none swap defaults 0 0' >> /etc/fstab
+```

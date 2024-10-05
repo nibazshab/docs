@@ -71,7 +71,7 @@ exec /app
 
 输入 `docker build -t ID:TAG .` 构建镜像，若要使用代理，则添加参数例如 `--build-arg http_proxy=172.17.0.1:7890`
 
-::: tip 额外内容
+::: note 注
 scratch 是大小为 0kb 的空白镜像  
 busybox:glibc 带有基本 shell 和 glibc 的最小镜像
 

@@ -18,7 +18,7 @@ Value 公司发行的 Steam Deck 掌机使用基于 Arch Linux 所开发的 Stea
 
 在 Steam 的游戏界面上，点击 _管理_，将游戏 _标记为私密_ 即可
 
-::: tip 小提示
+::: note 注
 点击查看 Steam 中的 [拥有 VAC 封禁的大部分游戏](https://store.steampowered.com/search/?supportedlang=schinese%2Ctchinese%2Cjapanese%2Ckoreana%2Cthai%2Cbulgarian%2Cczech%2Cdanish%2Cgerman%2Cspanish%2Cenglish%2Cindonesian%2Citalian%2Cgreek%2Cfrench%2Clatam&category1=998&category2=8&hidef2p=1&ndl=1)
 :::
 

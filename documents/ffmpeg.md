@@ -32,9 +32,11 @@ ffmpeg -encoders 查看支持的编码器
 
 由开放媒体联盟对标 HEVC 所推出的开源免费编码格式。Netflix、YouTube 等知名流媒体平台均使用 AV1 格式。推荐使用 libsvtav1 编码器
 
-> libaom-av1 效果最好，但速度很慢，耗时过长  
-> librav1e 速度最快  
-> libsvtav1 兼顾了速度与效率，被作为 AV1 未来开发工作的基础
+::: note 注
+libaom-av1 效果最好，但速度很慢，耗时过长  
+librav1e 速度最快  
+libsvtav1 兼顾了速度与效率，被作为 AV1 未来开发工作的基础
+:::
 
 ### 编码示例
 
