@@ -332,10 +332,8 @@ pacman -S adobe-source-han-sans-tw-fonts adobe-source-han-serif-tw-fonts
 
 ## 云服务器安装
 
-::: important 说明
+::: tip 说明
 云服务器提供商需要支持 VNC 连接，且服务器正在使用任意 Linux 操作系统
-
-本文将删除服务器中的所有数据
 
 需要请参考 [ArchWiki#从现有 Linux 发行版安装 Arch Linux](https://wiki.archlinux.org/title/Install_Arch_Linux_from_existing_Linux)  
 需要请使用 [vps2arch 脚本](https://github.com/drizzt/vps2arch)
@@ -384,6 +382,8 @@ menuentry 'Arch Linux LiveCD' {
 打开 VNC 界面，输入 reboot 重启系统，在开机的引导界面选择最后一项 `Arch Linux LiveCD`，如果时间不够选择，在 grub.cfg 中修改 GRUB_TIMEOUT 的值，单位是秒
 
 输入命令 passwd 设置临时密码，以使用 ssh root@ip 进行远程连接，随后不再使用 VNC
+
+此时反悔还来得及
 
 ### 4. 清理系统数据
 
