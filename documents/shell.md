@@ -144,6 +144,8 @@ sfdisk /dev/sdb < sdb.bkp
 ```
 
 ```sh
+# fish 添加 PATH
+fish_add_path /root/bin
 pacman # arch 系列包管理器，-S 安装，-Si 查看信息，-Ql 查看本地文件，-Ss 根据关键词搜索包，-F 根据文件名查询包，-Rs 卸载，-Qdt 查找孤立依赖包，-U 安装本地文件，-Syu 更新所有包，--noconfirm 跳过确认
 # 转换 webp 为 png
 dwebp a.webp -o a.png

@@ -5,7 +5,7 @@
 <div class="link">
 
 [Zexin's Blog](https://zexin.eu.org)
-[不可视之线](https://n2x.club)
+[不可视之线](https://noemo.icu)
 [649 导航](https://nav.0808188.xyz)
 [649 在线文档](https://docs.0808188.xyz)
 

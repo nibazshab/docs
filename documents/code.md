@@ -13,6 +13,8 @@ go get 换源阿里 `go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direc
 go 好用的工具
 
 ```sh
+golangci-lint run ./... # 检测代码
+
 go install github.com/kisielk/errcheck@latest # 检查没有处理的错误
 errcheck -blank ./...
 
