@@ -383,7 +383,7 @@ menuentry 'Arch Linux LiveCD' {
 
 输入命令 passwd 设置临时密码，以使用 ssh root@ip 进行远程连接，随后不再使用 VNC
 
-此时反悔还来得及
+> 注：此时反悔还来得及
 
 ### 4. 清理系统数据
 
@@ -391,7 +391,7 @@ menuentry 'Arch Linux LiveCD' {
 
 如无法格式化，可以尝试重设硬盘挂载权限 `mount -o rw,remount /dev/vda1`，再挂载硬盘 `mount /dev/vda1 /mnt`，手动删除数据 `rm -rf /mnt/*`
 
-注：本文确保硬盘分区表使用 dos/mbr 格式而不是 gpt 格式，可输入 fdisk -l 命令查看。使用 `dd if=/dev/zero of=/dev/vda bs=512K count=1` 命令可直接擦除硬盘分区表信息
+> 注：本文确保硬盘分区表使用 dos/mbr 格式而不是 gpt 格式，可输入 fdisk -l 命令查看。使用 `dd if=/dev/zero of=/dev/vda bs=512K count=1` 命令可直接擦除硬盘分区表信息
 
 ### 5. 正式安装
 
@@ -466,9 +466,9 @@ EOL
 
 设置 root 密码，使用 `passwd` 命令
 
-自启系统服务，开机引导，如果硬盘分区表非 dos/mbr 而是 gpt 则会报错，不做描述
+自启系统服务，开机引导
 
-```
+```sh
 systemctl enable sshd.service systemd-networkd.service
 grub-install --target=i386-pc /dev/vda
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -481,11 +481,21 @@ exit
 reboot
 ```
 
+### 6. 其他
 
-额外内容
+交换分区配置
 
 ```sh
-# nano 文本编辑器
+fallocate -l 2G /boot/swapfile
+chmod 600 /boot/swapfile
+mkswap /boot/swapfile
+swapon /boot/swapfile
+echo '/boot/swapfile none swap defaults 0 0' >> /etc/fstab
+```
+
+nano 文本编辑器
+
+```sh
 cat << EOL > /root/.nanorc
 include "/usr/share/nano/*.nanorc"
 set linenumbers
@@ -493,34 +503,16 @@ set tabstospaces
 set constantshow
 set tabsize 4
 EOL
+```
 
-# fish 为默认 SHELL
+安装 fish 为默认 SHELL
+
+```sh
 pacman -S --noconfirm fish
 chsh -s /usr/bin/fish
 mkdir -p /root/.config/fish/conf.d
 cat << EOL > /root/.config/fish/conf.d/10-root.fish
 set fish_greeting
 set LANG zh_CN.UTF-8
-abbr -a lsof lsof -Pi
 EOL
-
-# docker，腾讯内网源
-pacman -S --noconfirm docker docker-compose
-mkdir -p /etc/docker
-cat << EOL > /etc/docker/daemon.json
-{
-    "registry-mirrors": [ "https://mirror.ccs.tencentyun.com" ]
-}
-EOL
-systemctl enable --now docker
-
-# 小工具
-pacman -S tree unzip wget less lsof fastfetch
-
-# 交互分区
-fallocate -l 2G /boot/swapfile
-chmod 600 /boot/swapfile
-mkswap /boot/swapfile
-swapon /boot/swapfile
-echo '/boot/swapfile none swap defaults 0 0' >> /etc/fstab
 ```

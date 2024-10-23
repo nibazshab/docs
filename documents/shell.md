@@ -3,6 +3,8 @@
 记录 Shell、PowerShell、SQL、Git 的命令
 
 ```sh
+#查看端口占用情况
+lsof -Pi
 # cat 写入文件，'EOL' 表示以下内容不进行转义
 cat << EOL > a.txt
 hello world

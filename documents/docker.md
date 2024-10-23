@@ -33,6 +33,8 @@ Compose 是用于定义和运行多个容器 Docker 应用程序的工具。通�
 ```
 
 输入 `systemctl daemon-reload` 重新加载配置文件，输入 `systemctl restart docker` 重启 docker 服务
+
+- 腾讯云内网源 `https://mirror.ccs.tencentyun.com`
 :::
 
 ## 自制容器镜像
