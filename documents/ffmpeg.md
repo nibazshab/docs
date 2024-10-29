@@ -2,41 +2,50 @@
 
 [FFmpeg](https://ffmpeg.org) 是一个处理音频和视频的跨平台开源软件
 
+本文仅作简单介绍，不涉及进阶操作
+
 ## 安装说明
 
 可以参考官方的说明文档来安装，或者从 [https://github.com/BtbN/FFmpeg-Builds](https://github.com/BtbN/FFmpeg-Builds) 下载每日构建的静态单文件版本
 
 ## 查看支持信息
 
-ffmpeg -formats 查看支持的封装容器格式
+ffmpeg
 
-ffmpeg -codecs 查看支持的编码格式
-
-ffmpeg -encoders 查看支持的编码器
+- -formats 查看支持的封装容器格式
+- -codecs 查看支持的编码格式
+- -encoders 查看支持的编码器
 
 查看视频的详细信息命令：ffmpeg -i a.mp4
 
-## 编码
+## GPU 加速编解码器
 
-本文不讨论硬件编码，仅讨论软件编码
+输入 `ffmpeg -codecs | findstr h264` 查看支持的 h264 格式的编解码器（Linux 下使用 grep 代替 findstr）
 
-### H.264/AVC
+```console
+DEV.LS h264
+H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 
+(decoders: h264 h264_qsv libopenh264 h264_cuvid) 
+(encoders: libx264 libx264rgb libopenh264 h264_amf h264_mf h264_nvenc h264_qsv h264_vaapi)
+```
 
-最常见的视频格式，最为普遍，几乎找不到设备不支持它的。推荐使用 libx264 编码器
+可以看到 decoders 后面的就是解码器的名称，encoders 后面的就是编码器的名称
 
-### H.265/HEVC
+`h264_qsv` 是 Intel 显卡编解码器，`h264_nvenc` 是 Nvidia 显卡编码器，`h264_cuvid` 是 Nvidia 显卡解码器，`h264_amf` 是 AMD 显卡的编码器
 
-更好的编码格式，在保证质量相同的情况下，对比 H.264 减少一半的文件大小。有版权限制，需要付专利费，仅 Safari 浏览器官方支持直接硬解。推荐使用 libx265 编码器
+示例，将 hevc 格式的 in.mp4 解码，再编码为 h264 格式的 out.mp4，调用 Intel 显卡硬件加速
 
-### AV1
+```sh
+ffmpeg -c:v hevc_qsv -i in.mp4 -c:v h264_qsv out.mp4
+```
 
-由开放媒体联盟对标 HEVC 所推出的开源免费编码格式。Netflix、YouTube 等知名流媒体平台均使用 AV1 格式。推荐使用 libsvtav1 编码器
+## 软件编码器
 
-::: note 注
-libaom-av1 效果最好，但速度很慢，耗时过长  
-librav1e 速度最快  
-libsvtav1 兼顾了速度与效率，被作为 AV1 未来开发工作的基础
-:::
+H.264/AVC，推荐使用 libx264
+
+H.265/HEVC，推荐使用 libx265
+
+AV1，推荐使用 libsvtav1，其中 libaom-av1 效果最好但速度很慢，librav1e 速度最快，libsvtav1 兼顾了速度与效率，被作为 AV1 未来开发工作的基础
 
 ### 编码示例
 
@@ -54,7 +63,7 @@ ffmpeg -i a.mp4 -c:v libsvtav1 -crf 18 b.mp4
 - `-c:a copy` 不修改音频编码格式，直接复制原有的音频流
 - `-c:v copy` 不修改视频编码格式，直接复制原有的视频流
 
-## 其他作用
+## 其他
 
 切割视频片段，将视频从第 30 秒到第 1 小时的画面作为一个新的视频生成。不使用 -t 参数默认是直到视频最后
 
