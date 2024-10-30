@@ -7,7 +7,7 @@
 阿里云新加坡服务器|2024/11/6
 腾讯云上海服务器|2024/11/3
 腾讯云上海服务器|2025/9/25
-icu 域名|2025/9/26|腾讯云 
+icu 域名|2025/9/26|腾讯云
 eu.org 域名|null|eu.org，cloudflare
 us.kg 域名|2025/6/14|us.kg，cloudflare
 rr.nu 域名|null|sitelutions，he.net

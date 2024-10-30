@@ -8,15 +8,6 @@ f=$d/.vuepress/config.ts
 
 cd $repo/documents
 
-# l=$(grep -n LANGS $f | grep -o ^[0-9]*)
-# for i in *.md
-# do
-#   grep -E '^`{3,}[a-zA-Z]{1,}' $i
-# done | tr -d '\r' | tr -d '`' | sort -u | while read i
-# do
-#   sed -i "$l i\'$i'," $f
-# done
-
 mv index.md $d
 for i in pro link
 do

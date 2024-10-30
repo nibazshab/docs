@@ -2,7 +2,25 @@
 
 本文主要记录 Arch Linux 相关的问题。内容收集自网络和 Arch Wiki，请自行甄别是否适用于其他版本的 Linux 操作系统
 
-### systemd timer 定时任务
+### Systemd 服务
+
+#### 程序 service 启动模板
+
+```ini
+[Unit]
+Description=描述
+After=network.target
+[Service]
+ExecStart=程序位置
+ExecStop=/bin/kill $MAINPID
+RestartSec=on-abort
+[Install]
+WantedBy=multi-user.target
+```
+
+可以使用 `Environment=` 定义环境变量
+
+#### timer 定时任务模板
 
 在 /etc/systemd/system 目录创建同名的 .service 和 .timer 文件，随后输入 `systemctl enable --now foo.timer` 启动即可
 
@@ -12,7 +30,6 @@
 ```ini
 [Unit]
 Description=foo
-
 [Service]
 Type=simple
 #WorkingDirectory=/opt #指定工作目录
@@ -24,10 +41,8 @@ ExecStart=/bin/foo
 ```ini
 [Unit]
 Description=foo at 2:00
-
 [Timer]
 OnCalendar=*-*-* 02:00:00
-
 [Install]
 WantedBy=multi-user.target
 ```

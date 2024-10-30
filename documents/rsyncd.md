@@ -10,21 +10,27 @@
 
 ### 配置
 
-创建 .rsyncd.conf 文件，写入如下内容
+创建 /etc/rsyncd.conf 文件，写入如下内容
 
 ```ini
-port = 873
+#uid = nobody
+#gid = nobody
+#use chroot = no
+#max connections = 4
+#syslog facility = local5
+#pid file = /run/rsyncd.pid
+#port = 873
+
 [backup]
 path = /home/backup
-comment = Backup - My Rsync Server
+comment = Backup - Rsync Server
 read only = no
 auth users = atri
-secrets file = .rsyncd.secrets
+secrets file = /etc/rsyncd.secret
 ```
 
 各字段的含义如下
 
-- `port` 监听端口，默认 873
 - `[backup]` 此配置的模块名称
 - `path` 数据存放的路径
 - `comment` 描述信息
@@ -32,21 +38,23 @@ secrets file = .rsyncd.secrets
 - `auth users` 允许的用户，虚拟的，不需要存在于系统中
 - `secrets file` 密码文件
 
-随后创建 .rsyncd.secrets 文件，写入用户和对应的密码，示例如下
+随后创建 /etc/rsyncd.secret 文件，写入用户和对应的密码，示例如下
 
 ```console
 atri:password
 ```
 
-输入 `chmod 600 .rsyncd.secrets` 将密码文件的权限设为 600
+输入 `chmod 600 /etc/rsyncd.secret` 将密码文件的权限设为 600
 
 ### 启动
 
-输入如下命令，开启 rsync 守护进程。如果使用 systemd 等后台服务工具，则需要加上 --no-detach 参数使得保持前台运行
+输入如下命令，开启 rsync 守护进程，可使用 `--config=` 指定配置文件，默认加载 /etc/rsyncd.conf
 
 ```sh
-rsync --daemon --config=.rsyncd.conf
+rsync --daemon
 ```
+
+如果使用 systemd 等后台服务工具，则需要加上 --no-detach 参数使得保持前台运行
 
 ## 客户端
 
@@ -87,4 +95,4 @@ rsync -avzhPu /data rsync://atri@192.168.1.2/backup --password-file=.rsync_pw
 
 ### failed: Permission denied (13)
 
-在服务端将 path 对应的路径权限设为 777
+在服务端将 path 对应的路径权限设为 755

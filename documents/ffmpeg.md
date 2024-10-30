@@ -20,12 +20,12 @@ ffmpeg
 
 ## GPU 加速编解码器
 
-输入 `ffmpeg -codecs | findstr h264` 查看支持的 h264 格式的编解码器（Linux 下使用 grep 代替 findstr）
+输入 `ffmpeg -codecs | findstr h264` 查看支持的 h264 格式的编解码器，Linux 使用 grep 代替 findstr
 
 ```console
 DEV.LS h264
-H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 
-(decoders: h264 h264_qsv libopenh264 h264_cuvid) 
+H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+(decoders: h264 h264_qsv libopenh264 h264_cuvid)
 (encoders: libx264 libx264rgb libopenh264 h264_amf h264_mf h264_nvenc h264_qsv h264_vaapi)
 ```
 
