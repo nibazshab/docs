@@ -1,6 +1,6 @@
 # GitHub 使用文档
 
-本文包含部分 Vercel 的内容
+本文包含部分 Vercel 和 Netlify 的内容
 
 ### 删除 Contributors 记录
 
@@ -104,6 +104,8 @@ ${{ secrets.SECRET_NAME }}
 
 #### 命令行更新发布项目
 
+需要配置环境变量 VERCEL_ORG_ID 和 VERCEL_PROJECT_ID，每一条命令设置 `--token=` 的值
+
 ```sh
 vercel pull --yes --environment=production
 vercel build --prod
@@ -114,4 +116,16 @@ vercel deploy --prebuilt --prod
 
 ```sh
 vercel remove project-name --safe
+```
+
+### Netlify
+
+#### 命令行更新发布项目
+
+需要配置环境变量 NETLIFY_AUTH_TOKEN 和 NETLIFY_SITE_ID
+
+```sh
+netlify link
+netlify build
+netlify deploy --dir=dist/ --prod
 ```
