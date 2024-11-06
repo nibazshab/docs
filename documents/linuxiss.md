@@ -4,34 +4,38 @@
 
 ### Systemd 服务
 
-#### 程序 service 启动模板
+系统级单元路径：
+
+- `/usr/lib/systemd/system/` 软件包单元
+- `/etc/systemd/system/` 系统管理员单元
+
+用户级单元路径：
+
+- `/usr/lib/systemd/user/` 软件包单元
+- `~/.local/share/systemd/user/` 家目录中的软件包单元
+- `/etc/systemd/user/` 系统管理员指定的用户单元
+- `~/.config/systemd/user/` 用户单元
 
 ```ini
 [Unit]
 Description=描述
-After=network.target
 [Service]
-ExecStart=程序位置
-ExecStop=/bin/kill $MAINPID
-RestartSec=on-abort
+ExecStart=启动命令
+Restart=on-failure
 [Install]
+#WantedBy=default.target #用户级单元使用
 WantedBy=multi-user.target
 ```
 
-可以使用 `Environment=` 定义环境变量
+可以通过 `Environment=` 定义环境变量
 
-#### timer 定时任务模板
-
-在 /etc/systemd/system 目录创建同名的 .service 和 .timer 文件，随后输入 `systemctl enable --now foo.timer` 启动即可
-
-例如
+创建同名的 service 和 timer 文件，可以启动定时任务，例如
 
 ::: details /etc/systemd/system/foo.service
 ```ini
 [Unit]
 Description=foo
 [Service]
-Type=simple
 #WorkingDirectory=/opt #指定工作目录
 ExecStart=/bin/foo
 ```
@@ -47,6 +51,8 @@ OnCalendar=*-*-* 02:00:00
 WantedBy=multi-user.target
 ```
 :::
+
+随后输入 `systemctl enable --now foo.timer` 启动即可
 
 ### 恢复误删文件，进程还在运行
 

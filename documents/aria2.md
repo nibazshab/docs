@@ -12,18 +12,16 @@ Arch 系的 Linux 系统，直接安装 `aria2` 即可，其他请参考各自�
 
 在 `$HOME/aria2` 目录下创建 aria2.conf、aria2.session 文件，其中 aria2.conf 的内容参考 [配置文件](#配置文件)
 
-在 `/etc/systemd/user` 目录下创建 aria2.service 文件，写入如下内容
+在 `~/.config/systemd/user` 目录下创建 aria2.service 文件，写入如下内容
 
 ```ini
 [Unit]
-Description=Aria2 RPC Daemon
-After=network.target
+Description=aria2 Daemon
 [Service]
 ExecStart=/usr/bin/aria2c --conf-path=%h/aria2/aria2.conf
-ExecStop=/bin/kill $MAINPID
-RestartSec=on-abort
+Restart=on-failure
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 ```
 
 启动服务，并设为开机自启
