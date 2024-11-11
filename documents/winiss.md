@@ -21,7 +21,7 @@
 1. 注册表编辑器
 2. 打开 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform
 3. 查看 BackupProductKeyDefault 的值，并复制
-4. 设置 - 更新和安全 - 激活，选择 __更改产品密钥_
+4. 设置 - 更新和安全 - 激活，选择 _更改产品密钥_
 5. 粘贴刚刚复制的密钥，下一步，激活
 
 ### 笔记本插电时保持小功率

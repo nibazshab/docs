@@ -27,7 +27,7 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
-可以通过 `Environment=` 定义环境变量
+可以通过 `Environment="a=1"` 定义环境变量
 
 创建同名的 service 和 timer 文件，可以启动定时任务，例如
 
@@ -44,9 +44,9 @@ ExecStart=/bin/foo
 ::: details /etc/systemd/system/foo.timer
 ```ini
 [Unit]
-Description=foo at 2:00
+Description=foo at 2:00 and 19:00
 [Timer]
-OnCalendar=*-*-* 02:00:00
+OnCalendar=*-*-* 2,19:00:00
 [Install]
 WantedBy=multi-user.target
 ```

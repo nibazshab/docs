@@ -1,15 +1,15 @@
 # 好用的软件推荐
 
-__环境__
+环境
 
 - Git：Git 环境 - [官网](https://git-scm.com) <Badge text="exe" />
-- MinGW-w64：C/C++ 环境，版本选择 x86_64-posix-seh - [官网](https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release) <Badge text="exe" />
+- MinGW-w64：C/C++ 环境，版本选择 posix-seh - [官网](https://github.com/niXman/mingw-builds-binaries) <Badge text="exe" />
 - OpenJDK：Java 环境 - [官网](https://openjdk.org) <Badge text="exe" />
 - Python：Python 环境 - [官网](https://www.python.org) <Badge text="exe" />
 - K-lite Codec Pack：音视频解码器套件 - [官网](https://codecguide.com) <Badge text="exe" />
 - HEVC Video Extension：HEVC 解码器，来自设备制造商的 HEVC 视频扩展，如果提示设备不支持，请手动下载离线包安装 - [官网](https://www.microsoft.com/zh-cn/p/hevc-video-extensions-from-device-manufacturer/9n4wgh0z6vhq) <Badge text="exe" />
 
-__办公__
+办公
 
 - Microsoft Office：Word、Excel、PowerPoint、Outlook 等，推荐使用 Office Tool Plus 安装 - [第三方工具](https://otp.landian.vip) <Badge text="exe" />
 - Nicegram：第三方 Telegram 客户端 - 美区 <Badge text="apple" />
@@ -17,7 +17,7 @@ __办公__
 - Squid：笔记软件 - <Badge text="apk" />
 - Typora：Markdown 笔记软件 - <Badge text="exe" />
 
-__媒体处理__
+媒体处理
 
 - Adobe：Photoshop、Premiere Pro、After Effects 等，微博搜索嬴政天下 vposy -  <Badge text="exe" />
 - PhotoDemon：便携式 PS 工具 - [官网](https://github.com/tannerhelland/PhotoDemon) <Badge text="exe" />
@@ -25,7 +25,7 @@ __媒体处理__
 - MusicTag：音乐标签编辑器 - [官网](https://www.cnblogs.com/vinlxc/p/11347744.html) <Badge text="exe" />
 - 照片编辑器：最好用的图片处理工具 - <Badge text="apk" />
 
-__小工具__
+小工具
 
 - Everything：文件搜索工具 - [官网](https://www.voidtools.com) <Badge text="exe" />
 - Bypass：铁路 12306 自动抢票 - [官网](https://www.bypass.cn) <Badge text="exe" />
@@ -37,23 +37,23 @@ __小工具__
 - WakeUp：课程表，可导出 ics 日历文件 - <Badge text="apk" />
 - Spek：音乐频谱分析工具 - [官网](https://github.com/alexkay/spek) <Badge text="exe" />
 
-__开发__
+开发
 
 - IntelliJ IDEA：Java 集成开发工具 - [官网](https://www.jetbrains.com/idea) <Badge text="exe" />
 - PyCharm：Python 集成开发工具 - [官网](https://www.jetbrains.com/pycharm) <Badge text="exe" />
 - Visual Studio Code：代码编辑工具 - [官网](https://code.visualstudio.com) <Badge text="exe" />
 
-__远程控制__
+远程控制
 
 - Parsec：远程桌面控制 - [官网](https://parsec.app) <Badge text="exe" />
 
-__终端__
+终端
 
 - Alacritty：终端模拟器 - [官网](https://github.com/alacritty/alacritty)，[主题](https://github.com/alacritty/alacritty-theme) <Badge text="exe" />
 - Termius：SSH 工具 - [官网](https://termius.com) <Badge text="exe" /><Badge text="apple" />
 - Termux：终端模拟器 - <Badge text="apk" />
 
-__影音__
+影音
 
 - foobar2000：本地音乐播放器 - [官网](https://www.foobar2000.org)，[第三方美化包](https://github.com/dream7180/foobox-cn) <Badge text="exe" />
 - ImageGlass：图像查看器 - [官网](https://github.com/d2phap/ImageGlass) <Badge text="exe" />
@@ -69,11 +69,11 @@ __影音__
 - PowerAMP：本地音乐播放器 - <Badge text="apk" />
 - aos-AVP：视频播放器，支持在线挂载观看 - <Badge text="apk" /><Badge text="tv" />
 
-__录屏__
+录屏
 
 - OBS Studio：直播和录屏软件，双显卡的笔记本电脑用户在使用 DXGI 捕捉屏幕时会黑屏，需要在图形设置中添加 OBS 并设为节能 - [官网](https://github.com/obsproject/obs-studio) <Badge text="exe" />
 
-__电子书__
+电子书
 
 - Sigil：ePub 电子书编辑器，Regex 参数替换时，使用 \1 而非 $1 参数 - [官网](https://github.com/Sigil-Ebook/Sigil) <Badge text="exe" />
 - AlReader2：TXT 小说阅读器，上古软件 - [蓝奏云](https://www.lanzout.com/i6UxI1wrbnte) <Badge text="exe" />
@@ -83,7 +83,7 @@ __电子书__
 - 阅读：看小说 - <Badge text="apk" />
 - Aa 小说阅读器：看小说，兼容上古设备 - <Badge text="apk" />
 
-__游戏__
+游戏
 
 - Steam：游戏平台 - [官网](https://store.steampowered.com) <Badge text="exe" />
 - WeGame：游戏平台 - [官网](https://www.wegame.com.cn) <Badge text="exe" />
@@ -93,18 +93,18 @@ __游戏__
 - Kirikiroid2：Galgame 模拟器 - <Badge text="apk" /><Badge text="ipa" />
 - Tyranor：Galgame 模拟器 - <Badge text="apk" />
 
-__浏览器__
+浏览器
 
 - Google Chrome：浏览器 - [官网](https://www.google.com/chrome) <Badge text="exe" />
 - CelFlashBrowser：Flash 浏览器 - [官网](https://github.com/Mzying2001/CefFlashBrowser) <Badge text="exe" />
 - Via：浏览器 - <Badge text="apk" />
 
-__文件管理__
+文件管理
 
 - Filza：文件管理器 - <Badge text="ipa" />
 - MT 管理器：文件管理器 - <Badge text="apk" />
 
-__高级__
+高级
 
 - MacType：字体渲染工具 - [官网](https://github.com/snowie2000/mactype) <Badge text="exe" />
 - Geek Uninstaller：应用程序卸载工具 - [官网](https://geekuninstaller.com) <Badge text="exe" />
@@ -118,32 +118,32 @@ __高级__
 - CaptiveMgr 清除 x 和 !：修正状态栏 WiFi 图标工具 - <Badge text="apk" />
 - SD Maid：空间清理工具 - <Badge text="apk" />
 
-__虚拟机__
+虚拟机
 
 - VMware Workstation Pro：虚拟机软件 - [官网](https://www.vmware.com) <Badge text="exe" />
 
-__代理__
+代理
 
 - v2rayN：代理客户端 - [官网](https://github.com/2dust/v2rayN)，[旧版](https://github.com/2dust/v2rayN/releases/tag/5.39) <Badge text="exe" />
 - Shadowrocket：小火箭 - 美区 <Badge text="apple" />
 - Clash：小猫咪 - <Badge text="apk" />
 - VPN 热点：使用热点共享代理 - <Badge text="apk" />
 
-__下载器__
+下载器
 
 - Aria2：命令行下载工具 - [官网](https://github.com/aria2/aria2) <Badge text="exe" />
 
-__解压缩__
+解压缩
 
-- 7-Zip：压缩和解压缩软件 - [官网](https://www.7-zip.org) <Badge text="exe" />
+- 7-Zip：压缩和解压缩软件 - [官网](https://www.7-zip.org)，[增强版](https://github.com/mcmilk/7-Zip-zstd) <Badge text="exe" />
 - Zarchiver：解压缩工具 - <Badge text="apk" />
 
-__社区__
+社区
 
 - 酷安：数码社区 - <Badge text="apple" /><Badge text="apk" />
 - 什么值得买：购物社区 - <Badge text="apple" />
 - 小黑盒：游戏社区 - <Badge text="apple" />
 
-__安全__
+安全
 
 - Bitwarden：搭配自建的 Vaultwarden 服务使用 - <Badge text="apple" />

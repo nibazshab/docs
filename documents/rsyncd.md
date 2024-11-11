@@ -10,7 +10,7 @@
 
 ### 配置
 
-创建 /etc/rsyncd.conf 文件，写入如下内容
+编辑 /etc/rsyncd.conf 文件，写入如下内容
 
 ```ini
 #uid = nobody
@@ -26,7 +26,7 @@ path = /home/backup
 comment = Backup - Rsync Server
 read only = no
 auth users = atri
-secrets file = /etc/rsyncd.secret
+secrets file = /home/.rsyncd.secret
 ```
 
 各字段的含义如下
@@ -38,13 +38,13 @@ secrets file = /etc/rsyncd.secret
 - `auth users` 允许的用户，虚拟的，不需要存在于系统中
 - `secrets file` 密码文件
 
-随后创建 /etc/rsyncd.secret 文件，写入用户和对应的密码，示例如下
+随后创建 /home/.rsyncd.secret 文件，写入用户和对应的密码，示例如下
 
 ```console
 atri:password
 ```
 
-输入 `chmod 600 /etc/rsyncd.secret` 将密码文件的权限设为 600
+输入 `chmod 600 /home/.rsyncd.secret` 将密码文件的权限设为 600
 
 ### 启动
 
@@ -54,7 +54,7 @@ atri:password
 rsync --daemon
 ```
 
-如果使用 systemd 等后台服务工具，则需要加上 --no-detach 参数使得保持前台运行
+如果使用 systemd 等后台服务工具，则需要加上 --no-detach 参数使得保持前台运行，如使用包管理器安装，应直接输入 `systemctl enable --now rsyncd` 即可
 
 ## 客户端
 
@@ -71,7 +71,7 @@ password
 输入 `rsync rsync://192.168.1.2` 查看服务器中的模块，应得到如下信息
 
 ```console
-backup           Backup - My Rsync Server
+backup           Backup - Rsync Server
 ```
 
 左侧的 backup 即为在服务端配置中的模块名称
