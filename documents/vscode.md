@@ -10,6 +10,16 @@ Windows 系统直接前往 [https://code.visualstudio.com/Download](https://code
 
 > 服务器端个人部署网页版 VS Code 见 [code-server](https://github.com/coder/code-server)，在此不多做介绍
 
+## 常用操作记录
+
+- `shift`+`alt`+`鼠标拖动`，出现多个光标
+- `ctrl`+`alt`+`↑/↓`，在同一列出现多个光标
+- 选中文字，按 `SHIFT`+`ALT`+`I`，每行末尾出现光标
+- `CTRL`+`SHIFT`+`END/HOME`，向下/上选中所有行
+- `ALT`+`SHIFT`+`F`，格式化代码
+- 选中文字，按 `CTRL`+`SHIFT`+`U/I`，大/小写转换
+- `CTRL`+`/`，注释选定的行
+
 ## 自动备份文件夹
 
 Windows 路径：%APPDATA%\Code\User\History
@@ -28,44 +38,29 @@ Windows 路径：%APPDATA%\Code\User\History
 
 在插件页面，选择 _Install from VSIX..._
 
-## 快捷键记录
-
-|快捷键|-|
-|-|-|
-|CTRL+SHIFT+END/HOME|向下/上选中所有行|
-|Alt + Shift + F|格式化代码|
-|Ctrl + Shift + U/I|大/小写转换|
-|Ctrl + /|注释选定的行|
-
 ## 扩展推荐
-
-### 编程语言
 
 - Python
   - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - [Black Formatte](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-
 - Go
   - [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go)
-
 - Rust
   - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
-
 - C/C++
   - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-### 实用工具
+---
 
 - Chinese (Simplified) 简体中文界面
 - Live Server 静态网页服务器
 - Office Viewer 实时渲染的 Md 文档
 - Cdoe Runner 运行代码
 
-### 主题样式
+---
 
 - 浅色主题
   - GitHub Light Theme
   - Office Theme
-
 - 深色主题
   - One Dark Pro
