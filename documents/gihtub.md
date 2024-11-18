@@ -2,6 +2,18 @@
 
 本文包含部分 Vercel 和 Netlify 的内容
 
+### 转换 CRLF 和 LF
+
+开启自动转换 `git config --global core.autocrlf true`
+
+### 指定 commit 时间
+
+需要加上环境变量，如下所示
+
+```sh
+GIT_COMMITTER_DATE="Jan 1 07:02:01 2024 +0000" git commit --date="Jan 1 07:02:01 2024 +0000" -m "Initial commit"
+```
+
 ### 删除 Contributors 记录
 
 在确保没有该用户的 commit 记录后，随便修改掉默认分支的名称，然后再改回来

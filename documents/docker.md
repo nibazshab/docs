@@ -46,6 +46,8 @@ Compose 是用于定义和运行多个容器 Docker 应用程序的工具。通�
 FROM alpine AS build
 # 定义构建时的环境变量
 ARG name=value
+# 指定用户
+USER 1000
 # 定义工作目录
 WORKDIR /rootfs
 # 将 rootfs 目录复制到镜像中
@@ -91,6 +93,26 @@ sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 ```sh
 apk add wget --repository http://mirrors.aliyun.com/alpine/v3.18/main/
 ```
+
+## 导出构建的二进制文件
+
+利用 docker 的隔离性，可以用来编译文件并导出，以下是一个示例。需要安装 docker-buildx
+
+```dockerfile
+FROM rust:alpine AS build
+WORKDIR /src
+COPY <<EOT hello.rs
+fn main() {
+    println!("Hello World!");
+}
+EOT
+RUN rustc -o /bin/hello hello.rs
+
+FROM scratch
+COPY --from=build /bin/hello /
+```
+
+输入 `docker build --output=. .` 即可构建 hello 文件，并导出在主机的当前目录，经过测试，导出文件和编译文件的 sha256 值是一样的
 
 ## 容器配置文件
 
