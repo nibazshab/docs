@@ -231,6 +231,19 @@ small { color: #777777; }
 ```
 :::
 
+如果是漫画文件，应当加上如下信息，original-resolution 的值应当视漫画图片分辨率而自行修改
+
+::: details content.opf
+```xml
+<meta name="fixed-layout" content="true" />
+<meta name="RegionMagnification" content="false" />
+<meta name="book-type" content="comic" />
+<meta name="zero-gutter" content="true" />
+<meta name="zero-margin" content="true" />
+<meta name="original-resolution" content="1353x1920" />
+```
+:::
+
 ### 描述文件
 
 电子书的描述文件，通常不对其进行修改
