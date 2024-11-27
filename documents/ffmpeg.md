@@ -68,10 +68,15 @@ ffmpeg -i a.mp4 -c:v libsvtav1 -crf 18 b.mp4
 切割视频片段，将视频从第 30 秒到第 1 小时的画面作为一个新的视频生成。不使用 -t 参数默认是直到视频最后
 
 ```sh
-ffmpeg -ss 00:00:30 -i a.mp4 -t 01:00:00 -c:v copy -c:a copy b.mp4
+ffmpeg -ss 00:00:30 -t 01:00:00 -i a.mp4 -c:v copy -c:a copy b.mp4
 ```
 
-合并视频，从文件中读取列表，将所有列表中的视频合并成新的视频
+合并视频，从文件中读取列表，将所有列表中的视频合并成新的视频，格式如下所示
+
+```console
+file '1.mp4'
+file '2.mp4'
+```
 
 ```sh
 ffmpeg -f concat -i list.txt -c copy all.mp4
