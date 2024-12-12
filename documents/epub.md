@@ -173,6 +173,8 @@ small { color: #777777; }
 
 元数据文件示例，metadata 标签内记录电子书描述信息，manifest 标签内记录包含的所有数据文件，spine 标签内记录目录顺序且应与 nav.xhtml 的目录顺序相同，通常由电子书制作工具自动生成
 
+如果是漫画文件，应加上注释部分的信息，original-resolution 值需要根据漫画图片的分辨率而自行修改
+
 ::: details content.opf
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -181,6 +183,14 @@ small { color: #777777; }
     <dc:title>书名</dc:title>
     <dc:creator opf:role="aut">作者</dc:creator>
     <meta name="cover" content="cover.jpg" />
+<!--
+    <meta name="book-type" content="comic" />
+    <meta name="fixed-layout" content="true" />
+    <meta name="RegionMagnification" content="false" />
+    <meta name="zero-gutter" content="true" />
+    <meta name="zero-margin" content="true" />
+    <meta name="original-resolution" content="1353x1920" />
+-->
   </metadata>
   <manifest>
     <item id="style.css" href="Styles/style.css" media-type="text/css"/>
@@ -231,19 +241,6 @@ small { color: #777777; }
 ```
 :::
 
-如果是漫画文件，应当加上如下信息，original-resolution 的值应当视漫画图片分辨率而自行修改
-
-::: details content.opf
-```xml
-<meta name="fixed-layout" content="true" />
-<meta name="RegionMagnification" content="false" />
-<meta name="book-type" content="comic" />
-<meta name="zero-gutter" content="true" />
-<meta name="zero-margin" content="true" />
-<meta name="original-resolution" content="1353x1920" />
-```
-:::
-
 ### 描述文件
 
 电子书的描述文件，通常不对其进行修改
@@ -271,6 +268,7 @@ application/epub+zip
 |-|-|
 |Sigil|EPUB 电子书制作工具|
 |KindleUnpack|解包 Amazon / Kindlegen 专有电子书格式|
+|Kindle Comic Converter|漫画电子书制作工具|
 
 ## 字体与界面
 
