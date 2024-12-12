@@ -180,6 +180,7 @@ small { color: #777777; }
 <?xml version="1.0" encoding="utf-8"?>
 <package version="3.0" unique-identifier="BookId" xmlns="http://www.idpf.org/2007/opf">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:language>zh</dc:language>
     <dc:title>书名</dc:title>
     <dc:creator opf:role="aut">作者</dc:creator>
     <meta name="cover" content="cover.jpg" />
