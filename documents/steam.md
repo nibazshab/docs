@@ -1,14 +1,28 @@
 # Steam 游戏平台
 
-::: warning 声明
-本文大部分内容适用于 Arch 系的 Linux 系统，其他系统请自行甄别是否适用
-:::
-
 [Steam](https://store.steampowered.com) 是 Valve 公司推出的著名游戏分发平台，对于 Linux 平台，Steam 官方只提供对 Ubuntu LTS 版本的支持
 
 Value 公司发行的 Steam Deck 掌机使用基于 Arch Linux 所开发的 SteamOS 3 系统
 
-## Steam 新家庭
+## 个人资料展柜
+
+### 上传精选艺术作品
+
+在网页端上传，并在开发者模式的控制台中输入如下代码
+
+```js
+// 图像大小
+$J('#image_width').val(1000).attr('id',''),$J('#image_height').val(1).attr('id','');
+
+// 隐藏作品名字
+v_trim=_=>{return _},$J('#title').val(' \n'+Array.from(Array(126),_=>'\t').join(''));
+```
+
+### 展柜中展示
+
+选择 _精选艺术作品展柜_，选中刚刚上传的图片，由于隐藏了作品名称，只能看到一个不显眼的横杠，注意观察即可
+
+## 新家庭共享
 
 封禁连坐机制：只会封禁 _开挂者_ 和 _开挂游戏的拥有者_，不会殃及家庭中的其他成员
 
@@ -30,7 +44,10 @@ Value 公司发行的 Steam Deck 掌机使用基于 Arch Linux 所开发的 Stea
 
 ### 导出 Steam 二次验证令牌到 Bitwarden
 
-#### 方法一
+
+::: tabs
+
+@tab 方法一
 
 前置条件：已开启 Steam 手机令牌，安卓手机 Root 并安装 LSPosed 框架
 
@@ -40,19 +57,63 @@ Value 公司发行的 Steam Deck 掌机使用基于 Arch Linux 所开发的 Stea
 
 将 secret 写成这种形式 `steam://ABCDEFG12345678910JQKA`，并填入 Bitwarden 的 TOTP 框
 
-#### 方法二（未验证）
+@tab 方法二
 
 下载 Steam++，在本地令牌中，登录账号绑定令牌
 
 将这个令牌导出为 maFile 文件，用文本编辑器打开，从中找到 url 的 otpauth 部分，得到 secret
 
-#### 方法三（未验证）
+@tab 方法三
 
 下载 [SDA](https://github.com/Jessecar96/SteamDesktopAuthenticator) 并按说明登陆账号使用，不要选择加密
 
 在 SDA 安装目录下可以找到 maFile 文件
 
-## 安装
+:::
+
+## Steam 问题
+
+### 收藏夹排序
+
+在收藏夹的名称前面加空格即可，空的越多越靠前
+
+### 开启 Steam Deck 界面
+
+1. 打开 Steam 安装目录，找到 package 文件夹
+2. 进入 package 目录，创建一个名为 beta 的文件
+3. 在 beta 文件中写入 `steampal_stable_9a24a2bf68596b860cb6710d9ea307a76c29a04d`
+4. 在 Steam 的启动指令后面添加 `-gamepadui`
+
+### 跳正版分流验证
+
+打开 Steam 安装目录，将 Steam 启动程序移动到其他目录，然后直接运行下载的正版分流游戏即可跳过 Steam 验证
+
+## 游戏问题
+
+### Wallpaper Engine 创意工坊自动下载问题
+
+如果在自己的电脑上登录了别人的 Steam 账号，恰好那个账号也拥有 Wallpaper 软件且订阅了大量创意工坊内容，会导致 Steam 自动将该账号的所订阅的 Wallpaper 创意工坊的内容添加到 `steam\steamapps\workshop\appworkshop_431960.acf` 配置文件的 WorkshopItemDetails 中，导致 WorkshopItemsInstalled 与之不匹配，从而一直下载内容
+
+::: tabs
+
+@tab 官方方法
+
+1. 关闭 Steam
+2. 转到 wallpaper_engine 安装目录
+3. 运行 `wallpaper_engine\bin\steamredownloadfixer32.exe`
+4. 重新启动 Steam 并验证 Wallpaper Engine 的文件完整性
+
+[更多](https://help.wallpaperengine.io/steam/redownload.html)
+
+@tab 民间方法
+
+直接修改配置文件，编辑 `steam\steamapps\workshop\appworkshop_431960.acf`，把 WorkshopItemDetails 的内容复制替换到 WorkshopItemsInstalled 中即可
+
+:::
+
+## Arch Linux / Steam Deck
+
+### 安装
 
 使用 Flatpak 安装可避免许多毛病
 
@@ -78,12 +139,6 @@ flatpak --user override com.valvesoftware.Steam --filesystem=/path/to/directory
 flatpak override --user com.usebottles.bottles --filesystem=~/.var/app/com.valvesoftware.Steam/data/Steam
 ```
 
-## Steam 疑难杂症
-
-### 收藏夹排序
-
-在收藏夹的名称前面加空格即可，空的越多越靠前
-
 ### 运行非 steam 平台 exe 游戏
 
 1. 点击 Steam 左下角 _添加游戏_
@@ -91,13 +146,6 @@ flatpak override --user com.usebottles.bottles --filesystem=~/.var/app/com.valve
 3. 选择游戏的 exe 启动程序
 4. 点击 _添加选定的程序_
 5. 在 _属性 - 兼容性_ 中勾选 _强制使用特定 Steam Play 兼容性工具_
-
-### 开启 Steam Deck 界面
-
-1. 打开 Steam 安装目录，找到 package 文件夹
-2. 进入 package 目录，创建一个名为 beta 的文件
-3. 在 beta 文件中写入 `steampal_stable_9a24a2bf68596b860cb6710d9ea307a76c29a04d`
-4. 在 Steam 的启动指令后面添加 `-gamepadui`
 
 ### 亚洲字体乱码
 
@@ -124,26 +172,3 @@ flatpak override --user com.usebottles.bottles --filesystem=~/.var/app/com.valve
 ```
 
 编辑 Steam.desktop，在所有 Exec= 后添加 `env FONTCONFIG_FILE=/usr/share/fonts/steam.conf`
-
-### 跳正版分流验证
-
-打开 Steam 安装目录，将 Steam 启动程序移动到其他目录，然后直接运行下载的正版分流游戏即可跳过 Steam 验证
-
-## Steam 游戏疑难杂症
-
-### Wallpaper Engine 创意工坊自动下载问题
-
-如果在自己的电脑上登录了别人的 Steam 账号，恰好那个账号也拥有 Wallpaper 软件且订阅了大量创意工坊内容，会导致 Steam 自动将该账号的所订阅的 Wallpaper 创意工坊的内容添加到 `steam\steamapps\workshop\appworkshop_431960.acf` 配置文件的 WorkshopItemDetails 中，导致 WorkshopItemsInstalled 与之不匹配，从而一直下载内容
-
-#### 民间方法
-
-直接修改配置文件，编辑 `steam\steamapps\workshop\appworkshop_431960.acf`，把 WorkshopItemDetails 的内容复制替换到 WorkshopItemsInstalled 中即可
-
-#### 官方方法
-
-1. 关闭 Steam
-2. 转到 wallpaper_engine 安装目录
-3. 运行 `wallpaper_engine\bin\steamredownloadfixer32.exe`
-4. 重新启动 Steam 并验证 Wallpaper Engine 的文件完整性
-
-[更多](https://help.wallpaperengine.io/steam/redownload.html)
