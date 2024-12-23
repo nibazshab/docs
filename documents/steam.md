@@ -4,11 +4,9 @@
 
 Value 公司发行的 Steam Deck 掌机使用基于 Arch Linux 所开发的 SteamOS 3 系统
 
-## 个人资料展柜
+### 个人资料展柜展示图片
 
-### 上传精选艺术作品
-
-在网页端上传，并在开发者模式的控制台中输入如下代码
+打开网页版 Steam 页面，在 _个人资料 - 艺术作品_ 中点击 _上传艺术作品_，选中 _非游戏特定_ 后上传图片，随后打开开发者模式，在控制台中运行如下代码
 
 ```js
 // 图像大小
@@ -18,23 +16,15 @@ $J('#image_width').val(1000).attr('id',''),$J('#image_height').val(1).attr('id',
 v_trim=_=>{return _},$J('#title').val(' \n'+Array.from(Array(126),_=>'\t').join(''));
 ```
 
-### 展柜中展示
+在展柜中选择 _精选艺术作品展柜_，选中刚刚上传的图片即可（由于隐藏了作品名称，只能看到一个不显眼的横杠）
 
-选择 _精选艺术作品展柜_，选中刚刚上传的图片，由于隐藏了作品名称，只能看到一个不显眼的横杠，注意观察即可
-
-## 新家庭共享
+### 新家庭共享
 
 封禁连坐机制：只会封禁 _开挂者_ 和 _开挂游戏的拥有者_，不会殃及家庭中的其他成员
 
 免费游戏不会被共享
 
-### 如何使某个游戏不共享到家庭？
-
-在 Steam 的游戏界面上，点击 _管理_，将游戏 _标记为私密_ 即可
-
-::: note 注
-点击查看 Steam 中的 [拥有 VAC 封禁的大部分游戏](https://store.steampowered.com/search/?supportedlang=schinese%2Ctchinese%2Cjapanese%2Ckoreana%2Cthai%2Cbulgarian%2Cczech%2Cdanish%2Cgerman%2Cspanish%2Cenglish%2Cindonesian%2Citalian%2Cgreek%2Cfrench%2Clatam&category1=998&category2=8&hidef2p=1&ndl=1)
-:::
+依据官方 [拥有 VAC 封禁的游戏列表](https://store.steampowered.com/search/?category1=998&category2=8&hidef2p=1&ndl=1)，如果不想让某个游戏共享到家庭，在 Steam 的该游戏界面上，点击 _管理_，将游戏 _标记为私密_ 即可
 
 ## Steam 令牌
 
@@ -43,7 +33,6 @@ v_trim=_=>{return _},$J('#title').val(' \n'+Array.from(Array(126),_=>'\t').join(
 :::
 
 ### 导出 Steam 二次验证令牌到 Bitwarden
-
 
 ::: tabs
 
