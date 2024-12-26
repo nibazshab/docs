@@ -21,6 +21,7 @@ EPUB 实质上是一个可以解压的 zip 归档文件，使用 xhtml 规范编
     - message.xhtml 制作信息
     - prologue.xhtml 简介
     - illustration.xhtml 彩插
+    - character.xhtml 人物介绍
     - content.xhtml 目录
     - x01.xhtml 第一话
     - x02.xhtml 第二话
@@ -206,10 +207,13 @@ container.xml
 import os
 import re
 
-fonts = "要提取的文字内容"
+fonts = """
+要提取的文字内容
+"""
 
+fonts = ''.join(set(re.sub(r'\s', '', fonts)))
 os.system(
-    f'pyftsubset title.ttf --text={"".join(set(re.sub("\s", "", fonts)))} --output-file=title.min.ttf'
+    f'pyftsubset title.ttf --text={fonts} --output-file=title.min.ttf'
 )
 ```
 
