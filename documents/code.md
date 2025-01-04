@@ -59,6 +59,7 @@ a = a - b;
 
 ```css
 {
+    text-indent: 2em; /* 行首缩进 */
     writing-mode: vertical-rl; /* 竖向从右到左排列文字 */
     overflow: hidden; /* 隐藏溢出部分 */
     min-height: 100vh; /* 最小高度为整个屏幕 */

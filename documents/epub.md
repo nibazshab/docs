@@ -14,7 +14,6 @@ EPUB 实质上是一个可以解压的 zip 归档文件，使用 xhtml 规范编
   - Styles
     - style.css 排版样式
   - Text
-    - **nav.xhtml** 目录文件（epub3）
     - cover.xhtml 封面
     - titlepage.xhtml 扉页
     - colophon.xhtml 版权
@@ -22,7 +21,7 @@ EPUB 实质上是一个可以解压的 zip 归档文件，使用 xhtml 规范编
     - prologue.xhtml 简介
     - illustration.xhtml 彩插
     - character.xhtml 人物介绍
-    - content.xhtml 目录
+    - **nav.xhtml** 目录文件（epub3）
     - x01.xhtml 第一话
     - x02.xhtml 第二话
     - epilogue.xhtml 后记
@@ -53,16 +52,12 @@ xhtml 标准模板示例，以下 .xhtml 文件省略此部分
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
 <head>
   <title></title>
   <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
 </head>
-
-<body>
-
-</body>
+<body></body>
 </html>
 ```
 
@@ -95,6 +90,9 @@ xhtml 标准模板示例，以下 .xhtml 文件省略此部分
 目录文件 nav.xhtml，应在一个列表中包含每一个文件的链接，通常由电子书制作工具自动生成
 
 ```xml
+<!-- 隐藏默认目录样式 -->
+<style>nav { display: none; }</style>
+
 <nav epub:type="toc" id="toc" role="doc-toc">
 <ol>
   <li><a href="cover.xhtml">封面</a></li>
@@ -116,7 +114,6 @@ xhtml 标准模板示例，以下 .xhtml 文件省略此部分
 排版样式文件 style.css 示例如下
 
 ```css
-nav { display: none; }
 h2,h3 { text-align: center; }
 img {
   width: 100%;

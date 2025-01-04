@@ -1,10 +1,10 @@
-import { defineUserConfig } from 'vuepress';
+import { defineUserConfig } from 'vuepress'
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
-import { getDirname, path } from '@vuepress/utils';
+import { getDirname, path } from '@vuepress/utils'
 import { prismjsPlugin } from '@vuepress/plugin-prismjs'
 
-const __dirname = getDirname(import.meta.url);
+const __dirname = getDirname(import.meta.url)
 
 export default defineUserConfig({
   title: 'ATRI Doc',
@@ -15,10 +15,12 @@ export default defineUserConfig({
     sidebar: [{
       text: 'HEAD', children: [
         // 'CONTENTS',
-      ],}, {
+      ],
+    }, {
       text: 'BODY', children: [
         '/link/',
-      ],},],
+      ],
+    },],
     navbar: [{ text: '说书人叹天下旧事如潮，听书人悲欢不过一壶新茶', link: '/pro/' },],
 
     lastUpdated: false,

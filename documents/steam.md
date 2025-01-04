@@ -10,10 +10,10 @@ Value 公司发行的 Steam Deck 掌机使用基于 Arch Linux 所开发的 Stea
 
 ```js
 // 图像大小
-$J('#image_width').val(1000).attr('id',''),$J('#image_height').val(1).attr('id','');
+$J('#image_width').val(1000).attr('id',''),$J('#image_height').val(1).attr('id','')
 
 // 隐藏作品名字
-v_trim=_=>{return _},$J('#title').val(' \n'+Array.from(Array(126),_=>'\t').join(''));
+v_trim=_=>{return _},$J('#title').val(' \n'+Array.from(Array(126),_=>'\t').join(''))
 ```
 
 在展柜中选择 _精选艺术作品展柜_，选中刚刚上传的图片即可（由于隐藏了作品名称，只能看到一个不显眼的横杠）
