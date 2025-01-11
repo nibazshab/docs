@@ -173,7 +173,7 @@ small { color: #777777; }
 
 mimetype
 
-```console
+```
 application/epub+zip
 ```
 

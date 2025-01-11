@@ -312,42 +312,44 @@ genact
 # 连接 MySQL 数据库
 mysql -h SQLHOST -u USER -pPASSWORD SQLNAME
 
-# 导出 MySQL 数据库为 sql 语句
-mysqldump -h SQLHOST -u USER -pPASSWORD SQLNAME --no-tablespaces > $(date).sql
+# 导出 MySQL 数据库为 sql 语句，--no-tablespaces 无视表结构
+# 在 SQLNAME 后跟 TABlENAME 可导出单独一张表
+mysqldump -h SQLHOST -u USER -pPASSWORD SQLNAME --no-tablespaces > mysql.sql
 
 # 使用 rclone 挂载云盘为本地目录，并设置缓存路径
 rclone mount name:/a /b --cache-dir /c --vfs-cache-mode writes
 ```
 
-```ps1
+```powershell
 # 查看文件 SHA256，MD5
 certutil -hashfile file SHA256
 ```
 
 ```sql
--- 导入 sql 文件
-SOURCE /sql/file.sql
+-- 增删改查
+INSERT INTO products (name, price, cover) VALUES ('Apple', 1.2, 'apple.jpg');
+SELECT * FROM products WHERE price > 1.0;
+UPDATE products SET price = 1.5 WHERE name = 'Apple';
+DELETE FROM products WHERE name = 'Apple';
 
--- 删除表
-DROP TABLE tablename;
+-- 查看所有数据库/表
+SHOW database;
+SHOW tables;
 
 -- 查看表的结构
 SHOW columns FROM tablename;
 
--- 查看有哪些表
-SHOW tables;
-
--- 查看表的所有表单数据
-SELECT * FROM tablename;
-
 -- 清空表
 DELETE FROM tablename;
 
--- 删除表中序号大于 9 的内容
-DELETE FROM tablename WHERE id > 9;
+-- 删除表
+DROP TABLE tablename;
 
--- 向名为 pb 的表中插入 data 的数据
-INSERT INTO pb (data) VALUES ('hahaha');
+-- 将 file_url 表中的 url 列中所有 apple 字段替换成 banana
+UPDATE file_url SET url = replace (url,'apple','banana')
+
+-- 导入 sql 文件
+SOURCE /sql/file.sql
 
 -- 创建表名为 user，id 整数型，自增长，作为主键，user 字符串型，最大长度 30，不能为空
 -- TEXT 类型最大 64k，MEDIUMTEXT 类型最大 16m

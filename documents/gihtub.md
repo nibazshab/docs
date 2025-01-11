@@ -108,7 +108,7 @@ Release 最新版本的下载链接：github.com/USER/REPO/releases/latest/downl
 
 ### Action Repository 机密
 
-```console
+```
 ${{ secrets.SECRET_NAME }}
 ```
 

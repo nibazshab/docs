@@ -22,7 +22,7 @@ ffmpeg
 
 输入 `ffmpeg -codecs | findstr h264` 查看支持的 h264 格式的编解码器，Linux 使用 grep 代替 findstr
 
-```console
+```
 DEV.LS h264
 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
 (decoders: h264 h264_qsv libopenh264 h264_cuvid)
@@ -73,7 +73,7 @@ ffmpeg -ss 00:00:30 -t 01:00:00 -i a.mp4 -c:v copy -c:a copy b.mp4
 
 合并视频，从文件中读取列表，将所有列表中的视频合并成新的视频，格式如下所示
 
-```console
+```
 file '1.mp4'
 file '2.mp4'
 ```

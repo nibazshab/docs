@@ -50,7 +50,7 @@ echo 'hello, this is atri.'
 
 最终整个软件包目录结构应如下所示
 
-```console
+```
 atri - DEBIAN - control
      - usr - local - bin - atri
 ```
@@ -65,6 +65,6 @@ dpkg-deb -b atri atri.deb
 
 此时当前目录应有软件包 atri.deb，输入 `dpkg -i atri.deb` 安装后，运行 atri 应有如下响应
 
-```console
+```
 hello, this is atri.
 ```

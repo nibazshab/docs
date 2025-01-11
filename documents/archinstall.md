@@ -77,7 +77,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 
 输入 `lsblk` 查看硬盘信息，`NAME` 即为硬盘的名称
 
-```console
+```
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 nvme0n1     259:0    0 953.9G  0 disk
 ```
@@ -86,7 +86,7 @@ nvme0n1     259:0    0 953.9G  0 disk
 
 再次输入 `lsblk` 查看硬盘信息，得到以下信息
 
-```console
+```
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
 nvme0n1     259:0    0 953.9G  0 disk
 ├─nvme0n1p1 259:1    0   300M  0 part

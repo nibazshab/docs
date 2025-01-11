@@ -22,7 +22,7 @@
 
 默认使用 22 端口进行通信，连接时会读取配置记录文件 `$HOME/.ssh/config`
 
-```ssh-config
+```
 Host github.com
 HostName github.com
 User git

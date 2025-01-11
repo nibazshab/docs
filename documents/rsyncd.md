@@ -40,7 +40,7 @@ secrets file = /home/.rsyncd.secret
 
 随后创建 /home/.rsyncd.secret 文件，写入用户和对应的密码，示例如下
 
-```console
+```
 atri:password
 ```
 
@@ -62,7 +62,7 @@ rsync --daemon
 
 创建 .rsync_pw 文件，写入密码，并将权限设为 600
 
-```console
+```
 password
 ```
 
@@ -70,7 +70,7 @@ password
 
 输入 `rsync rsync://192.168.1.2` 查看服务器中的模块，应得到如下信息
 
-```console
+```
 backup           Backup - Rsync Server
 ```
 

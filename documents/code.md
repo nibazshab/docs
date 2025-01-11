@@ -109,6 +109,9 @@ div {
 ## html
 
 ```html
+<!-- 注释 -->
+<ruby>真昼<rt>まひる</rt></ruby>
+
 <!-- 阻止浏览器请求 favicon.ico -->
 <link rel="icon" href="data:image/ico;base64,aWNv">
 

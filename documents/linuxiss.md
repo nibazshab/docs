@@ -8,7 +8,7 @@
 
 定时规则如下所示，例如 `0 3,15 * * * sh /a.sh` 表示每天 3 点和 15 点，执行 `sh /a.sh` 命令
 
-```console
+```
 *    *    *    *    *
 -    -    -    -    -
 |    |    |    |    |
@@ -75,7 +75,7 @@ WantedBy=multi-user.target
 
 查看该进程的 pid 号，假设为 721，进入 /proc/721/fd 目录，输入 `ls -l` 查看数字文件对应的硬链接文件名，假设查看有如下信息
 
-```console
+```
 Aug  1 09:48 10 -> /data/db.sqlite3 (deleted)
 Aug  1 09:48 11 -> /data/db.sqlite3 (deleted)
 ```
@@ -201,7 +201,7 @@ Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; 
 
 当内核更新后，镜像 initramfs 被重新构建时，你可能得到以下警告
 
-```console
+```
 ==> WARNING: Possibly missing firmware for module: xhci_pci
 ==> WARNING: Possibly missing firmware for module: aic94xx
 ==> WARNING: Possibly missing firmware for module: bfa
