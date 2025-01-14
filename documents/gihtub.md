@@ -37,6 +37,49 @@ permissions:
     files: dist/*
 ```
 
+### 利用 Action 发布 ghpage
+
+```yml
+permissions:
+  pages: write
+  id-token: write
+
+environment:
+  name: github-pages
+  url: ${{ steps.deployment.outputs.page_url }}
+
+- name: Upload GitHub Pages artifact
+  uses: actions/upload-pages-artifact@v3
+  with:
+    path: '.'
+
+- name: Deploy GitHub Pages site
+  id: deployment
+  uses: actions/deploy-pages@v4
+```
+
+### 下载源代码存档
+
+仓库分支存档的下载链接：github.com/USER/REPO/archive/refs/heads/BRANCH.tar.gz
+
+Release 最新版本的下载链接：github.com/USER/REPO/releases/latest/download/ASSETS.tar.gz
+
+### Action Repository 机密
+
+```
+${{ secrets.SECRET_NAME }}
+```
+
+### Pull requests 教程
+
+> 假设被 Pr 的仓库是 atri/momo
+
+点击 atri/momo 仓库右上角的 Fork，然后该仓库会被复制到自己账号（假设自己用户名为 sjw）成为 sjw/momo
+
+在 sjw/momo 里修修改改提交，然后点击 Contribute，再点击底下绿色的 Open a Pull 即可提交 Pr 申请
+
+然后 atri/momo 的 Pull requests 列表中会出现刚刚 sjw 发起的申请，由用户 atri 或其它管理者点击底下绿色的 Merge pull request 即可完成合并
+
 ### 基础使用教程
 
 注册账号，安装配置 git，创建仓库，生成 Token 等步骤略过，不做描述
@@ -79,44 +122,11 @@ git push origin main
 
 接着输入 GitHub 的用户名，以及 GitHub 用户 Token 即可
 
-### 利用 Action 发布 ghpage
-
-```yml
-permissions:
-  pages: write
-  id-token: write
-
-environment:
-  name: github-pages
-  url: ${{ steps.deployment.outputs.page_url }}
-
-- name: Upload GitHub Pages artifact
-  uses: actions/upload-pages-artifact@v3
-  with:
-    path: '.'
-
-- name: Deploy GitHub Pages site
-  id: deployment
-  uses: actions/deploy-pages@v4
-```
-
-### 下载源代码存档
-
-仓库分支存档的下载链接：github.com/USER/REPO/archive/refs/heads/BRANCH.tar.gz
-
-Release 最新版本的下载链接：github.com/USER/REPO/releases/latest/download/ASSETS.tar.gz
-
-### Action Repository 机密
-
-```
-${{ secrets.SECRET_NAME }}
-```
-
 ### Vercel
 
 #### 命令行更新发布项目
 
-需要配置环境变量 VERCEL_ORG_ID 和 VERCEL_PROJECT_ID，每一条命令设置 `--token=` 的值
+需要配置环境变量 VERCEL_ORG_ID，VERCEL_PROJECT_ID，VERCEL_TOKEN
 
 ```sh
 vercel pull --yes --environment=production

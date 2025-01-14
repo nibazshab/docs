@@ -139,3 +139,23 @@ div {
 // 等待页面加载完成
 document.addEventListener("DOMContentLoaded", (event) => {}
 ```
+
+```js
+// 本站居然运行了x天x小时x分x秒
+//<span id="runtime"></span>
+const start = new Date(2021, 11, 4, 0, 0, 0);
+function Runtime() {
+    const now = new Date()
+    const diff = now - start
+    const _ss = Math.floor(diff / 1000)
+    const _mm = Math.floor(_ss / 60)
+    const _hh = Math.floor(_mm / 60)
+    const dd = Math.floor(_hh / 24)
+    const hh = _hh % 24
+    const mm = _mm % 60
+    const ss = _ss % 60
+    document.getElementById('runtime').textContent = `${dd}天${hh}小时${mm}分${ss}秒`
+}
+setInterval(Runtime, 1000);
+Runtime();
+```
