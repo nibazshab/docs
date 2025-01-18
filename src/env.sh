@@ -9,7 +9,7 @@ f=$d/.vuepress/config.ts
 cd $repo/documents
 
 mv index.md $d
-for i in pro link
+for i in peach link
 do
   mkdir $d/$i && mv $i.md $d/$i/index.md
 done

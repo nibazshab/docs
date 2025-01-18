@@ -1,7 +1,5 @@
 # 编程代码系列记录
 
-## 其他内容
-
 php 启动内置 web 服务 `php -S 0.0.0.0:8000`
 
 npm 换源 npmmirror `npm config set registry https://registry.npmmirror.com`
@@ -31,9 +29,8 @@ c 静态编译，使用 musl libc
 
 upx 工具，压缩二进制文件体积 `upx --ultra-brute file`，`-d` 参数还原
 
-### 冒泡排序
-
 ```c
+// 冒泡排序
 int n[10] = { 25,35,68,79,21,13,98,7,16,62 };
 int i, j, temp;
 for (i = 1; i <= 9; i++){
@@ -47,15 +44,12 @@ for (i = 1; i <= 9; i++){
 }
 ```
 
-### 不使用中间变量交换两个变量的值
-
 ```c
+// 不使用中间变量交换两个变量的值
 a = a + b;
 b = a - b;
 a = a - b;
 ```
-
-## css
 
 ```css
 {
@@ -106,8 +100,6 @@ div {
 }
 ```
 
-## html
-
 ```html
 <!-- 注释 -->
 <ruby>真昼<rt>まひる</rt></ruby>
@@ -132,8 +124,6 @@ div {
 <!-- 自动跳转其他网站 -->
 <meta http-equiv="refresh" content="0; URL='https://example.com'">
 ```
-
-## js
 
 ```js
 // 等待页面加载完成

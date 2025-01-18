@@ -4,9 +4,9 @@ div[class*='language-']::before {
 }
 
 // 超链接样式
-.theme-default-content a:not(.header-anchor) {
+.vp-page a:not(.header-anchor) {
   text-decoration: none !important;
 }
-.theme-default-content a:not(.header-anchor):hover {
+.vp-page a:not(.header-anchor):hover {
   text-decoration: underline !important;
 }

@@ -21,7 +21,7 @@ export default defineUserConfig({
         '/link/',
       ],
     },],
-    navbar: [{ text: '说书人叹天下旧事如潮，听书人悲欢不过一壶新茶', link: '/pro/' },],
+    navbar: [{ text: '说书人叹天下旧事如潮，听书人悲欢不过一壶新茶', link: '/peach/' },],
 
     lastUpdated: false,
     contributors: false,
