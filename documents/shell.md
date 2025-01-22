@@ -61,7 +61,7 @@ done
 }
 
 # 判断上一个命令是否运行成功，成功1，失败 0
-# -e file 判断文件是否存在，-d 判断文件夹，-z 和 -n 判断环境变量
+# -e file 判断文件是否存在，-d 判断文件夹，-z 和 -n 判断变量是否为空
 if [ $? -eq 0 ]
 then
   echo 1
@@ -331,6 +331,9 @@ INSERT INTO products (name, price, cover) VALUES ('Apple', 1.2, 'apple.jpg');
 SELECT * FROM products WHERE price > 1.0;
 UPDATE products SET price = 1.5 WHERE name = 'Apple';
 DELETE FROM products WHERE name = 'Apple';
+
+-- 按照 id 倒序获取前 5 条数据
+SELECT * FROM tablename ORDER BY id DESC LIMIT 5;
 
 -- 查看所有数据库/表
 SHOW database;

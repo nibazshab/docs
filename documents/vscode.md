@@ -20,9 +20,13 @@ Windows 系统直接前往 [https://code.visualstudio.com/Download](https://code
 - 选中文字，按 `CTRL`+`SHIFT`+`U/I`，大/小写转换
 - `CTRL`+`/`，注释选定的行
 
-## 自动备份文件夹
+### 自动备份文件夹
 
 Windows 路径：%APPDATA%\Code\User\History
+
+### 切换终端的默认 shell
+
+Launch Profile - Set Default Profile
 
 ## 设置项
 
