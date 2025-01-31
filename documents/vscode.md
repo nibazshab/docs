@@ -44,18 +44,6 @@ Launch Profile - Set Default Profile
 
 ## 扩展推荐
 
-- Python
-  - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  - [Black Formatte](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-- Go
-  - [Go](https://marketplace.visualstudio.com/items?itemName=golang.Go)
-- Rust
-  - [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
-- C/C++
-  - [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-
----
-
 - Chinese (Simplified) 简体中文界面
 - Live Server 静态网页服务器
 - Office Viewer 实时渲染的 Md 文档

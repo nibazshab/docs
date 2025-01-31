@@ -1,4 +1,4 @@
-# 好用的软件推荐
+# 好用的 App 推荐
 
 环境
 
@@ -27,6 +27,7 @@
 
 小工具
 
+- MouseClickTool：连点器 - [官网](https://github.com/lalakii/MouseClickTool) <Badge text="exe" />
 - Everything：文件搜索工具 - [官网](https://www.voidtools.com) <Badge text="exe" />
 - Bypass：铁路 12306 自动抢票 - [官网](https://www.bypass.cn) <Badge text="exe" />
 - Advanced Renamer：批量重命名工具 - [官网](https://advancedrenamer.com) <Badge text="exe" />

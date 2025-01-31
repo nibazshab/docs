@@ -348,6 +348,9 @@ DELETE FROM tablename;
 -- 删除表
 DROP TABLE tablename;
 
+-- 记录阅读量 +1
+UPDATE xxxxx SET count = count+1 WHERE id = 1
+
 -- 将 file_url 表中的 url 列中所有 apple 字段替换成 banana
 UPDATE file_url SET url = replace (url,'apple','banana')
 
