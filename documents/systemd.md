@@ -29,6 +29,10 @@ WantedBy=multi-user.target
 
 可以通过 `Environment="a=1"` 定义环境变量
 
+### 创建一个新文件
+
+直接输入 `systemctl edit --force --full foo.service` 命令即可
+
 ### 定时任务
 
 创建同名的 service 和 timer 文件，可以启动定时任务，随后输入 `systemctl enable --now foo.timer` 启动即可

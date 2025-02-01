@@ -312,9 +312,9 @@ genact
 # 连接 MySQL 数据库
 mysql -h SQLHOST -u USER -pPASSWORD SQLNAME
 
-# 导出 MySQL 数据库为 sql 语句，--no-tablespaces 无视表结构
+# 导出 MySQL 数据库为 sql 语句，--no-tablespaces 无视表结构，--set-gtid-purged=OFF 不包含 GTID
 # 在 SQLNAME 后跟 TABlENAME 可导出单独一张表
-mysqldump -h SQLHOST -u USER -pPASSWORD SQLNAME --no-tablespaces > mysql.sql
+mysqldump -h SQLHOST -u USER -pPASSWORD SQLNAME > mysql.sql
 
 # 使用 rclone 挂载云盘为本地目录，并设置缓存路径
 rclone mount name:/a /b --cache-dir /c --vfs-cache-mode writes
