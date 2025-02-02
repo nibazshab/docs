@@ -1,54 +1,45 @@
 # 编程代码系列记录
 
-php 启动内置 web 服务 `php -S 0.0.0.0:8000`
-
-npm 换源 npmmirror `npm config set registry https://registry.npmmirror.com`
-
-pip 换源清华 `pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
-
-go get 换源阿里 `go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct`
-
-go 好用的工具
+记录一些好用的工具和代码
 
 ```sh
-golangci-lint run ./... # 检测代码
+# python 代码格式化
+black a.py
 
-go install github.com/kisielk/errcheck@latest # 检查没有处理的错误
+# php 启动内置 web 服务
+php -S 0.0.0.0:8000
+
+# pnpm/npm 换源 npmmirror
+npm config set registry https://registry.npmmirror.com
+
+# pip 换源清华
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+# go get 换源阿里
+go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
+
+# 检测代码
+golangci-lint run ./...
+
+# 检查没有处理的错误
+# go install github.com/kisielk/errcheck@latest
 errcheck -blank ./...
 
-go install mvdan.cc/gofumpt@latest # 代码格式化
+# 代码格式化
+# go install mvdan.cc/gofumpt@latest
 gofumpt -l -w .
 
-go install golang.org/x/tools/cmd/deadcode@latest # 检查从未使用的代码
+# 检查从未使用的代码
+# go install golang.org/x/tools/cmd/deadcode@latest
 deadcode .
-```
 
-c 静态编译，使用 musl libc
+# c 静态编译，使用 musl libc 或 mingw64 代替 glibc
 
-去除静态文件的无用符号信息 `strip file`
+# 去除静态文件的无用符号信息
+strip file
 
-upx 工具，压缩二进制文件体积 `upx --ultra-brute file`，`-d` 参数还原
-
-```c
-// 冒泡排序
-int n[10] = { 25,35,68,79,21,13,98,7,16,62 };
-int i, j, temp;
-for (i = 1; i <= 9; i++){
-    for (j = 0; j <= 9 - i; j++){
-        if (n[j] > n[j + 1]){
-            temp = n[j];
-            n[j] = n[j + 1];
-            n[j + 1] = temp;
-        }
-    }
-}
-```
-
-```c
-// 不使用中间变量交换两个变量的值
-a = a + b;
-b = a - b;
-a = a - b;
+# upx 工具，压缩二进制文件体积，-d 参数还原
+upx --ultra-brute file
 ```
 
 ```css
@@ -128,9 +119,7 @@ div {
 ```js
 // 等待页面加载完成
 document.addEventListener("DOMContentLoaded", (event) => {}
-```
 
-```js
 // 本站居然运行了x天x小时x分x秒
 //<span id="runtime"></span>
 const start = new Date(2021, 11, 4, 0, 0, 0);
@@ -148,4 +137,24 @@ function Runtime() {
 }
 setInterval(Runtime, 1000);
 Runtime();
+```
+
+```c
+// 冒泡排序
+int n[10] = { 25,35,68,79,21,13,98,7,16,62 };
+int i, j, temp;
+for (i = 1; i <= 9; i++){
+    for (j = 0; j <= 9 - i; j++){
+        if (n[j] > n[j + 1]){
+            temp = n[j];
+            n[j] = n[j + 1];
+            n[j + 1] = temp;
+        }
+    }
+}
+
+// 不使用中间变量交换两个变量的值
+a = a + b;
+b = a - b;
+a = a - b;
 ```

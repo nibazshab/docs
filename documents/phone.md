@@ -11,7 +11,7 @@
 ## ADB 调试工具
 
 - 传送门：[https://developer.android.com/studio/releases/platform-tools](https://developer.android.com/studio/releases/platform-tools)
-- 驱动传送门：[https://developer.android.google.cn/studio/run/win-usb](https://developer.android.google.cn/studio/run/win-usb)
+- 驱动传送门：[https://developer.android.com/studio/run/win-usb](https://developer.android.com/studio/run/win-usb)
 
 ADB 是一个命令行工具，用于与运行 Android 操作系统的设备进行通信。通过 ADB，开发人员可以在计算机上使用命令来管理和调试 Android 设备，例如安装应用程序、复制文件、发送 shell 命令等。ADB 还提供了许多有用的功能，如日志记录、端口转发、屏幕截图
 
@@ -28,11 +28,17 @@ ADB 是一个命令行工具，用于与运行 Android 操作系统的设备进�
 
 ## 常见问题
 
+### Windows 装不上 adb 驱动
+
+解压 usb_driver_windows.zip，找到 android_winusb.inf
+
+打开设备管理器，其他设备，找到带有 `!` 的 Android 驱动，更新驱动程序，从磁盘安装，选中解压后的 android_winusb.inf 文件，下一步，安装即可
+
 ### SD 卡无法使用此目录
 
 Magisk 模块：no storage restrict
 
-## 品牌工具
+## 特定品牌工具
 
 鸿蒙系统：鸿蒙工具箱
 
@@ -50,6 +56,6 @@ Apple Music 缓存路径：`/var/mobile/Media/CloudAssets`，`/var/mobile/Media/
 
 ### 常见问题
 
-#### 关闭爱思助手自动安装移动版
+#### 解决爱思助手自动安装移动版
 
 删掉 C 盘 `Program Files (x86)\i4Tools7\files\ipa\` 内的文件
