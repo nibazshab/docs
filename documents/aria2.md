@@ -158,10 +158,6 @@ bt-tracker=
 
 [AriaNg](https://github.com/mayswind/AriaNg) 是一个现代化的 Web 前端管理工具，它使得 aria2 更易于使用。AriaNg 是纯 html & javascript 编写的，因此不需要任何编译器或运行环境。只需要将 AriaNg 放入的 Web 服务器中，然后在浏览器中打开它。AriaNg 使用响应式布局，支持任何桌面或移动设备
 
-### 获取
-
-提供三种版本，[单文件版](https://github.com/mayswind/AriaNg/releases)、[标准版](https://github.com/mayswind/AriaNg/releases)、[桌面版](https://github.com/mayswind/AriaNg-Native/releases)
-
 ### 配置
 
 1. 点击 _AriaNg 设置_，选择 _全局_ 右边的 _RPC_

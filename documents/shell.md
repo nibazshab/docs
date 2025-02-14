@@ -332,7 +332,7 @@ SELECT * FROM products WHERE price > 1.0;
 UPDATE products SET price = 1.5 WHERE name = 'Apple';
 DELETE FROM products WHERE name = 'Apple';
 
--- 按照 id 倒序获取前 5 条数据
+-- 按照 id 倒序获取前 5 条数据，追加 OFFSET 10 表示跳过前 10 行, DESC 降序，ASC 升序
 SELECT * FROM tablename ORDER BY id DESC LIMIT 5;
 
 -- 查看所有数据库/表
@@ -341,6 +341,9 @@ SHOW tables;
 
 -- 查看表的结构
 SHOW columns FROM tablename;
+
+-- 查看创建表的 sql 语句
+SHOW CREATE TABLE tablename;
 
 -- 清空表
 DELETE FROM tablename;
