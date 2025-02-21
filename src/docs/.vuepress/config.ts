@@ -16,10 +16,6 @@ export default defineUserConfig({
       text: 'HEAD', children: [
         // 'CONTENTS',
       ],
-    }, {
-      text: 'BODY', children: [
-        '/link/',
-      ],
     },],
     navbar: [{ text: '说书人叹天下旧事如潮，听书人悲欢不过一壶新茶', link: '/peach/' },],
 
