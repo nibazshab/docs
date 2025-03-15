@@ -77,8 +77,11 @@ fi
 ```
 
 ```sh
+# 以 = 为分隔符，提取 rpc-secret 开头的对应值
+awk -F= '/^rpc-secret/ {print $2}' a.txt
+
 # 删除 html 标签
-sed -E 's/<[^>]+>//g' file.html
+sed -E 's/<[^>]+>//g' a.html
 
 # 删除所有的换行符，操作行时，需要添加 :a;N; 和 ;ta
 sed ":a;N;s/\n//g;ta" a.txt
@@ -193,13 +196,16 @@ curl -x socks5://127.0.0.1:1024 example.com
 curl -X POST -d key=123456 example.com
 
 # 上传文件到 WebDAV 服务器，目录需要加 / 符号
-curl -u USERNAME:PASSWORD -T FILE WEBDAV_URL
+curl -u "USERNAME":"PASSWORD" -T "d/file" WEBDAV_URL -w "%{http_code}"
 
 # 下载 WebDAV 服务器文件
 curl -u USERNAME:PASSWORD -O WEBDAV_URL
 ```
 
 ```sh
+# 创建软链接 b，指向 a
+ln -s a b
+
 # 生成 uuid，dbus-uuidgen 命令生成没有分隔符的 uuid
 uuidgen
 
@@ -219,12 +225,15 @@ useradd -s /usr/bin/nologin atri
 dd if=/dev/urandom of=test bs=1M count=6
 
 # 调用 gzip 压缩文件，-c 打包，-f 指定文件
-# -z/-j/-J 调用 gzip/bzip2/xz，-I zstd 调用 zstd，--exclude file 排除文件
+# -z/-j/-J 调用 gzip/bzip2/xz，-I zstd 调用 zstd，--exclude file 排除文件，-C 切换目录
 tar -czf file.tar.gz path/
 
 # 解压文件，-x 解压，-v 显示详细过程
 # --strip-components=1 减少一个目录层级，-C 指定解压目录
 tar -xvf file.tar
+
+# gzip 压缩文件，-d 解压
+gzip file
 
 # 输出当前时间，年月日时分秒
 date +"%Y-%m-%d %H:%M:%S"
@@ -377,6 +386,15 @@ git branch -d main
 git branch -m main
 git push -f origin main
 
+# 撤销某次提交，但不删除记录
+git revert
+
+# 查看本地操作历史
+git reflog
+
+# 查看更改，--staged 查看已暂存的更改，加 commit_id 可与指定版本比较
+git diff
+
 # 设置远程地址
 git remote set-url origin URL
 
@@ -399,7 +417,7 @@ git branch -a
 # 清除已不存在于远程服务器上的远程分支
 git remote prune origin
 
-# 查看修改
+# 查看信息
 git status
 
 # 撤销上一次的 commit

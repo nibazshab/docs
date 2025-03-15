@@ -132,7 +132,11 @@ services:
       # 8080:80/udp 监听 udp
     volumes:
       - ./data:/data # 把 ./data 映射为容器的 /data 目录
-    mem_limit: 1g # 限制内存大小 1g
+    deploy:
+      resources:
+        limits:
+          cpus: '0.70' # 限制 cpu 使用率 70%
+          memory: 1.5g # 限制内存使用 1.5g
     depends_on:
       - DEPNAME # 当 DEPNAME 容器启动成功后再启动
   DEPNAME:
