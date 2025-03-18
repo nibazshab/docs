@@ -174,7 +174,7 @@ scp -r /a user@host:/a
 # 使用指定的密钥 id_key 登入远程服务器，-p 指定端口号
 ssh -i ~/.ssh/id_key user@host
 
-# 生成 ed25519 加密的 ssh 密钥，-y -f key > key.pub 从指定私钥生成公钥
+# 生成 ed25519 加密的 ssh 密钥，-y -f key > key.pub 从指定私钥生成公钥，-C 指定注释信息
 ssh-keygen -t ed25519
 
 # 将公钥上传到服务器
@@ -375,75 +375,4 @@ CREATE TABLE IF NOT EXISTS user (
   id INT(6) AUTO_INCREMENT PRIMARY KEY,
   user VARCHAR(30) NOT NULL
 );
-```
-
-```sh
-# 清空历史提交记录
-git checkout --orphan latest_branch
-git add -A
-git commit -m 'renew'
-git branch -d main
-git branch -m main
-git push -f origin main
-
-# 撤销某次提交，但不删除记录
-git revert
-
-# 查看本地操作历史
-git reflog
-
-# 查看更改，--staged 查看已暂存的更改，加 commit_id 可与指定版本比较
-git diff
-
-# 设置远程地址
-git remote set-url origin URL
-
-# 添加标签，推送标签
-git tag v1.0.0
-git push origin v1.0.0
-
-# 查找历史提交中，文件名有 NAME 的文件
-git log --all --full-history -- **/*NAME*
-
-# 切换到 main 分支，分支不存在则创建
-git checkout -b main
-
-# 删除 pr 分支
-git branch -d pr
-
-# 查看所有分支
-git branch -a
-
-# 清除已不存在于远程服务器上的远程分支
-git remote prune origin
-
-# 查看信息
-git status
-
-# 撤销上一次的 commit
-git reset HEAD~1
-
-# 搜索提交记录的版本号
-git log --grep=内容
-
-# 回退到指定版本
-git reset --hard COMMIT_ID
-
-# 查找历史中的文本内容
-git log -S "查找的文本内容" -p
-
-# 获取 git 仓库中所有文件的最新修改时间
-git ls-tree -r --name-only HEAD | while read f; do
-  echo $(git log -1 --format=%ad -- $f) $f
-done
-
-# 获取 git 仓库中所有文件的最初创建时间
-git ls-tree -r --name-only HEAD | while read f; do
-  echo $(git log --format=%ad -- $f | tail -1) $f
-done
-
-# 将文件的修改时间设置为 git 仓库中的最新修改时间
-git ls-files -z | while read f; do
-  touch -d $(git log -1 --format=@%ct $f) $f
-done
 ```
