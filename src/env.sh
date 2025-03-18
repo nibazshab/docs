@@ -9,10 +9,7 @@ f=$d/.vuepress/config.ts
 cd $repo/documents
 
 mv index.md $d
-for i in peach
-do
-  mkdir $d/$i && mv $i.md $d/$i/index.md
-done
+mkdir $d/peach && mv peach.md $d/peach/index.md
 
 find | while read i
 do

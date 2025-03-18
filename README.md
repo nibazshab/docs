@@ -4,7 +4,7 @@
 
 ## 仓库结构
 
-- .github/workflows，GitHub Actions 文件
+- .github，GitHub Actions 文件
 - documents，文章
 - src，博客数据
 - LICENSE，开源许可证
