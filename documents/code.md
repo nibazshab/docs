@@ -18,6 +18,9 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 # go get 换源阿里
 go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
 
+# go 逃逸堆分析
+-gcflags="-m"
+
 # 检测代码
 golangci-lint run ./...
 
@@ -40,6 +43,16 @@ strip file
 
 # upx 工具，压缩二进制文件体积，-d 参数还原
 upx --ultra-brute file
+```
+
+```go
+// gorm 表前缀
+NamingStrategy: schema.NamingStrategy{
+	TablePrefix: tablePrefix,
+},
+
+// gorm 记录浏览量
+db.Model(&Data{}).Update("count", gorm.Expr("count + ?", 1))
 ```
 
 ```css

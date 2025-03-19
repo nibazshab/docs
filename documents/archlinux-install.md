@@ -346,7 +346,7 @@ pacman -S adobe-source-han-sans-tw-fonts adobe-source-han-serif-tw-fonts
 远程连接 - VNC 连接
 
 @tab 阿里云
-远程连接 - 救援模式，需要先点击运行一次上方的 _复制命令_ 才能接受到键盘操作
+远程连接 - 救援模式，需要先点击运行一次上方的复制命令才能接受到键盘操作
 :::
 
 ### 1. 下载系统镜像

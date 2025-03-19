@@ -1,18 +1,12 @@
 # Aria2 下载器
 
-::: tip 提示
-作为命令行工具，具有一定的学习成本，使用 Motrix 等二次封装的图形化工具不失为一种选择
-:::
+Aria2 是一个自由、开源、轻量级多协议和多源的命令行下载工具。它支持 HTTP/HTTPS、FTP、SFTP、BitTorrent 和 Metalink 协议，可以通过内建的 JSON-RPC 和 XML-RPC 接口来操纵
 
-[Aria2](https://github.com/aria2/aria2) 是一个自由、开源、轻量级多协议和多源的命令行下载工具。它支持 HTTP/HTTPS、FTP、SFTP、BitTorrent 和 Metalink 协议，可以通过内建的 JSON-RPC 和 XML-RPC 接口来操纵
+https://github.com/aria2/aria2
 
-## 安装与启动
+#### Linux 自启动配置
 
-Arch 系的 Linux 系统，直接安装 `aria2` 即可，其他请参考各自的安装方法，或前往 [GitHub Release](https://github.com/aria2/aria2/releases) 下载源码编译安装
-
-在 `$HOME/aria2` 目录下创建 aria2.conf、aria2.session 文件，其中 aria2.conf 的内容参考 [配置文件](#配置文件)
-
-在 `~/.config/systemd/user` 目录下创建 aria2.service 文件，写入如下内容
+在 ~/.config/systemd/user 目录下创建 aria2.service 文件，写入如下内容
 
 ```ini
 [Unit]
@@ -24,23 +18,58 @@ Restart=on-failure
 WantedBy=default.target
 ```
 
-启动服务，并设为开机自启
+输入如下命令
 
 ```sh
-systemctl enable --user --now aria2.service
+systemctl enable --user --now aria2
 ```
 
-Windows 请前往 [GitHub Release](https://github.com/aria2/aria2/releases) 下载 win-64bit-build 压缩包
+#### Windows 自启动配置
 
-在 `%HOMEPATH%` 目录下创建 aria2 文件夹，将压缩包内的 aria2c.exe 文件解压到此处，并创建 aria2.conf、aria2.session 文件，其中 aria2.conf 的内容参考 [配置文件](#配置文件)
-
-在 `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup` 目录下创建 aira2.vbs 文件，写入如下内容，即可实现开机自启
+在 %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup 目录下创建 aira2.vbs 文件，写入如下内容
 
 ```vb
 CreateObject("WScript.Shell").Run "%HOMEPATH%\aria2\aria2c.exe --conf-path=%HOMEPATH%\aria2\aria2.conf -D",0
 ```
 
-## 配置文件
+#### 发送下载任务
+
+```sh
+curl URL/jsonrpc -d '{
+  "id":"1",
+  "method":"aria2.addUri",
+  "params":["token:密钥",["链接"]]
+}' 
+```
+
+#### 修改 bt-tracker
+
+```sh
+curl URL/jsonrpc -d '{
+  "id":"1",
+  "method":"aria2.changeGlobalOption",
+  "params":["token:密钥",{"bt-tracker":"TRACKER1,TRACKER2"}]
+}'
+```
+
+#### 管理面板
+
+https://github.com/mayswind/AriaNg
+
+1. AriaNg 设置，RPC
+2. RPC 地址，RPC 密钥（即 aria2.conf 中 rpc-secret 的值）
+
+如果无法连接，尝试更换 RPC 协议
+
+支持通过 URL 设置 RPC 参数
+
+```
+URL/#!/settings/rpc/set/协议/地址/端口/jsonrpc/密钥（使用 base64 URL 安全编码）
+```
+
+#### 配置
+
+按照此处的配置，应在家目录存在 aria2 文件夹，内有 aria2.conf 和 aria2.session 文件
 
 ::: details aria2.conf
 ```ini
@@ -153,38 +182,3 @@ show-console-readout=false
 bt-tracker=
 ```
 :::
-
-## 管理面板
-
-[AriaNg](https://github.com/mayswind/AriaNg) 是一个现代化的 Web 前端管理工具，它使得 aria2 更易于使用。AriaNg 是纯 html & javascript 编写的，因此不需要任何编译器或运行环境。只需要将 AriaNg 放入的 Web 服务器中，然后在浏览器中打开它。AriaNg 使用响应式布局，支持任何桌面或移动设备
-
-### 配置
-
-1. 点击 _AriaNg 设置_，选择 _全局_ 右边的 _RPC_
-2. 填入 Aria2 RPC 的主机地址和端口
-3. _密钥_ 为配置文件中 `rpc-secret` 的值，没有则不填
-
-如果无法连接请尝试更换协议
-
-面板也提供了 Api 来设置 RPC 参数 `URL/#!/settings/rpc/set/${protocol}/${rpcHost}/${rpcPort}/${rpcInterface}/${secret}`
-
-- `URL` 为 AriaNg 的网页地址
-- `${protocol}` 为连接协议 `http` `https` `ws` 或 `wss`
-- `${rpcHost}` 为 Aria2 RPC 的主机地址
-- `${rpcPort}` 为 Aria2 RPC 的端口
-- `${rpcInterface}` 为 Aria2 RPC 的路径，默认 `jsonrpc`
-- `${secret}` 为 base64 URL 安全编码后的 Aria2 RPC 密钥，没有则不填
-
-## RPC 使用
-
-发送下载任务
-
-```sh
-curl -d '{"id":"1","method":"aria2.addUri","params":["token:SECRET",["DOWNLOAD_URL"]]}' HOST:PORT/jsonrpc
-```
-
-修改 bt-tracker
-
-```sh
-curl -d '{"id":"1","method":"aria2.changeGlobalOption","params":["token:SECRET",{"bt-tracker":"TRACKER"}]}' HOST:PORT/jsonrpc
-```

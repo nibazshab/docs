@@ -318,13 +318,6 @@ fastfetch
 # 假装进行非常专业的活动
 genact
 
-# 连接 MySQL 数据库
-mysql -h SQLHOST -u USER -pPASSWORD SQLNAME
-
-# 导出 MySQL 数据库为 sql 语句，--no-tablespaces 无视表结构，--set-gtid-purged=OFF 不包含 GTID
-# 在 SQLNAME 后跟 TABlENAME 可导出单独一张表
-mysqldump -h SQLHOST -u USER -pPASSWORD SQLNAME > mysql.sql
-
 # 使用 rclone 挂载云盘为本地目录，并设置缓存路径
 rclone mount name:/a /b --cache-dir /c --vfs-cache-mode writes
 ```
@@ -332,47 +325,4 @@ rclone mount name:/a /b --cache-dir /c --vfs-cache-mode writes
 ```powershell
 # 查看文件 SHA256，MD5
 certutil -hashfile file SHA256
-```
-
-```sql
--- 增删改查
-INSERT INTO products (name, price, cover) VALUES ('Apple', 1.2, 'apple.jpg');
-SELECT * FROM products WHERE price > 1.0;
-UPDATE products SET price = 1.5 WHERE name = 'Apple';
-DELETE FROM products WHERE name = 'Apple';
-
--- 按照 id 倒序获取前 5 条数据，追加 OFFSET 10 表示跳过前 10 行, DESC 降序，ASC 升序
-SELECT * FROM tablename ORDER BY id DESC LIMIT 5;
-
--- 查看所有数据库/表
-SHOW database;
-SHOW tables;
-
--- 查看表的结构
-SHOW columns FROM tablename;
-
--- 查看创建表的 sql 语句
-SHOW CREATE TABLE tablename;
-
--- 清空表
-DELETE FROM tablename;
-
--- 删除表
-DROP TABLE tablename;
-
--- 记录阅读量 +1
-UPDATE xxxxx SET count = count+1 WHERE id = 1
-
--- 将 file_url 表中的 url 列中所有 apple 字段替换成 banana
-UPDATE file_url SET url = replace (url,'apple','banana')
-
--- 导入 sql 文件
-SOURCE /sql/file.sql
-
--- 创建表名为 user，id 整数型，自增长，作为主键，user 字符串型，最大长度 30，不能为空
--- TEXT 类型最大 64k，MEDIUMTEXT 类型最大 16m
-CREATE TABLE IF NOT EXISTS user (
-  id INT(6) AUTO_INCREMENT PRIMARY KEY,
-  user VARCHAR(30) NOT NULL
-);
 ```

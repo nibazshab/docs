@@ -27,4 +27,5 @@
 git clone https://github.com/nibazshab/docs.git
 cd docs/src
 chmod +x env.sh && ./env.sh
+pnpm dev
 ```
