@@ -2,11 +2,11 @@
 
 ## GitHub
 
-#### 删除 Contributors 记录
+- 删除 Contributors 记录
 
 在确保没有该用户的 commit 记录后，随便修改掉默认分支的名称，然后再改回来
 
-#### 利用 Action 发布 releases
+- 利用 Action 发布 releases
 
 ```yml
 on:
@@ -24,7 +24,7 @@ permissions:
     files: dist/*
 ```
 
-#### 利用 Action 发布 ghpage
+- 利用 Action 发布 ghpage
 
 ```yml
 permissions:
@@ -43,13 +43,13 @@ environment:
   uses: actions/deploy-pages@v4
 ```
 
-#### 下载存档
+- 下载存档
 
 仓库分支存档的下载链接 github.com/USER/REPO/archive/refs/heads/BRANCH.tar.gz
 
 Release 最新版本的下载链接 github.com/USER/REPO/releases/latest/download/ASSETS.tar.gz
 
-#### Pull requests 教程
+- Pull requests 教程
 
 假设被 Pr 的仓库是 atri/momo，自己用户名为 sjw
 
@@ -59,7 +59,7 @@ Release 最新版本的下载链接 github.com/USER/REPO/releases/latest/downloa
 
 ## Vercel
 
-#### 命令行更新发布项目
+- 命令行更新发布项目
 
 需要配置环境变量 VERCEL_PROJECT_ID，VERCEL_ORG_ID，VERCEL_TOKEN
 
@@ -72,13 +72,13 @@ vercel build --prod --token=$VERCEL_TOKEN
 vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
 ```
 
-#### 命令行删除历史部署记录
+- 命令行删除历史部署记录
 
 ```sh
 vercel remove project-name --safe
 ```
 
-#### 设置缓存
+- 设置缓存
 
 在项目目录创建 vercel.json 文件，写入如下内容
 
@@ -100,7 +100,7 @@ vercel remove project-name --safe
 
 ## Netlify
 
-#### 命令行更新发布项目
+- 命令行更新发布项目
 
 需要配置环境变量 NETLIFY_AUTH_TOKEN 和 NETLIFY_SITE_ID
 
@@ -113,7 +113,7 @@ netlify build
 netlify deploy --dir=dist/ --prod
 ```
 
-#### 设置缓存
+- 设置缓存
 
 在项目目录创建 netlify.toml 文件，写入如下内容
 
@@ -127,11 +127,11 @@ cache-control = "public, max-age=10800"
 
 ## Cloudflare 
 
-#### 开启 CDN 导致 gh-pages 重定向次数过多
+- 开启 CDN 导致 gh-pages 重定向次数过多
 
 SSL/TLS，Edge Certficates 开启 Always Use Https 和 Opportunistic Encryption，Origin Server 开启 Authenticated Origin Pulls，Encryption Mode 设为 Full (strict)
 
-#### 页面重定向
+- 页面重定向
 
 添加 DNS A 记录，随便填（8.8.8.8），开启代理小黄云
 
@@ -145,7 +145,7 @@ URL 重定向 www.example.org
 
 ## 其他
 
-#### Glitch 平台运行 php 文件
+- Glitch 平台运行 php 文件
 
 根目录添加 glitch.json
 

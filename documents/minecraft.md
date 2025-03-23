@@ -4,7 +4,9 @@ Minecraft 是一个关于破坏和放置方块的游戏
 
 > 本文不适用于网易版我的世界
 
-#### Java 版服务器搭建
+## 服务端
+
+- Java 版服务器搭建
 
 使用 docker 镜像 itzg/minecraft-server 作服务器运行环境，默认会自动下载最新的官方纯净版运行核心并启动，支持指定版本号，以及手动下载的第三方 jar 包运行核心
 
@@ -14,7 +16,7 @@ https://docker-minecraft-server.readthedocs.io
 
 > 第三方运行核心推荐 Mohist
 
-#### 隐藏服务器端口
+- 隐藏服务器端口
 
 通过 DNS 解析中的 SRV 功能，实现不需要端口连接我的世界服务器
 
@@ -24,11 +26,7 @@ https://docker-minecraft-server.readthedocs.io
 
 进入 mc 游戏后添加服务器，服务器地址填 `mc.域名` 即可
 
-#### 启动器推荐
-
-- PCL 2
-
-#### 控制台指令记录
+- 控制台指令记录
 
 ```
 gamemode MODE，切换游戏模式
@@ -45,3 +43,7 @@ op NAME，将玩家提升为管理员
 deop NAME，将管理员降级为玩家
 whitelist add ID，添加白名单
 ```
+
+## 客户端推荐
+
+- PCL 2

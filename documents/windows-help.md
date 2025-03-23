@@ -2,23 +2,23 @@
 
 本文内容收集自网络，请自行甄别是否适用
 
-#### OBS 录制黑屏
+- OBS 录制黑屏
 
 双显卡的笔记本电脑用户在使用 DXGI 捕捉屏幕时会黑屏，需要在图形设置中添加 OBS 并设为节能
 
-#### 取消默认文件打开方式
+- 取消默认文件打开方式
 
 1. HKEY_CLASSES_ROOT 删除指定文件类型
 2. HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FileExts 删除指定文件类型
 3. 重启资源管理器
 
-#### SMB 共享文件夹
+- SMB 共享文件夹
 
 1. 属性 - 共享 - 共享 - 添加 Everyone 用户，给予权限
 2. 属性 - 共享 - 高级共享 - 勾选共享此文件夹
 3. 属性 - 共享 - 高级共享 - 权限 - 选择 Everyone 用户，给予权限
 
-#### 输入的最后一个产品密钥不能用于此 Windows 副本
+- 输入的最后一个产品密钥不能用于此 Windows 副本
 
 1. 注册表编辑器
 2. 打开 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform
@@ -26,23 +26,23 @@
 4. 设置 - 更新和安全 - 激活，选择更改产品密钥
 5. 粘贴刚刚复制的密钥，下一步，激活
 
-#### 笔记本插电时保持小功率
+- 笔记本插电时保持小功率
 
 1. 电源选项
 2. 创建电源计划
 3. 勾选节能
 
-#### 安装 AppX/MSIX
+- 安装 AppX/MSIX
 
 1. 管理员权限打开 PowerShell
 2. 输入 Add-AppxPackage app.AppxBundle
 
-#### 系统处于测试签名模式
+- 系统处于测试签名模式
 
 1. 管理员权限打开 PowerShell
 2. 输入 bcdedit /set testsigning off
 
-#### 加载驱动程序
+- 加载驱动程序
 
 1. 设备管理器
 2. 更新驱动程序
@@ -51,14 +51,14 @@
 5. 显示所有设备，下一步
 6. 从磁盘中选择，找到 inf 文件
 
-#### 删除文件管理器类型关联
+- 删除文件管理器类型关联
 
 1. 注册表编辑器
 2. 删除 HKEY_CLASSES_ROOT 的键值
 3. 删除 HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FileExts 的键值
 4. 重启资源管理器
 
-#### 强制删除脚本
+- 强制删除脚本
 
 1. 创建一个 bat 文件，写入如下内容
 2. 将要删除的文件拖到该文件上
@@ -68,52 +68,54 @@ DEL /F /A /Q \\?\%1
 RD /S /Q \\?\%1
 ```
 
-#### PATH 环境变量
+- PATH 环境变量
 
 1. 系统
 2. 高级系统设置
 3. 环境变量
 
-#### 处理 Microsoft Edge
+- 处理 Microsoft Edge
 
-建议直接卸载了事。卸载工具：[https://github.com/ShadowWhisperer/Remove-MS-Edge](https://github.com/ShadowWhisperer/Remove-MS-Edge)
+建议直接卸载了事，卸载工具 Remove-MS-Edge
+
+https://github.com/ShadowWhisperer/Remove-MS-Edge
 
 ::: details 禁用自动更新
 1. 计算机管理
 2. 服务和应用程序
-3. 禁用Microsoft Edge Update Service (edgeupdate)，Microsoft Edge Update Service (edgeupdatem)，Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)
+3. 禁用 Microsoft Edge Update Service (edgeupdate)，Microsoft Edge Update Service (edgeupdatem)，Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)
 4. 创建空文件，替换掉 %PROGRAMFILES(X86)%/Microsoft/EdgeUpdate/MicrosoftEdgeUpdate.exe
 :::
 
-#### 降低 Win 安全中心的占用
+- 降低 Win 安全中心的占用
 
 1. win+r 输入 gpedit.msc
 2. 打开计算机配置 - 管理模板 - Windows 组件 - Microsoft Defender 防病毒 - 扫描
 3. 点击指定扫描期间 CPU 使用率的最大百分比
 4. 左侧选择已启用，并将数值设为 5
 
-#### 启用 PDF 虚拟打印机
+- 启用 PDF 虚拟打印机
 
 1. 控制面板
 2. 程序和功能
 3. 启用或关闭 Windows 功能
 4. 勾选Microsoft Print to PDF
 
-#### 关闭睡眠和锁定按钮
+- 关闭睡眠和锁定按钮
 
 1. 电源选项
 2. 选择电源按钮功能
 3. 更改当前不可用的设置
 4. 取消勾选睡眠，锁定
 
-#### 软连接系统截图目录
+- 软连接系统截图目录
 
 将 Win+Shift+S 截图链接到图片/截图目录
 
 1. 管理员权限打开 CMD
 2. 输入 mklink /d %HOMEPATH%\Pictures\截图 %LOCALAPPDATA%\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip
 
-#### 开启 UTF-8 语言环境
+- 开启 UTF-8 语言环境
 
 1. 时间和语言
 2. 语言
@@ -123,25 +125,25 @@ RD /S /Q \\?\%1
 
 如打开 GBK 编码文件时出现乱码的情况，请使用转区工具解决
 
-#### 禁用收集体验信息服务
+- 禁用收集体验信息服务
 
 1. 计算机管理
 2. 服务和应用程序
 3. 禁用Connected User Experiences and Telemetry
 
-#### 修改动画效果
+- 修改动画效果
 
 1. 系统
 2. 高级系统设置
 3. 性能
 4. 勾选平滑屏幕字体边缘，显示缩略图，显示亚透明的选择长方形，在窗口下显示阴影
 
-#### 将硬件时间视为 UTC 时间
+- 将硬件时间视为 UTC 时间
 
 1. 管理员权限打开 PowerShell
 2. 输入 Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
 
-#### 快捷键
+- 快捷键
 
 |键位|功能|
 |-|-|
@@ -156,7 +158,7 @@ RD /S /Q \\?\%1
 |Ctrl + W / Alt + F4|关闭当前活动窗口|
 |Win + PrtScn|保存截屏到图片|
 
-#### 特殊文件夹
+- 特殊文件夹
 
 |路径|说明|
 |-|-|
@@ -164,7 +166,7 @@ RD /S /Q \\?\%1
 |%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup|用户级开机自启目录|
 |%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\StartUp|系统级开机自启目录|
 
-#### 环境变量
+- 环境变量
 
 |变量名|变量值|
 |-|-|

@@ -4,7 +4,7 @@
 
 ## 终端篇
 
-#### crontab 定时任务
+### crontab 定时任务
 
 在 /var/spool/cron/crontabs/root 中写入任务，运行 `crond` 命令启动
 
@@ -21,7 +21,7 @@
 +------------------------- minute (0 - 59)
 ```
 
-#### 恢复误删文件，进程还在运行
+### 恢复误删文件，进程还在运行
 
 查看该进程的 pid 号，假设为 721，进入 /proc/721/fd 目录，输入 `ls -l` 查看数字文件对应的硬链接文件名，假设查看有如下信息
 
@@ -32,17 +32,13 @@ Aug  1 09:48 11 -> /data/db.sqlite3 (deleted)
 
 选择时间靠后或数字编号更大的文件，此处输入 `cp 11 /bak/db.sqlite3` 即可
 
-#### 误清 iptables，容器无法联网
-
-重启 docker 服务即可 `systemctl restart docker.service`
-
-#### PUTTY 控制台的 ls 命令没有颜色
+### PUTTY 控制台的 ls 命令没有颜色
 
 由于 PUTTY 的连接可能导致控制台彩色显示失效，可以尝试使用 `ls --color=auto` 来重新定义 LS_COLORS 环境变量等
 
 [更多](https://wiki.archlinux.org/title/Color_output_in_console#ls)
 
-#### Possibly missing firmware for module XXXX
+### Possibly missing firmware for module XXXX
 
 当内核更新后，镜像 initramfs 被重新构建时，你可能得到以下警告
 
@@ -60,15 +56,16 @@ Aug  1 09:48 11 -> /data/db.sqlite3 (deleted)
 
 ## 桌面篇
 
-#### 快捷键切换 TTY 环境
+### 快捷键切换 TTY 环境
 
 `Ctrl`+`Alt`+`Fn`
 
-#### GNOME 主题修改，顶栏半透明
+### GNOME 主题修改，顶栏半透明
 
 GNOME Shell 主题被存储为二进制文件 `/usr/share/gnome-shell/gnome-shell-theme.gresource`，运行 extractgst.sh 拆包脚本，在 `$HOME` 目录得到主题配置文件
 
-::: details extractgst.sh
+extractgst.sh
+
 ```sh
 #!/bin/sh
 gst=/usr/share/gnome-shell/gnome-shell-theme.gresource
@@ -83,13 +80,13 @@ for r in `gresource list $gst`; do
   gresource extract $gst $r >$workdir/${r#\/org\/gnome\/shell/}
 done
 ```
-:::
 
 将主题配置文件 gnome-shell.css 中的 #panel 模块里的 background-color 的值修改为 `rgba(0,0,0,0.6)`
 
 输入 `glib-compile-resources gnome-shell-theme.gresource.xml` 指令按照 gnome-shell-theme.gresource.xml 打包配置文件，将主题重新打包成二进制文件，替换原来的主题，重启 GNOME Shell
 
-::: details gnome-shell-theme.gresource.xml
+gnome-shell-theme.gresource.xml
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
@@ -117,11 +114,10 @@ done
   </gresource>
 </gresources>
 ```
-:::
 
 [更多](https://wiki.archlinux.org/title/GDM#Configuration)
 
-#### 开启内核级显示模式设置
+### 开启内核级显示模式设置
 
 KMS 通常是在 initramfs stage 之后开始初始化，但是也可以在 initramfs 的阶段启用
 
@@ -153,13 +149,13 @@ Exec=/bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; 
 
 [更多](https://wiki.archlinux.org/title/Kernel_mode_setting#Early_KMS_start)
 
-#### GDM 以 x11 运行在 NVIDIA GPU
+### GDM 以 x11 运行在 NVIDIA GPU
 
 创建一个符号链接来强制使用 wayland 运行桌面环境 `ln -s /dev/null /etc/udev/rules.d/61-gdm.rules`
 
 [更多](https://wiki.archlinux.org/title/GDM#Wayland_and_the_proprietary_NVIDIA_driver)
 
-#### 桌面环境挂起后无法唤醒
+### 桌面环境挂起后无法唤醒
 
 为触摸板加载了 intel_lpss_pci 模块的 Intel CPU 的电脑，在休眠后可能会出现黑屏无法唤醒的情况
 

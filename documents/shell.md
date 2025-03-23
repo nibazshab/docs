@@ -1,6 +1,4 @@
-# SH/PS1/SQL/Git
-
-记录 Shell、PowerShell、SQL、Git 的命令
+# Shell/PowerShell
 
 ```sh
 # 读取 a.html，遇到包含 <h1> 的行，就拆分成新的文件
@@ -168,18 +166,6 @@ dos2unix file
 ```
 
 ```sh
-# 使用 ssh 通道上传文件，-r 包括文件夹
-scp -r /a user@host:/a
-
-# 使用指定的密钥 id_key 登入远程服务器，-p 指定端口号
-ssh -i ~/.ssh/id_key user@host
-
-# 生成 ed25519 加密的 ssh 密钥，-y -f key > key.pub 从指定私钥生成公钥，-C 指定注释信息
-ssh-keygen -t ed25519
-
-# 将公钥上传到服务器
-ssh-copy-id -i SSHKEY USER@IP
-
 # 终端设置代理，等效于 http_proxy=ip:port https_proxy=ip:port
 export all_proxy=ip:port
 

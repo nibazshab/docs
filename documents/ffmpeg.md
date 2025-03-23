@@ -6,17 +6,17 @@ https://ffmpeg.org
 
 每日构建的静态单文件版本 https://github.com/BtbN/FFmpeg-Builds
 
-#### 查看支持信息
+- 查看支持信息
 
 ```sh
-ffmpeg -formats # 查看支持的封装容器格式
-ffmpeg -codecs # 查看支持的编码格式
+ffmpeg -formats  # 查看支持的封装容器格式
+ffmpeg -codecs   # 查看支持的编码格式
 ffmpeg -encoders # 查看支持的编码器
 
 ffmpeg -i a.mp4 # 查看视频的详细信息
 ```
 
-#### GPU 加速编解码器
+- GPU 加速编解码器
 
 输入 `ffmpeg -codecs | findstr h264` 查看支持的 h264 格式的编解码器，Linux 使用 grep 代替 findstr
 
@@ -37,31 +37,29 @@ H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
 ffmpeg -c:v hevc_qsv -i in.mp4 -c:v h264_qsv out.mp4
 ```
 
-#### 软件编码器
+- 软件编码器
 
-H.264/AVC，推荐使用 libx264
+H.264/AVC 推荐使用 libx264，H.265/HEVC 推荐使用 libx265，AV1 推荐使用 libsvtav1
 
-H.265/HEVC，推荐使用 libx265
+libaom-av1 效果最好但速度很慢，librav1e 速度最快，libsvtav1 兼顾了速度与效率，被作为 AV1 未来开发工作的基础
 
-AV1，推荐使用 libsvtav1，其中 libaom-av1 效果最好但速度很慢，librav1e 速度最快，libsvtav1 兼顾了速度与效率，被作为 AV1 未来开发工作的基础
-
-##### 编码示例
+- 编码示例
 
 ```sh
 ffmpeg -i a.mp4 -c:v libsvtav1 -crf 18 b.mp4
 ```
 
-- `-i a.mp4` 选择要被处理的视频
-- `-c:v libsvtav1` 选择 libsvtav1 作为编码器
-- `-crf 18` 使用 crf 质量级别 18 控制画面质量。18 被认为是视觉无损，默认 23
-- `b.mp4` 输出的文件名称
+1. `-i a.mp4` 选择要被处理的视频
+2. `-c:v libsvtav1` 选择 libsvtav1 作为编码器
+3. `-crf 18` 使用 crf 质量级别 18 控制画面质量。18 被认为是视觉无损，默认 23
+4. `b.mp4` 输出的文件名称
 
 更多参数说明
 
-- `-c:a copy` 不修改音频编码格式，直接复制原有的音频流
-- `-c:v copy` 不修改视频编码格式，直接复制原有的视频流
+5. `-c:a copy` 不修改音频编码格式，直接复制原有的音频流
+6. `-c:v copy` 不修改视频编码格式，直接复制原有的视频流
 
-#### 其他
+- 分割视频
 
 切割视频片段，将视频从第 30 秒到第 1 小时的画面作为一个新的视频生成。不使用 -t 参数默认是直到视频最后
 
@@ -69,7 +67,9 @@ ffmpeg -i a.mp4 -c:v libsvtav1 -crf 18 b.mp4
 ffmpeg -ss 00:00:30 -t 01:00:00 -i a.mp4 -c:v copy -c:a copy b.mp4
 ```
 
-从 list.txt 文件中读取列表，将所有列表中的视频合并成新的视频，如下所示
+- 合并视频
+
+从 list.txt 文件中读取列表，将所有列表中的视频合成新的视频，如下所示
 
 ```
 file '1.mp4'
@@ -80,7 +80,7 @@ file '2.mp4'
 ffmpeg -f concat -i list.txt -c copy all.mp4
 ```
 
-#### 图像处理
+- 图像处理
 
 将图片的分辨率修改为原来的一半
 

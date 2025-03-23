@@ -14,7 +14,12 @@ export default defineUserConfig({
   theme: defaultTheme({
     sidebar: [{
       text: 'HEAD', children: [
-        // 'CONTENTS',
+        // 'HEAD',
+      ],
+
+    }, {
+      text: 'BODY', children: [
+        // 'BODY',
       ],
     },],
     navbar: [{ text: '说书人叹天下旧事如潮，听书人悲欢不过一壶新茶', link: '/peach/' },],

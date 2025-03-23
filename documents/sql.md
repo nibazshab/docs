@@ -51,7 +51,7 @@ show create table user; -- 查看 user 表的创建语句
 mysql -h 127.0.0.1 -u root -p123456 test
 ```
 
-#### 数据导出 sql 文件
+- 数据导出 sql 文件
 
 增加 --no-tablespaces 参数无视表结构，--set-gtid-purged=OFF 不包含 GTID，后跟表名可单独导出一张表
 
@@ -59,7 +59,7 @@ mysql -h 127.0.0.1 -u root -p123456 test
 mysqldump -h 127.0.0.1 -u root -p123456 database_name > db.sql
 ```
 
-#### 恢复 sql 数据
+- 恢复 sql 数据
 
 ```sh
 mysql -u root -p database_name < db.sql
@@ -72,7 +72,7 @@ use database_name
 source /sql/file.sql
 ```
 
-#### 设置密码
+- 设置密码
 
 ```sql
 USE mysql

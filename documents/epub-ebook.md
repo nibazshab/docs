@@ -46,7 +46,7 @@ EPUB 实质上是一个可以解压的 zip 归档文件，使用 xhtml 规范编
 
 各文件具体内容仅作示例参考
 
-#### 数据文件
+### 数据文件
 
 xhtml 标准模板示例，以下 .xhtml 文件省略此部分
 
@@ -170,7 +170,7 @@ small { color: #777777; }
 <meta name="original-resolution" content="1353x1920" />
 ```
 
-#### 描述文件
+### 描述文件
 
 mimetype
 
@@ -191,25 +191,13 @@ container.xml
 
 ## 其他内容
 
-#### 好用工具推荐
+### Sigil
 
-- Sigil
+EPUB 电子书制作工具
 
-EPUB 电子书制作工具，Regex 参数替换时，使用 \1 而非 $1
+- Regex 参数替换时，使用 \1 而非 $1
 
-- KindleUnpack
-
-解包 Amazon / Kindlegen 专有电子书格式的工具
-
-- Kindle Comic Converter
-
-漫画电子书制作工具
-
-- Calibre
-
-经典电子书工具
-
-#### Sigil 自动执行任务
+- 自动执行任务
 
 目录文件排版修改，在搜索模板中添加如下内容
 
@@ -224,11 +212,9 @@ EPUB 电子书制作工具，Regex 参数替换时，使用 \1 而非 $1
 <!-- 替换为空 -->
 ```
 
-长按运行自动执行列表，编辑，选择 RunSavedSearchReplaceAll，参数填写搜索模板的 `组名/`
+长按运行自动执行列表，编辑，选择 RunSavedSearchReplaceAll，参数填写 `搜索模板的组名/`
 
-#### 全局替换
-
-文件模板
+- 全局替换
 
 ```xml
 <\!.*>\n*<html .*">\n*<head>\n|.*<title>.*</title>\n|.*<link .*>\n|.*<script .*></script>\n|</head>\n
@@ -241,13 +227,25 @@ EPUB 电子书制作工具，Regex 参数替换时，使用 \1 而非 $1
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops"><head><title></title><link href="../Styles/style.css" rel="stylesheet" type="text/css"/></head>
 ```
 
-#### 匹配标题正则表达式
+### KindleUnpack
+
+解包 Amazon / Kindlegen 专有电子书格式的工具
+
+### Kindle Comic Converter
+
+漫画电子书制作工具
+
+### Calibre
+
+经典电子书工具
+
+- 匹配标题正则表达式
 
 ```
 ^\s*[第卷][0123456789一二三四五六七八九十零〇百千两]*[章回部节集卷].*
 ```
 
-#### 字体提取
+### 字体提取
 
 为了美化样式，在电子书中会使用各种字体，以下 python 代码可以从完整的字体集中提取仅包含个别文字的字体集，降低文件大小
 
@@ -265,7 +263,7 @@ os.system(
 )
 ```
 
-#### 字体与界面
+### 字体与界面
 
 阅读字体：霞鹜文楷 LXGW WenKai，https://github.com/lxgw/LxgwWenKai
 

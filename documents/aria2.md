@@ -4,7 +4,9 @@ Aria2 是一个自由、开源、轻量级多协议和多源的命令行下载�
 
 https://github.com/aria2/aria2
 
-#### Linux 自启动配置
+## 自启动配置
+
+- Linux
 
 在 ~/.config/systemd/user 目录下创建 aria2.service 文件，写入如下内容
 
@@ -24,7 +26,7 @@ WantedBy=default.target
 systemctl enable --user --now aria2
 ```
 
-#### Windows 自启动配置
+- Windows
 
 在 %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup 目录下创建 aira2.vbs 文件，写入如下内容
 
@@ -32,7 +34,9 @@ systemctl enable --user --now aria2
 CreateObject("WScript.Shell").Run "%HOMEPATH%\aria2\aria2c.exe --conf-path=%HOMEPATH%\aria2\aria2.conf -D",0
 ```
 
-#### 发送下载任务
+## RPC 使用
+
+- 发送下载任务
 
 ```sh
 curl URL/jsonrpc -d '{
@@ -42,7 +46,7 @@ curl URL/jsonrpc -d '{
 }' 
 ```
 
-#### 修改 bt-tracker
+- 修改 bt-tracker
 
 ```sh
 curl URL/jsonrpc -d '{
@@ -52,7 +56,7 @@ curl URL/jsonrpc -d '{
 }'
 ```
 
-#### 管理面板
+## 管理面板
 
 https://github.com/mayswind/AriaNg
 
@@ -67,11 +71,16 @@ https://github.com/mayswind/AriaNg
 URL/#!/settings/rpc/set/协议/地址/端口/jsonrpc/密钥（使用 base64 URL 安全编码）
 ```
 
-#### 配置
+## 配置文件
 
-按照此处的配置，应在家目录存在 aria2 文件夹，内有 aria2.conf 和 aria2.session 文件
+按照此处的配置，应在家目录存在 aria2 文件夹，内有如下文件
 
-::: details aria2.conf
+- aria2.session
+
+空文件
+
+- aria2.conf
+
 ```ini
 dir=${HOME}/Downloads
 disk-cache=64M
@@ -181,4 +190,3 @@ show-console-readout=false
 
 bt-tracker=
 ```
-:::

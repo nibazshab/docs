@@ -50,7 +50,7 @@ git log --grep=内容
 git log -S "查找的文本内容" -p
 ```
 
-#### 修改文件时间
+- 修改文件时间
 
 将文件的修改时间设置为最新修改时间
 
@@ -79,7 +79,7 @@ do
 done
 ```
 
-#### 清空历史提交记录
+- 清空历史提交记录
 
 从现有提交创建一个新分支，删除原有分支
 
@@ -92,7 +92,7 @@ git branch -m main
 git push -f origin main
 ```
 
-#### 转换 CRLF 和 LF
+- 转换 CRLF 和 LF
 
 ```sh
 git config --global core.autocrlf true
@@ -100,7 +100,7 @@ git config --global core.autocrlf true
 
 解决 Windows 平台与 Linux / Mac OS 的换行符问题
 
-#### 指定 commit 时间
+- 指定 commit 时间
 
 ```sh
 GIT_COMMITTER_DATE="Jan 1 07:02:01 2024 +0000" git commit --date="Jan 1 07:02:01 2024 +0000" -m "Initial commit"
@@ -108,7 +108,7 @@ GIT_COMMITTER_DATE="Jan 1 07:02:01 2024 +0000" git commit --date="Jan 1 07:02:01
 
 如果要修改 GitHub 上的时间，需要加上环境变量
 
-#### 配置用户信息
+- 配置用户信息
 
 ```sh
 git config user.name "atri"
@@ -117,7 +117,7 @@ git config user.email "atri<atri@gmail.com>"
 
 加上 --global 参数为全局配置
 
-#### SSH 连接 GitHub
+- SSH 连接 GitHub
 
 打开 GitHub，Settings，SSH and GPG keys，SSH keys，New SSH key，选择 Authentication Keys 项，填入公钥内容
 
@@ -127,7 +127,7 @@ ssh -T git@github.com
 > provide shell access.
 ```
 
-#### SSH 签名提交
+- SSH 签名提交
 
 使用 SSH 密钥签名，signingkey 后面为公钥路径
 
@@ -147,7 +147,7 @@ git config --global tag.gpgsign true
 
 在 GitHub 设置中添加 SSH key，选择 Signing key 项，填入公钥内容
 
-#### 自建 Git 仓库
+- 自建 Git 仓库
 
 开源的 Git 服务器工具也有许多，例如 GitLab、Gitea、Gogs，但自己配置起来较为困难，如果只是想保存代码，可以直接使用 git 搭配 ssh 实现
 

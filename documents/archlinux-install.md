@@ -1,10 +1,8 @@
 # Arch Linux 安装指南
 
-::: warning 声明
 可能导致数据丢失，请在安装前为重要的数据做好备份
 
 需要请参考 [ArchWiki#安装指南](https://wiki.archlinux.org/title/Installation_guide)
-:::
 
 - 实机安装部分 [跳转](#准备阶段)
 - 云服务器安装部分 [跳转](#云服务器安装)
@@ -332,22 +330,14 @@ pacman -S adobe-source-han-sans-tw-fonts adobe-source-han-serif-tw-fonts
 
 ## 云服务器安装
 
-::: tip 说明
 云服务器提供商需要支持 VNC 连接，且服务器正在使用任意 Linux 操作系统
 
 需要请参考 [ArchWiki#从现有 Linux 发行版安装 Arch Linux](https://wiki.archlinux.org/title/Install_Arch_Linux_from_existing_Linux)  
 需要请使用 [vps2arch 脚本](https://github.com/drizzt/vps2arch)
-:::
 
-服务器商 VNC 界面
+腾讯云 VNC 界面：远程连接 - VNC 连接
 
-::: tabs
-@tab 腾讯云
-远程连接 - VNC 连接
-
-@tab 阿里云
-远程连接 - 救援模式，需要先点击运行一次上方的复制命令才能接受到键盘操作
-:::
+阿里云 VNC 界面：远程连接 - 救援模式，需要先点击运行一次上方的复制命令才能接受到键盘操作
 
 ### 1. 下载系统镜像
 

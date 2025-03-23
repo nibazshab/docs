@@ -2,6 +2,8 @@
 
 systemd 是一个 Linux 系统基础组件的集合，提供了一个系统和服务管理器，运行为 PID 1 并负责启动其它程序
 
+## 文件路径
+
 系统级单元路径：
 
 - /usr/lib/systemd/system/ 软件包单元
@@ -14,7 +16,9 @@ systemd 是一个 Linux 系统基础组件的集合，提供了一个系统和�
 - /etc/systemd/user/ 系统管理员指定的用户单元
 - ~/.config/systemd/user/ 用户单元
 
-#### 单元文件
+## 各项使用方法
+
+- 单元文件
 
 ```ini
 [Unit]
@@ -29,7 +33,7 @@ WantedBy=multi-user.target
 
 可以通过 `Environment="a=1"` 定义环境变量
 
-#### 创建一个新服务
+- 创建一个新服务
 
 如果存在同名文件，会直接覆盖
 
@@ -37,7 +41,7 @@ WantedBy=multi-user.target
 systemctl edit --force --full foo.service
 ```
 
-#### 链接文件
+- 链接文件
 
 创建一个软链接，指向该文件
 
@@ -45,7 +49,7 @@ systemctl edit --force --full foo.service
 systemctl link ./foo.service
 ```
 
-#### 查看已有服务
+- 查看已有服务
 
 查看已有的服务由哪些文件组成，并显示内容
 
@@ -53,7 +57,7 @@ systemctl link ./foo.service
 systemctl cat foo.service
 ```
 
-#### 修改现有服务
+- 修改现有服务
 
 会在 foo.server 同级目录中创建一个 foo.service.d/override.conf 文件，并记录修改的内容，随后会附加到 foo.server 中
 
@@ -73,7 +77,7 @@ ExecStart=/bin/foo --help
 
 修改完成后需要重新启动服务
 
-#### 定时任务
+- 定时任务
 
 创建同名的 service 和 timer 文件，可以启动定时任务，随后启动 foo.timer 即可
 
