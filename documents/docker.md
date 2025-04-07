@@ -130,12 +130,6 @@ exec /app
 sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 ```
 
-或在安装时直接指定源
-
-```sh
-apk add wget --repository http://mirrors.aliyun.com/alpine/v3.18/main/
-```
-
 - 导出构建的二进制文件
 
 利用 docker 的隔离性，可以用来编译文件并导出，以下是一个示例。需要安装 docker-buildx

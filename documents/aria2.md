@@ -12,7 +12,7 @@ https://github.com/aria2/aria2
 
 ```ini
 [Unit]
-Description=aria2 Daemon
+Description=aria2 daemon
 [Service]
 ExecStart=/usr/bin/aria2c --conf-path=%h/aria2/aria2.conf
 Restart=on-failure

@@ -7,8 +7,8 @@
 腾讯云上海服务器|2025/9/25
 icu 域名|2025/9/26|腾讯云
 eu.org 域名|null|eu.org，cloudflare
-us.kg 域名|2026/6/14|us.kg，cloudflare
 rr.nu 域名|null|sitelutions，he.net
+dpdns.org 域名|2026/6/14|domain.digitalplat.org, cloudflare
 电信卡流量包|2025/8/31
 
 ## 购物
@@ -23,6 +23,7 @@ Bing：积分兑换礼物
 
 产品|渠道|购买日期|保修月限|状态
 -|-|-|-|-
+Mac mini M4|京东|2024/3|12/24|✓
 盖世小鸡手柄 启明星|抖音|2024/7|12|✓
 酷态科充电宝 PB100|京东|2024/4|18|✓
 真我手机 Neo5 SE|京东|2023/6|12|✓

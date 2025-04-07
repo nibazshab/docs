@@ -126,6 +126,10 @@ https://afdian.com/p/0164034c016c11ebafcb52540025c377
 
 https://github.com/Mzying2001/CefFlashBrowser
 
+- Clash Verge 小猫咪
+
+https://github.com/clash-verge-rev/clash-verge-rev
+
 - v2rayN
 
 https://github.com/2dust/v2rayN，旧版 https://github.com/2dust/v2rayN/releases/tag/5.39
@@ -158,7 +162,7 @@ https://github.com/adobe-fonts/source-code-pro
 
 - Termux，终端模拟器
 
-- Clash，小猫咪
+- ClashMetaForAndroid，小猫咪
 
 - VPN 热点，使用热点共享代理
 
@@ -203,6 +207,10 @@ https://github.com/adobe-fonts/source-code-pro
 - Tyranor，Galgame 模拟器
 
 - MDGram，第三方 Telegram 客户端
+
+- 音量君，细粒度音理调节，酷安
+
+- 夜间模式，遮罩层降低亮度，酷安
 
 ---
 

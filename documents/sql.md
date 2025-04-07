@@ -76,7 +76,7 @@ source /sql/file.sql
 
 ```sql
 USE mysql
-SET password = PASSWORD('newpassward');
+SET password = PASSWORD('password');
 FLUSH PRIVILEGES;
 ```
 
