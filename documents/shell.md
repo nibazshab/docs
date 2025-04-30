@@ -175,6 +175,9 @@ lsof -Pi
 # 设置代理下载
 wget -e http_proxy=http://127.0.0.1:7890 example.com/index.html
 
+# 添加 header
+curl -H 'token: 2a9b3f'
+
 # 设置代理访问，-x 等同 --proxy
 curl -x socks5://127.0.0.1:1024 example.com
 
