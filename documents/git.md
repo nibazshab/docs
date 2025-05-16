@@ -50,6 +50,17 @@ git log --grep=内容
 git log -S "查找的文本内容" -p
 ```
 
+- 提交到空 git 仓库
+
+```sh
+git init
+git add -A
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:user/repo.git
+git push -u origin main
+```
+
 - 修改文件时间
 
 将文件的修改时间设置为最新修改时间
