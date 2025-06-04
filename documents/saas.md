@@ -2,6 +2,14 @@
 
 ## GitHub
 
+- 修改 Languages
+
+创建 .gitattributes 文件，示例意味忽略 web/ 目录下的所有文件
+
+```ignore
+web/** linguist-vendored
+```
+
 - 删除 Contributors 记录
 
 在确保没有该用户的 commit 记录后，随便修改掉默认分支的名称，然后再改回来
