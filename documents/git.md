@@ -140,11 +140,11 @@ ssh -T git@github.com
 
 - SSH 签名提交
 
-使用 SSH 密钥签名，signingkey 后面为公钥路径
+使用 SSH 密钥签名，signingkey 后面为公钥路径或公钥字符串
 
 ```sh
 git config --global gpg.format ssh
-git config --global user.signingkey /path/.ssh/key.pub
+git config --global user.signingkey /path/.ssh/key.pub # ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPZcPyclEyYJfaAlb4vpWRlA+dMhjDijl0AuhsWQ1DwF atri
 ```
 
 配置 commit 和 tag 自动签名
