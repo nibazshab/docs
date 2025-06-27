@@ -112,7 +112,7 @@ https://www.7-zip.org，增强版 https://github.com/mcmilk/7-Zip-zstd
 
 - Bypass
 
-https://www.bypass.cn铁路 12306 自动抢票
+https://www.bypass.cn，铁路 12306 自动抢票
 
 - PCL 2 Minecraft 启动器
 
